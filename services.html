@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessWay - Our Services</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        
+        :root {
+    --primary: #54b7a5;     /* Teal */
+    --secondary: #f3856f;   /* Coral */
+    --accent: #edc855;      /* Yellow */
+    --light: #e7f7f4;       /* Light mint */
+    --dark: #333333;
+            --coral: #f3856f;
+            --teal: #54b7a5;
+            --yellow: #edc855;
+            --light-mint: #e7f7f4;
+            --white: #ffffff;
+            --medium-gray: #4a4a4a;
+            --coral: #f3856f;
+    --teal: #54b7a5;
+    --yellow: #edc855;
+    --light-mint: #e7f7f4;
+    --white: #ffffff;
+    --medium-gray: #4a4a4a;
+        }
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            padding-top: 0; /* Remove padding */
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .airplane {
+    position: absolute !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10 !important;
+    animation: fly 8s linear infinite !important;
+}
+
+@keyframes fly {
+    0% {
+        left: calc(0% - 15px);
+        top: 50%;
+        transform: rotate(15deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    25% {
+        left: 25%;
+        top: 30%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        left: 50%;
+        top: 70%;
+        transform: rotate(-15deg);
+        opacity: 1;
+    }
+    75% {
+        left: 75%;
+        top: 40%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        left: calc(100% + 15px);
+        top: 50%;
+        transform: rotate(15deg);
+        opacity: 0;
+    }
+}
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 6rem 0 5rem 0; /* Increased bottom padding for title container */
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            margin-top: 0; /* Remove margin */
+        }
+        
+        .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        
+        .globe-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 1rem;
+        }
+        
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            background-color: #e0f2f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .globe img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 0;
+        }
+        
+        .airplane {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 10;
+            animation: fly 10s linear infinite;
+        }
+
+        /* Navigation bar styles from the landing page */
+        .navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.3rem 2.5rem !important;
+    background-color: white !important;
+    border-radius: 50px !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(64, 179, 162, 0.08) !important;
+    max-width: 1400px !important;
+    width: 90% !important;
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+}
+
+/* Logo Styling - Updated for leftmost positioning */
+.logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-right: auto !important; /* Push everything else to the right */
+    padding-left: 5px !important; /* Add a bit of padding on the left */
+}
+
+.logo img {
+    width: 38px !important;
+    height: 38px !important;
+}
+
+.logo-text {
+    font-size: 1.7rem !important;
+    font-weight: bold !important;
+}
+
+.logo-text .success {
+    color: #40b3a2 !important;
+}
+
+.logo-text .way {
+    color: #1a1a1a !important;
+}
+
+        
+.nav-links {
+    display: flex;
+    gap: 2.5rem; /* Increased spacing between links */
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.rem 0.8rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #40b3a2;
+}
+
+.nav-links .faq-btn {
+    background-color: #40b3a2;
+    color: white;
+    padding: 0.7rem 2.2rem; /* Wider button */
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
+    font-weight: 600;
+}
+
+.nav-links .faq-btn:hover {
+    background-color: #368f82;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(64, 179, 162, 0.3);
+}
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .navbar {
+                width: 95%;
+                padding: 0.8rem 2rem;
+            }
+            
+            .nav-links {
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px !important;
+        padding-left: 10px !important; /* Reduced left padding */
+    }
+    
+    .logo {
+        transform: scale(0.85) !important;
+        transform-origin: left center !important;
+        margin-left: 0 !important; /* Ensure no margin on the left */
+        padding-left: 0 !important; /* Ensure no padding on the left */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 8px 12px !important;
+        padding-left: 8px !important; /* Even less padding on small screens */
+    }
+    
+    .logo {
+        transform: scale(0.75) !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+        
+        /* Updated styles for page title - more creative approach */
+        .page-title-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+    padding: 2rem 0 1.5rem;
+    z-index: 10;
+}
+        
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    margin: 0;
+    letter-spacing: 2px;
+}
+        
+        @keyframes fly {
+            0% {
+                left: -10%;
+                top: 40%;
+                transform: rotate(15deg);
+            }
+            25% {
+                left: 30%;
+                top: 20%;
+                transform: rotate(0deg);
+            }
+            50% {
+                left: 60%;
+                top: 60%;
+                transform: rotate(-15deg);
+            }
+            75% {
+                left: 85%;
+                top: 30%;
+                transform: rotate(0deg);
+            }
+            100% {
+                left: 110%;
+                top: 40%;
+                transform: rotate(15deg);
+            }
+        }
+        
+        /* Services Page Styles */
+        .page-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 60px auto;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            padding: 32px;
+            border-radius: 24px;
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0;
+            transform: scale(0.95);
+            background: linear-gradient(135deg, #fff 0%, #ffe9e6 100%);
+            border: 1px solid rgba(243, 133, 111, 0.1);
+        }
+
+        .stat-card.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card:nth-child(1) {
+    background: linear-gradient(135deg, #fff 0%, #ffe9e6 100%);
+    border: 1px solid rgba(243, 133, 111, 0.1);
+    color: var(--coral);
+}
+
+.stat-card:nth-child(2) {
+    background: linear-gradient(135deg, #fff 0%, #e7f7f4 100%);
+    border: 1px solid rgba(84, 183, 165, 0.1);
+    color: var(--teal);
+}
+
+.stat-card:nth-child(3) {
+    background: linear-gradient(135deg, #fff 0%, #fef9e6 100%);
+    border: 1px solid rgba(237, 200, 85, 0.1);
+    color: var(--yellow);
+}
+
+        .stat-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+            
+        }
+
+        .stat-description {
+            font-size: 16px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.4s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            border-radius: 24px;
+            padding: 32px;
+            flex: 1;
+            min-width: 0;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 350px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .services-container:hover .service-card {
+            flex: 0.5;
+        }
+
+        .services-container .service-card:hover {
+            flex: 2;
+        }
+
+        /* Update service cards */
+.service-card.data-suite { 
+    background: linear-gradient(135deg, rgba(243, 133, 111, 0.1) 0%, rgba(243, 133, 111, 0.2) 100%);
+}
+
+.service-card.personality-suite { 
+    background: linear-gradient(135deg, rgba(84, 183, 165, 0.1) 0%, rgba(84, 183, 165, 0.2) 100%);
+}
+
+.service-card.hr-suite { 
+    background: linear-gradient(135deg, rgba(237, 200, 85, 0.1) 0%, rgba(237, 200, 85, 0.2) 100%);
+}
+.service-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--dark); /* #333333 */
+}
+
+.service-description {
+    color: var(--medium-gray); /* #4a4a4a */
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+        .services-container:hover .service-card:not(:hover) .service-description,
+        .services-container:hover .service-card:not(:hover) .service-icon {
+            opacity: 0;
+            height: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+        
+        .service-card:hover .service-description {
+            transition: none;
+        }
+
+        .service-content {
+            flex-grow: 1;
+            display: flex;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            align-self: center;
+        }
+
+        .feature-list {
+            opacity: 0;
+            position: absolute;
+            left: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            pointer-events: none;
+            width: 0;
+            overflow: hidden;
+        }
+
+        .service-card:hover .feature-list {
+            opacity: 1;
+            width: auto;
+            pointer-events: auto;
+        }
+
+        .feature-item {
+            color: var(--medium-gray); /* #4a4a4a */
+            display: flex;
+            align-items: flex-start;
+            font-size: 15px;
+            color: var(--medium-gray);
+            line-height: 1.5;
+            white-space: nowrap;
+        }
+
+        .feature-check {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 12px;
+        }
+
+        .data-suite .feature-check { background-color: var(--coral); }
+        .personality-suite .feature-check { background-color: var(--teal); }
+        .hr-suite .feature-check { background-color: var(--yellow); }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: white;
+            border-radius: 100px;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        .data-suite .learn-more:hover {
+            background-color: var(--coral);
+            color: white;
+        }
+
+        .personality-suite .learn-more:hover {
+            background-color: var(--teal);
+            color: white;
+        }
+
+        .hr-suite .learn-more:hover {
+            background-color: var(--yellow);
+            color: white;
+        }
+
+        .learn-more:after {
+            content: "↗";
+            margin-left: 8px;
+        }
+
+        /* Testimonials Section */
+        .testimonialCarousel {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        
+        .testimonialCarousel::before,
+        .testimonialCarousel::after {
+            content: "";
+            width: 150px;
+            height: 100%;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            pointer-events: none;
+        }
+        
+        .testimonialCarousel::before {
+            left: 0;
+            background: linear-gradient(to right, var(--light) 0%, rgba(231, 247, 244, 0) 100%);
+        }
+        
+        .testimonialCarousel::after {
+            right: 0;
+            background: linear-gradient(to left, var(--light) 0%, rgba(231, 247, 244, 0) 100%);
+        }
+        
+        .carouselTrack {
+            display: flex;
+            width: calc(350px * 12);
+            animation: infiniteLoop 60s linear infinite;
+            animation-fill-mode: forwards;
+            will-change: transform;
+        }
+        
+        .carouselTrack:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes infiniteLoop {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(calc(-350px * 6), 0, 0);
+            }
+        }
+        
+        .testimonialCard {
+            width: 350px;
+            min-width: 350px;
+            height: 350px;
+            padding: 32px;
+            margin: 0 12px;
+            background-color: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        
+        .testimonialCard:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .avatarContainer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 16px;
+            border: 3px solid var(--teal);
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .personInfo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .personName {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--dark);
+        }
+        
+        .personRole {
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+        
+        .testimonialContent {
+            flex-grow: 1;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--medium-gray);
+            margin-bottom: 16px;
+        }
+        
+        .stars {
+            display: flex;
+            color: var(--yellow);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .stars span {
+            margin-right: 2px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .stats-container, 
+            .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card, 
+            .service-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .services-container:hover .service-card,
+            .services-container .service-card:hover {
+                flex: 1;
+            }
+
+            .service-card:hover .feature-list {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+            }
+
+            .service-card:hover .service-icon {
+                display: none;
+            }
+
+            .testimonialCard {
+                width: 300px;
+                min-width: 300px;
+                height: auto;
+                padding: 24px;
+            }
+            
+            .carouselTrack {
+                width: calc(300px * 12);
+            }
+            
+            @keyframes infiniteLoop {
+                0% {
+                    transform: translate3d(0, 0, 0);
+                }
+                100% {
+                    transform: translate3d(calc(-300px * 6), 0, 0);
+                }
+            }
+        }
+        .services-intro {
+    text-align: center;
+    padding: 80px 0 40px;
+}
+
+.services-subtitle {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.services-main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark); /* #333333 */
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.title-underline {
+    width: 160px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .services-main-title {
+        font-size: 2rem;
+    }
+}
+.footer {
+        background-color: #5bbfb1;
+        color: #f0f0f0;
+        padding: 60px 0 40px;
+        position: relative;
+        font-family: system-ui, -apple-system, sans-serif;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        margin-top: 40px;
+    }
+
+    .footer-container {
+        max-width: 1400px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    /* Brand Section */
+    .footer-brand {
+        flex: 0 0 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .logo-text {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    
+    .logo-text .success {
+        color: #f0f0f0;
+    }
+    
+    .logo-text .way {
+        color: #333333;
+    }
+
+    .copyright {
+        color: #f0f0f0;
+        font-size: 0.9rem;
+        margin: 10px 0;
+        opacity: 0.9;
+    }
+
+    .legal-links {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .legal-links a {
+        color: #f0f0f0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+        opacity: 0.9;
+    }
+
+    .legal-links a:hover {
+        color: #fff;
+        opacity: 1;
+    }
+
+    /* Links Columns */
+    .footer-links-column {
+        flex: 0 0 15%;
+    }
+
+    .footer-heading {
+        color: #f0f0f0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links li {
+        margin: 0;
+    }
+
+    .footer-links a {
+        color: #f0f0f0;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        opacity: 1;
+    }
+
+    /* CTA Section */
+    .footer-cta {
+        flex: 0 0 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .get-started-btn {
+        display: inline-block;
+        background-color: #ffffff;
+        color: #5bbfb1;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .get-started-btn:hover {
+        background-color: #f5f5f5;
+        color: #4ba99c;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Social Links */
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 5px;
+    }
+
+    .social-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        color: #40b3a2;
+        transition: all 0.3s;
+    }
+
+    .social-link:hover {
+        background-color: #1a1a1a;
+        color: #ffffff;
+        transform: translateY(-3px);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #40b3a2;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 100;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .logo-text {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    
+    .logo-text .success {
+        color: #40b3a2;
+    }
+    
+    .logo-text .way {
+        color: #1a1a1a;
+    }
+
+    .back-to-top:hover {
+        transform: translateY(-5px);
+        background-color: #1a1a1a;
+        color: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .footer-brand, .footer-links-column, .footer-cta {
+            flex: 0 0 calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-brand, .footer-links-column, .footer-cta {
+            flex: 0 0 100%;
+        }
+        
+        .social-links {
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .footer {
+            padding: 40px 0 30px;
+        }
+        
+        .footer-main {
+            gap: 30px;
+        }
+        
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+    /* Add this to your existing CSS */
+    .floating-bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly increased opacity */
+    border-radius: 50%;
+    z-index: 0;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    animation: float 15s infinite ease-in-out; /* Base animation */
+}
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10px, 10px); }
+    50% { transform: translate(0, 15px); }
+    75% { transform: translate(-10px, 5px); }
+    100% { transform: translate(0, 0); }
+}
+.floating-bubble:nth-child(1) { animation-duration: 20s; }
+.floating-bubble:nth-child(2) { animation-duration: 15s; animation-delay: 1s; }
+.floating-bubble:nth-child(3) { animation-duration: 18s; animation-delay: 2s; }
+.floating-bubble:nth-child(4) { animation-duration: 22s; animation-delay: 0.5s; }
+.floating-bubble:nth-child(5) { animation-duration: 25s; animation-delay: 1.5s; }
+.floating-bubble:nth-child(6) { animation-duration: 17s; animation-delay: 3s; }
+.floating-bubble:nth-child(7) { animation-duration: 21s; animation-delay: 2.5s; }
+.floating-bubble:nth-child(8) { animation-duration: 19s; animation-delay: 1s; }
+.sw-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* High z-index to stay on top */
+            /* Ensures this is separate from other elements */
+            pointer-events: none; 
+        }
+
+        .sw-preloader.hidden {
+            display: none;
+        }
+
+        .sw-plane-container {
+            position: relative;
+            width: 200px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .sw-plane {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: sw-fly 2s infinite ease-in-out;
+        }
+
+        .sw-plane-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #40b3a2; /* Hardcoded color instead of var to avoid conflicts */
+            transform: translateY(-50%);
+            animation: sw-drawLine 2s infinite ease-in-out;
+        }
+
+        .sw-loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #40b3a2; /* Hardcoded color instead of var to avoid conflicts */
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: sw-fadeText 2s infinite ease-in-out;
+        }
+
+        /* Scoped animations with unique names */
+        @keyframes sw-fly {
+            0% {
+                left: 0;
+            }
+            50% {
+                left: 180px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes sw-drawLine {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: 100%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+
+        @keyframes sw-fadeText {
+            0% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+        .globe-container {
+    position: relative !important;
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
+    background-color: white !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 5px !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5) !important;
+    margin: 0 auto !important;
+}
+
+.globe {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.globe img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: contain !important;
+    transform: scale(4.5) !important;
+}
+
+.airplane {
+    position: absolute !important;
+    font-size: 20px !important;
+    z-index: 10 !important;
+    animation: flyAround 8s linear infinite !important;
+}
+
+@keyframes flyAround {
+    0% {
+        left: -10%;
+        top: 40%;
+        transform: rotate(15deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    25% {
+        left: 30%;
+        top: 20%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        left: 60%;
+        top: 60%;
+        transform: rotate(-15deg);
+        opacity: 1;
+    }
+    75% {
+        left: 85%;
+        top: 30%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        left: 95%;
+        top: 40%;
+        transform: rotate(15deg);
+        opacity: 0;
+    }
+}
+/* Navbar Base Styles */
+.navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.3rem 2.5rem !important;
+    background-color: white !important;
+    border-radius: 50px !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(64, 179, 162, 0.08) !important;
+    max-width: 1400px !important;
+    width: 90% !important;
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.logo img {
+    width: 38px !important;
+    height: 38px !important;
+}
+
+.logo-text {
+    font-size: 1.7rem !important;
+    font-weight: bold !important;
+}
+
+.logo-text .success {
+    color: #40b3a2 !important;
+}
+
+.logo-text .way {
+    color: #1a1a1a !important;
+}
+
+.nav-links {
+    display: flex !important;
+    gap: 2.5rem !important;
+    align-items: center !important;
+}
+
+.nav-links a {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-size: 1.05rem !important;
+    font-weight: 500 !important;
+    transition: color 0.3s !important;
+    padding: 0.rem 0.8rem !important;
+    white-space: nowrap !important;
+}
+
+.nav-links a:hover {
+    color: #40b3a2 !important;
+}
+
+.nav-links .faq-btn {
+    background-color: #40b3a2 !important;
+    color: white !important;
+    padding: 0.7rem 2.2rem !important;
+    border-radius: 30px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25) !important;
+    font-weight: 600 !important;
+}
+
+.nav-links .faq-btn:hover {
+    background-color: #368f82 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(64, 179, 162, 0.3) !important;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 30px !important;
+    height: 21px !important;
+    cursor: pointer !important;
+    z-index: 100 !important;
+}
+
+.hamburger-line {
+    display: block !important;
+    height: 3px !important;
+    width: 100% !important;
+    border-radius: 10px !important;
+    background-color: #333 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .navbar {
+        width: 95% !important;
+        padding: 0.8rem 2rem !important;
+    }
+    
+    .nav-links {
+        gap: 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px !important;
+    }
+    
+    .navbar {
+        padding: 10px 15px !important;
+        height: 60px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        border-radius: 30px !important;
+        width: 95% !important;
+    }
+    
+    .logo {
+        display: flex !important;
+        align-items: center !important;
+        transform: scale(0.85) !important;
+        transform-origin: left center !important;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem !important;
+    }
+    
+    .hamburger-menu {
+        display: flex !important;
+        position: absolute !important;
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .nav-links {
+        position: absolute !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 90% !important;
+        margin: 0 auto !important;
+        background-color: white !important;
+        border-radius: 15px !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+        padding: 15px !important;
+        z-index: 100 !important;
+        display: none !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links a {
+        padding: 10px !important;
+        text-align: center !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+        transition: background-color 0.3s !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .nav-links a:hover {
+        background-color: rgba(92, 184, 178, 0.1) !important;
+    }
+    
+    .nav-links .faq-btn {
+        margin-top: 10px !important;
+        padding: 0.6rem 1.5rem !important;
+        width: 80% !important;
+        align-self: center !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-container {
+        padding: 10px 15px !important;
+    }
+    
+    .navbar {
+        padding: 8px 12px !important;
+        height: 50px !important;
+        border-radius: 25px !important;
+        width: 95% !important;
+        top: 10px !important;
+    }
+    
+    .logo {
+        transform: scale(0.75) !important;
+    }
+    
+    .hamburger-menu {
+        right: 15px !important;
+    }
+    
+    .nav-links {
+        top: 60px !important;
+        padding: 12px !important;
+        gap: 8px !important;
+        width: 85% !important;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem !important;
+        padding: 8px !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="sw-preloader" id="sw-preloader">
+        <div class="sw-plane-container">
+            <div class="sw-plane">✈️</div>
+            <div class="sw-plane-line"></div>
+        </div>
+        <div class="sw-loading-text">SuccessWay</div>
+    </div>
+    <!-- Navigation bar - added from the landing page -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="successway_logo.png" alt="SuccessWay Logo">
+            <div class="logo-text">
+                <span class="success" style="color: #5CB8B2; font-weight: bold;">Success</span><span class="way">Way</span>
+            </div>
+        </div>
+        <div class="hamburger-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_p.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing_test.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="faq-btn">Register</a>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="floating-shapes" id="floatingShapes"></div>
+        <div class="container">
+            <div class="globe-container" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background-color: white; display: flex; justify-content: center; align-items: center; padding: 5px; box-sizing: border-box; box-shadow: 0 0 10px rgba(255,255,255,0.5);">
+                <div class="globe" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                    <!-- Using the provided image -->
+                    <img src="360_F_301954223_4imp5SfygHVz4tf9iSVOnPw2SElrz3yu-removebg-preview.png" alt="Globe" style="width: 150px; height: 150px; object-fit: contain; transform: scale(4.5);">
+                </div>
+                <div class="airplane" style="position: absolute; top: 40%; right: 25%; font-size: 20px; transform: rotate(45deg);">✈️</div>
+            </div>
+            <!-- Add these inside your existing floating-shapes div -->
+<div class="floating-bubble" style="width: 80px; height: 80px; top: 15%; left: 10%; opacity: 0.3;"></div>
+<div class="floating-bubble" style="width: 120px; height: 120px; top: 60%; left: 5%; opacity: 0.15;"></div>
+<div class="floating-bubble" style="width: 40px; height: 40px; top: 25%; left: 30%; opacity: 0.25;"></div>
+<div class="floating-bubble" style="width: 60px; height: 60px; top: 75%; left: 25%; opacity: 0.2;"></div>
+<div class="floating-bubble" style="width: 100px; height: 100px; top: 10%; left: 60%; opacity: 0.1;"></div>
+<div class="floating-bubble" style="width: 50px; height: 50px; top: 40%; left: 75%; opacity: 0.3;"></div>
+<div class="floating-bubble" style="width: 70px; height: 70px; top: 65%; left: 85%; opacity: 0.2;"></div>
+<div class="floating-bubble" style="width: 30px; height: 30px; top: 20%; left: 90%; opacity: 0.25;"></div>
+        </div>
+        <!-- Creative positioning for the page title - at the bottom with gradient overlay -->
+        <div class="page-title-container">
+            <h1 class="page-title">Services</h1>
+        </div>
+    </header>
+    <div class="services-intro">
+        <div class="container">
+            <h2 class="services-subtitle">OUR SERVICES</h2>
+            <h1 class="services-main-title">Empowering Your International<br>Academic Journey</h1>
+            <div class="title-underline"></div>
+        </div>
+    </div>
+    
+    <!-- Services Section -->
+    <div class="page-section">
+
+
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat">98%</div>
+                <div class="stat-title">Visa Victory Rate</div>
+                <div class="stat-description">We conquer visas with a 98% success rate. Your educational journey abroad is practically guaranteed!</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat">15+</div>
+                <div class="stat-title">Global University Network</div>
+                <div class="stat-description">Access to 15+ opportunities across 6 countries. Your perfect academic match awaits!</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat">2x</div>
+                <div class="stat-title">Scholarship Booster</div>
+                <div class="stat-description">Double your chances of securing financial aid with our proven application strategies.</div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-container">
+            <!-- Data Suite Card -->
+            <div class="service-card data-suite">
+                <h2 class="service-title">Global Navigator</h2>
+                <p class="service-description">Get access to verified university programs, admission details, and scholarship opportunities across 15+ partner institutions.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='20' y='20' width='60' height='60' rx='5' fill='%23ffede9'/%3E%3Crect x='30' y='32' width='40' height='6' rx='3' fill='%23f3856f'/%3E%3Crect x='30' y='47' width='30' height='6' rx='3' fill='%23f3856f'/%3E%3Crect x='30' y='62' width='20' height='6' rx='3' fill='%23f3856f'/%3E%3C/svg%3E" alt="Data Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Access real-time application status updates and deadlines.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Generate comprehensive university comparison reports.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Track visa application progress and requirements.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personality Suite Card -->
+            <div class="service-card personality-suite">
+                <h2 class="service-title">Student Compass</h2>
+                <p class="service-description">Gain visibility into student life, housing options, and cultural integration strategies at your chosen destination.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='120' viewBox='0 0 180 120'%3E%3Ccircle cx='60' cy='60' r='25' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='120' cy='30' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='120' y='35' text-anchor='middle' font-size='14' font-weight='bold'%3EA%3C/text%3E%3Ccircle cx='95' cy='75' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='95' y='80' text-anchor='middle' font-size='14' font-weight='bold'%3EB%3C/text%3E%3Ccircle cx='135' cy='90' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='135' y='95' text-anchor='middle' font-size='14' font-weight='bold'%3EC%3C/text%3E%3Ccircle cx='60' cy='60' r='20' fill='%2354b7a5'/%3E%3Cpath d='M60,43 C50,43 48,48 48,54 C48,60 54,66 60,66 C66,66 72,60 72,54 C72,48 70,43 60,43' fill='%23ffde59'/%3E%3Cpath d='M50,50 C50,50 54,52 60,52 C66,52 70,50 70,50' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M54,46 C54,46 55,45 56,46 C57,47 57,48 57,48' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M63,46 C63,46 64,45 65,46 C66,47 66,48 66,48' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M70,35 C85,25 120,30 120,30 L95,75 L135,90' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E" alt="Personality Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Access insider tips from current international students.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Generate cost-of-living reports and budget planners.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Track orientation events and pre-departure checklists.</span>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- HR Suite Card -->
+            <div class="service-card hr-suite">
+                <h2 class="service-title">Future Architect</h2>
+                <p class="service-description">Identify your ideal academic path with personalized guidance aligned to your career goals and personal strengths.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='30' y='20' width='40' height='60' rx='5' fill='%23fef9e6'/%3E%3Crect x='35' y='30' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='40' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='50' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='60' width='20' height='4' rx='2' fill='%23edc855'/%3E%3C/svg%3E" alt="HR Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Access alumni success stories and networking opportunities.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Generate personalized study-to-career roadmaps.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Track post-graduation work permit and career options.</span>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+    <div class="services-intro">
+        <div class="container">
+            <h2 class="services-subtitle">Testimonial</h2>
+            <h1 class="services-main-title">What Our Students<br>Say About Us</h1>
+            <div class="title-underline"></div>
+        </div>
+    </div>
+    <!-- Testimonials Section -->
+    <div class="page-section">
+        
+        <div class="testimonialCarousel">
+            <div class="carouselTrack">
+                <!-- First 6 Testimonials -->
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="Sarah Johnson">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">Sarah Johnson</div>
+                            <div class="personRole">Marketing Director</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "This product completely transformed our marketing workflow. The analytics dashboard provided real-time insights that helped us optimize our campaigns with unprecedented precision."
+                    </div>
+                </div>
+                
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="Michael Chen">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">Michael Chen</div>
+                            <div class="personRole">Software Engineer</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "The integration capabilities are outstanding. We were able to connect it with our existing tech stack in minutes, not days. The API documentation is comprehensive and well-organized."
+                    </div>
+                </div>
+                
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="Emily Rodriguez">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">Emily Rodriguez</div>
+                            <div class="personRole">Operations Manager</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "Our team's efficiency increased by 200% after implementing this solution. The automated workflows eliminated redundant tasks and allowed our team to focus on strategic initiatives."
+                    </div>
+                </div>
+                
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="David Thompson">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">David Thompson</div>
+                            <div class="personRole">Creative Director</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "The attention to detail and personalized support makes this product stand out. Whenever we've had questions, the customer service team has been responsive, knowledgeable, and incredibly helpful."
+                    </div>
+                </div>
+                
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="Jessica Lee">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">Jessica Lee</div>
+                            <div class="personRole">Startup Founder</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "As a startup with limited resources, finding a solution that scales with our growth was crucial. This platform has been the perfect fit, growing alongside us without breaking our budget."
+                    </div>
+                </div>
+                
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="Robert Wilson">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">Robert Wilson</div>
+                            <div class="personRole">IT Director</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "Security was our top concern, and this product exceeded all our expectations. The robust encryption, compliance certifications, and regular security updates give us complete peace of mind."
+                    </div>
+                </div>
+                
+                <!-- Duplicate Testimonials for Infinite Scroll -->
+                <div class="testimonialCard">
+                    <div class="avatarContainer">
+                        <div class="avatar">
+                            <img src="/api/placeholder/60/60" alt="Sarah Johnson">
+                        </div>
+                        <div class="personInfo">
+                            <div class="personName">Sarah Johnson</div>
+                            <div class="personRole">Marketing Director</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="testimonialContent">
+                        "This product completely transformed our marketing workflow. The analytics dashboard provided real-time insights that helped us optimize our campaigns with unprecedented precision."
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- Logo and Copyright Section -->
+                <div class="footer-brand">
+                    <div class="logo" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <img src="successway_logo.png" alt="SuccessWay Logo" style="height: 40px; width: auto; margin-right: 10px; background-color: white; padding: 5px; border-radius: 50px;">
+                        <div class="logo-text">
+                            <span class="success" style="color: white !important; font-weight: bold; font-size: 24px;">Success</span><span class="way" style="color: #333333; font-weight: bold; font-size: 24px;">Way</span>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2025 SuccessWay. All rights reserved</p>
+                    </div>
+                    <div class="legal-links">
+                        <a href="#terms">Terms & Conditions</a>
+                        <a href="#privacy">Privacy Center</a>
+                    </div>
+                </div>
+    
+                <!-- Company Links -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Resources Links -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Register</a></li>
+                        <li><a href="pricing_test.html">Pricing</a></li>
+                        <!-- <li><a href="#careers">Careers</a></li> -->
+                    </ul>
+                </div>
+    
+                <!-- Get in Touch Section -->
+                <div class="footer-cta">
+                    <h3 class="footer-heading">Get in Touch</h3>
+                    <a href="#get-started" class="get-started-btn">Get Started</a>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://x.com/SuccesswayM" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.38 7.773 21.692 5.25 22 4.009z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/successway-mali-998703313/?originalSubdomain=ml" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://www.facebook.com/successway.mali/" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="https://www.instagram.com/succeswaymali/" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to top button -->
+        <div class="back-to-top" id="backToTopBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </div>
+    </footer>
+
+    <script>
+        // Add animation classes when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, 100 * index);
+            });
+        });
+    </script>
+    <script>
+        // Preloader control function
+        function hideSwPreloader() {
+            document.getElementById('sw-preloader').classList.add('hidden');
+        }
+        
+        // Add to window load event
+        window.addEventListener('load', function() {
+            // Optional: delay hiding for visual effect
+            setTimeout(hideSwPreloader, 2000);
+        });
+        
+        // For development - in case window load doesn't fire
+        setTimeout(hideSwPreloader, 1000);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && !e.target.closest('.nav-links') && !e.target.closest('.hamburger-menu')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
+    </script>
+</body>
+</html>

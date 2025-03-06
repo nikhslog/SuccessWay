@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessWay - Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8f8;
+        }
+
+        .header {
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 40px;
+            margin: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #66b1a0;
+        }
+
+        .logo h1 span {
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .register-btn {
+            background-color: #66b1a0;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .section-title {
+            color: #66b1a0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #50a897, #f8b195, #f67280);
+            margin: 20px auto 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #66b1a0;
+            outline: none;
+        }
+
+        .file-input-container {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .file-input-label {
+            display: block;
+            background-color: #f5f5f5;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-input-label:hover {
+            background-color: #e9f7f4;
+            border-color: #66b1a0;
+        }
+
+        .file-input {
+            position: absolute;
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .file-input-icon {
+            font-size: 24px;
+            color: #66b1a0;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .submit-btn {
+            background-color: #66b1a0;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            width: 200px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #549e8e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 177, 160, 0.3);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #27ae60;
+            font-weight: 500;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e9f7ef;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="https://i.imgur.com/5ypZKTG.png" alt="SuccessWay Logo">
+            <h1>Success<span>Way</span></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </nav>
+        <button class="register-btn">Register</button>
+    </header>
+
+    <div class="container">
+        <p class="section-title">Apply Now</p>
+        <h2>Submit Your Application</h2>
+        <div class="divider"></div>
+
+        <form id="applicationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                <div class="error-message" id="nameError">Please enter your full name</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+            </div>
+
+            <div class="form-group">
+                <label for="programInterest">Program of Interest</label>
+                <select id="programInterest" name="programInterest" required>
+                    <option value="" disabled selected>Select a program</option>
+                    <option value="undergraduate">Undergraduate Studies</option>
+                    <option value="graduate">Graduate Studies</option>
+                    <option value="phd">PhD Programs</option>
+                    <option value="scholarship">Scholarship Application</option>
+                </select>
+                <div class="error-message" id="programError">Please select a program</div>
+            </div>
+
+            <div class="file-input-container">
+                <label>Profile Photo</label>
+                <label for="profilePhoto" class="file-input-label">
+                    <div class="file-input-icon">📷</div>
+                    <span>Click to upload a profile photo</span>
+                    <div class="file-name" id="photoFileName">No file selected</div>
+                </label>
+                <input type="file" id="profilePhoto" name="profilePhoto" class="file-input" accept="image/*">
+                <div class="error-message" id="photoError">Please upload a valid image file</div>
+            </div>
+
+            <div class="file-input-container">
+                <label>CV/Resume (PDF)</label>
+                <label for="cvFile" class="file-input-label">
+                    <div class="file-input-icon">📄</div>
+                    <span>Click to upload your CV or resume</span>
+                    <div class="file-name" id="cvFileName">No file selected</div>
+                </label>
+                <input type="file" id="cvFile" name="cvFile" class="file-input" accept=".pdf">
+                <div class="error-message" id="cvError">Please upload a valid PDF file</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+            <div class="success-message" id="successMessage">
+                Your application has been submitted successfully! We will contact you soon.
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Display file name when a file is selected
+        document.getElementById('profilePhoto').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+            document.getElementById('photoFileName').textContent = fileName;
+        });
+
+        document.getElementById('cvFile').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+            document.getElementById('cvFileName').textContent = fileName;
+        });
+
+        // Form validation and submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(el => el.style.display = 'none');
+            
+            let isValid = true;
+            
+            // Validate full name
+            const fullName = document.getElementById('fullName').value.trim();
+            if (fullName === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phone = document.getElementById('phone').value.trim();
+            if (phone === '') {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate program selection
+            const program = document.getElementById('programInterest').value;
+            if (program === '') {
+                document.getElementById('programError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate profile photo
+            const photo = document.getElementById('profilePhoto').files[0];
+            if (!photo) {
+                document.getElementById('photoError').style.display = 'block';
+                isValid = false;
+            } else if (!photo.type.includes('image/')) {
+                document.getElementById('photoError').textContent = 'Please upload a valid image file';
+                document.getElementById('photoError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate CV file
+            const cv = document.getElementById('cvFile').files[0];
+            if (!cv) {
+                document.getElementById('cvError').style.display = 'block';
+                isValid = false;
+            } else if (cv.type !== 'application/pdf') {
+                document.getElementById('cvError').textContent = 'Please upload a valid PDF file';
+                document.getElementById('cvError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // If all validations pass, show success message
+            if (isValid) {
+                // In a real application, you would send the form data to a server here
+                // For this example, we'll just show the success message
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Reset the form after successful submission
+                setTimeout(() => {
+                    document.getElementById('applicationForm').reset();
+                    document.getElementById('photoFileName').textContent = 'No file selected';
+                    document.getElementById('cvFileName').textContent = 'No file selected';
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #f3856f;  /* Coral from original services page */
+            --secondary: #54b7a5;  /* Teal from original services page */
+            --accent: #edc855;  /* Yellow from original services page */
+            --light: #F2F2F2;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #e7f7f4;  /* Keeping original services page background */
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            color: white;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .globe-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+        }
+        
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .globe::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: url('/api/placeholder/400/320');
+            background-size: contain;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .airplane {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 40%;
+            left: -30px;
+            animation: fly 15s linear infinite;
+            z-index: 10;
+        }
+        
+        @keyframes fly {
+            0% {
+                left: -30px;
+                top: 40%;
+                transform: rotate(15deg);
+            }
+            25% {
+                top: 20%;
+                transform: rotate(0deg);
+            }
+            50% {
+                top: 60%;
+                transform: rotate(-15deg);
+            }
+            75% {
+                top: 30%;
+                transform: rotate(0deg);
+            }
+            100% {
+                left: calc(100% + 30px);
+                top: 40%;
+                transform: rotate(15deg);
+            }
+        }
+
+        /* Rest of the existing services page styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #333333;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            padding: 32px;
+            border-radius: 24px;
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .stat-card.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:nth-child(1) {
+            background: linear-gradient(135deg, #fff 0%, #ffe9e6 100%);
+            animation-delay: 0.1s;
+            border: 1px solid rgba(243, 133, 111, 0.1);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #fff 0%, #e7f7f4 100%);
+            animation-delay: 0.2s;
+            border: 1px solid rgba(84, 183, 165, 0.1);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #fff 0%, #fef9e6 100%);
+            animation-delay: 0.3s;
+            border: 1px solid rgba(237, 200, 85, 0.1);
+        }
+
+        .stat {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card:nth-child(1) .stat {
+            color: #f3856f; /* Coral from landing page */
+        }
+
+        .stat-card:nth-child(2) .stat {
+            color: #54b7a5; /* Teal from landing page */
+        }
+
+        .stat-card:nth-child(3) .stat {
+            color: #edc855; /* Yellow from landing page circles */
+        }
+
+        .stat-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 16px;
+        }
+
+        .stat-description {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            gap: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.4s;
+        }
+
+        .service-card {
+            border-radius: 24px;
+            padding: 32px;
+            flex: 1;
+            min-width: 0;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 350px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .services-container:hover .service-card {
+            flex: 0.5;
+        }
+
+        .services-container .service-card:hover {
+            flex: 2;
+        }
+
+        .service-card.data-suite { 
+            background: linear-gradient(135deg, rgba(243, 133, 111, 0.1) 0%, rgba(243, 133, 111, 0.2) 100%);
+        }
+        
+        .service-card.personality-suite { 
+            background: linear-gradient(135deg, rgba(84, 183, 165, 0.1) 0%, rgba(84, 183, 165, 0.2) 100%);
+        }
+        
+        .service-card.hr-suite { 
+            background: linear-gradient(135deg, rgba(237, 200, 85, 0.1) 0%, rgba(237, 200, 85, 0.2) 100%);
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #333333;
+        }
+
+        .service-description {
+            color: #4a4a4a;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Hide description and icon for non-hovered cards */
+        .services-container:hover .service-card:not(:hover) .service-description,
+        .services-container:hover .service-card:not(:hover) .service-icon {
+            opacity: 0;
+            height: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+        
+        /* Keep description static (no transitions) for the hovered card */
+        .service-card:hover .service-description {
+            transition: none;
+        }
+
+        .service-content {
+            flex-grow: 1;
+            display: flex;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            align-self: center;
+        }
+
+        .feature-list {
+            opacity: 0;
+            position: absolute;
+            left: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            pointer-events: none;
+            width: 0;
+            overflow: hidden;
+        }
+
+        .service-card:hover .feature-list {
+            opacity: 1;
+            width: auto;
+            pointer-events: auto;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 15px;
+            color: #4a4a4a;
+            line-height: 1.5;
+            white-space: nowrap;
+        }
+
+        .feature-check {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 12px;
+        }
+
+        .data-suite .feature-check {
+            background-color: #f3856f; /* Coral */
+        }
+
+        .personality-suite .feature-check {
+            background-color: #54b7a5; /* Teal */
+        }
+
+        .hr-suite .feature-check {
+            background-color: #edc855; /* Yellow */
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: white;
+            border-radius: 100px;
+            text-decoration: none;
+            color: #333333;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        .data-suite .learn-more:hover {
+            background-color: #f3856f;
+            color: white;
+        }
+
+        .personality-suite .learn-more:hover {
+            background-color: #54b7a5;
+            color: white;
+        }
+
+        .hr-suite .learn-more:hover {
+            background-color: #edc855;
+            color: white;
+        }
+
+        .learn-more:after {
+            content: "↗";
+            margin-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container, .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card, .service-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .services-container:hover .service-card,
+            .services-container .service-card:hover {
+                flex: 1;
+            }
+
+            .service-card:hover .feature-list {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+            }
+
+            .service-card:hover .service-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="floating-shapes" id="floatingShapes"></div>
+        <div class="container">
+            <div class="logo">Our Services</div>
+            <div class="tagline">Empowering Your Business with Intelligent Solutions</div>
+            <div class="globe-container">
+                <div class="globe"></div>
+                <div class="airplane">✈️</div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Existing services page content -->
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat">98%</div>
+                <div class="stat-title">Data Accuracy</div>
+                <div class="stat-description">Fuel your outreach with the most reliable database, holding an accuracy rate of 98%.</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat">250M+</div>
+                <div class="stat-title">Professional Profiles</div>
+                <div class="stat-description">Build GTM strategies with focused and dedicated audience groups.</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat">2x</div>
+                <div class="stat-title">Better Conversion</div>
+                <div class="stat-description">Double your conversion rates with personalized pitches tailored to individual personalities.</div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-container">
+            <!-- Data Suite Card -->
+            <div class="service-card data-suite">
+                <h2 class="service-title">Data Suite</h2>
+                <p class="service-description">Get access to verified emails, phone numbers, professional details and revenue Intelligence of 250M+ profiles.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='20' y='20' width='60' height='60' rx='5' fill='%23ffede9'/%3E%3Crect x='30' y='32' width='40' height='6' rx='3' fill='%23f3856f'/%3E%3Crect x='30' y='47' width='30' height='6' rx='3' fill='%23f3856f'/%3E%3Crect x='30' y='62' width='20' height='6' rx='3' fill='%23f3856f'/%3E%3C/svg%3E" alt="Data Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Access real-time data analytics and insights.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Generate comprehensive reports and metrics.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Track customer engagement and behavior.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="learn-more">Learn more</a>
+            </div>
+
+            <!-- Personality Suite Card -->
+            <div class="service-card personality-suite">
+                <h2 class="service-title">Personality Suite</h2>
+                <p class="service-description">Gain visibility into buyer personality and tailor their engagement strategies.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='120' viewBox='0 0 180 120'%3E%3Ccircle cx='60' cy='60' r='25' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='120' cy='30' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='120' y='35' text-anchor='middle' font-size='14' font-weight='bold'%3EA%3C/text%3E%3Ccircle cx='95' cy='75' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='95' y='80' text-anchor='middle' font-size='14' font-weight='bold'%3EB%3C/text%3E%3Ccircle cx='135' cy='90' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='135' y='95' text-anchor='middle' font-size='14' font-weight='bold'%3EC%3C/text%3E%3Ccircle cx='60' cy='60' r='20' fill='%2354b7a5'/%3E%3Cpath d='M60,43 C50,43 48,48 48,54 C48,60 54,66 60,66 C66,66 72,60 72,54 C72,48 70,43 60,43' fill='%23ffde59'/%3E%3Cpath d='M50,50 C50,50 54,52 60,52 C66,52 70,50 70,50' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M54,46 C54,46 55,45 56,46 C57,47 57,48 57,48' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M63,46 C63,46 64,45 65,46 C66,47 66,48 66,48' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M70,35 C85,25 120,30 120,30 L95,75 L135,90' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E" alt="Personality Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Accelerate your sales process with audience segmentation.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Build strong conversations based upon personality.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Deliver a personalized customer experience.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="learn-more">Learn more</a>
+            </div>
+
+            <!-- HR Suite Card -->
+            <div class="service-card hr-suite">
+                <h2 class="service-title">HR Suite</h2>
+                <p class="service-description">Identify your ideal candidate by assessing their LinkedIn profiles or resumes.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='30' y='20' width='40' height='60' rx='5' fill='%23fef9e6'/%3E%3Crect x='35' y='30' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='40' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='50' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='60' width='20' height='4' rx='2' fill='%23edc855'/%3E%3C/svg%3E" alt="HR Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Streamline your recruitment process.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Match candidates with job requirements.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Generate detailed candidate assessments.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="learn-more">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add animation classes when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, 100 * index);
+            });
+
+            // Create floating shapes
+            function createFloatingShapes() {
+                const shapesContainer = document.getElementById('floatingShapes');
+                
+                for (let i = 0; i < 15; i++) {
+                    const shape = document.createElement('div');
+                    shape.classList.add('shape');
+                    
+                    // Random size between 10px and 50px
+                    const size = Math.random() * 40 + 10;
+                    shape.style.width = `${size}px`;
+                    shape.style.height = `${size}px`;
+                    
+                    // Random position
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    shape.style.left = `${posX}%`;
+                    shape.style.top = `${posY}%`;
+                    
+                    // Random float animation
+                    const animDuration = Math.random() * 10 + 10;
+                    shape.style.animation = `float ${animDuration}s infinite`;
+                    shape.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    shapesContainer.appendChild(shape);
+                }
+            }
+
+            // Initialize floating shapes
+            createFloatingShapes();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SuccessWay - About Us</title>
+    <link rel="stylesheet" href="about-us.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Embedded mode style overrides -->
+<style id="embedded-styles">
+    /* Force visibility of all elements */
+    .slide,
+    .slide-content,
+    .text-container,
+    .image-container,
+    .text-reveal,
+    .slide-title,
+    .reveal-image,
+    .team-member,
+    .timeline-item,
+    .mission-box,
+    .vision-box,
+    .feature-item,
+    .destination,
+    .cta-container {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .logo-text {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    
+    .logo-text .success {
+        color: #40b3a2;
+    }
+    
+    .logo-text .way {
+        color: #1a1a1a;
+    }
+    
+    /* Fix slide container */
+    .slides-container {
+        transition: transform 0.5s ease !important;
+        overflow: visible !important;
+        height: 100vh !important;
+    }
+    
+    /* Force slides to take correct width */
+    .slide {
+        width: 25% !important; /* 100% / 4 slides */
+        height: 100vh !important;
+        overflow: visible !important;
+    }
+    
+    /* Fix scroll container */
+    .scroll-container {
+        padding-top: 0 !important;
+        height: 100vh !important;
+        overflow: visible !important;
+    }
+    
+    /* Ensure text is readable */
+    .text-container h2,
+    .text-container p,
+    .timeline-content h4,
+    .timeline-content p,
+    .mission-box h3,
+    .mission-box p,
+    .vision-box h3,
+    .vision-box p,
+    .feature-item h3,
+    .feature-item p {
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: inherit !important;
+    }
+    
+    /* Timeline items */
+    .timeline:before {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Make indicators visible */
+    .indicator-inner,
+    .indicator-label {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="plane-container">
+            <div class="plane">✈️</div>
+            <div class="plane-line"></div>
+        </div>
+        <div class="loading-text">SuccessWay</div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="bg-shape shape1"></div>
+        <div class="bg-shape shape2"></div>
+        <div class="bg-shape shape3"></div>
+        <div class="bg-shape shape4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://via.placeholder.com/40" alt="SuccessWay Logo">
+            <span>SuccessWay</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link active">About</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="nav-btn">FAQs</a>
+        </div>
+        <div class="mobile-menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+ 
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#" class="mobile-link">Home</a>
+        <a href="#" class="mobile-link active">About</a>
+        <a href="#" class="mobile-link">Services</a>
+        <a href="#" class="mobile-link">Contact</a>
+        <a href="#" class="mobile-link">FAQs</a>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Scroll Container -->
+    <div class="scroll-container">
+        <!-- Airplane Navigation -->
+        <div class="airplane-container">
+            <div class="airplane"><i class="fas fa-plane"></i></div>
+            <div class="flight-path">
+                <div class="checkpoint" data-slide="1"></div>
+                <div class="checkpoint" data-slide="2"></div>
+                <div class="checkpoint" data-slide="3"></div>
+                <div class="checkpoint" data-slide="4"></div>
+            </div>
+        </div>
+
+       
+
+        <!-- Slides Container -->
+        <div class="slides-container">
+            <!-- Slide 1: Welcome / Our Team -->
+            <section class="slide" id="slide1">
+                <div class="slide-content">
+                    <div class="image-container reveal-image">
+                        <img src="Screenshot_2025-02-12_at_12,43,25_PM-removebg-preview_enhanced.png" alt="SuccessWay Team">
+                        <div class="image-overlay">
+                            <div class="country-badge">Since 2018</div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <div class="section-badge">Who We Are</div>
+                        <h2 class="slide-title">Our Team</h2>
+                        <div class="text-reveal">
+                            <p>Welcome to SuccessWay, where your educational dreams take flight! Our dedicated team of experienced education consultants is committed to guiding you through every step of your international education journey.</p>
+                        </div>
+                        <div class="text-reveal">
+                            <p>With our combined expertise and passion for education, we'll help you navigate the complex world of international universities and find the perfect match for your aspirations.</p>
+                        </div>
+                        <div class="team-members">
+                            <div class="team-member">
+                                <div class="member-icon"><i class="fas fa-user-graduate"></i></div>
+                                <div class="member-details">
+                                    <h4>Fatoumata Youchaou Traore</h4>
+                                    <p>CEO, Founder</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Slide 2: Our Story -->
+            <section class="slide" id="slide2">
+                <div class="slide-content">
+                    <div class="text-container">
+                        <div class="section-badge">Our Journey</div>
+                        <h2 class="slide-title">Our Story</h2>
+                        <div class="text-reveal">
+                            <p>SuccessWay Mali was founded in July 2018 with a vision to bridge the gap between Malian students and international educational opportunities.</p>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>2018</h4>
+                                    <p>Founded in Bamako, Mali with a vision to help students access quality education abroad</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>2020</h4>
+                                    <p>Expanded operations to Ouagadougou, Niamey, Conakry, and Abidjan</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>2022</h4>
+                                    <p>Established strategic partnerships with universities in Canada, Turkey, and beyond</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Today</h4>
+                                    <p>Continuing our mission with a growing team and hundreds of successful student placements</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-container reveal-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Our Journey">
+                        <div class="image-overlay">
+                            <div class="counter-container">
+                                <div class="counter" data-target="100">0</div>
+                                <div class="counter-label">Partner Universities</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Our Mission & Vision -->
+            <section class="slide" id="slide3">
+                <div class="slide-content">
+                    <div class="image-container reveal-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Our Mission">
+                        <div class="image-overlay">
+                            <div class="counter-container">
+                                <div class="counter" data-target="500">0</div>
+                                <div class="counter-label">Students Placed</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <div class="section-badge">Our Purpose</div>
+                        <h2 class="slide-title">Mission & Vision</h2>
+                        <div class="mission-box">
+                            <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
+                            <div>
+                                <h3>Mission</h3>
+                                <p>To empower students with the knowledge, resources, and support needed to pursue higher education abroad, fostering a new generation of globally-minded professionals.</p>
+                            </div>
+                        </div>
+                        <div class="vision-box">
+                            <div class="vision-icon"><i class="fas fa-binoculars"></i></div>
+                            <div>
+                                <h3>Vision</h3>
+                                <p>A world where every student, regardless of background, has access to quality international education through personalized support and a smooth transition to studying abroad.</p>
+                            </div>
+                        </div>
+                        <div class="destination-badges">
+                            <div class="destination">Canada</div>
+                            <div class="destination">Turkey</div>
+                            <div class="destination">Tunisia</div>
+                            <div class="destination">Malaysia</div>
+                            <div class="destination">India</div>
+                            <div class="destination">China</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Why Choose Us? -->
+            <section class="slide" id="slide4">
+                <div class="slide-content">
+                    <div class="text-container">
+                        <div class="section-badge">Our Benefits</div>
+                        <h2 class="slide-title">Why Choose Us?</h2>
+                        <div class="text-reveal">
+                            <p>At SuccessWay, we're dedicated to providing the most comprehensive support for your international education journey.</p>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+                                <div>
+                                    <h3>Personalized Guidance</h3>
+                                    <p>Tailored advice based on your academic background, career goals, and personal preferences.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-university"></i></div>
+                                <div>
+                                    <h3>Expert University Matching</h3>
+                                    <p>Access to our network of partner universities across Canada, Turkey, Tunisia, and India.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
+                                <div>
+                                    <h3>Comprehensive Support</h3>
+                                    <p>Assistance with applications, visa processing, accommodation, and pre-departure orientation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-container">
+                            <a href="#" class="cta-button">Contact Us Today</a>
+                        </div>
+                    </div>
+                    <div class="image-container reveal-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Our Services">
+                        <div class="image-overlay">
+                            <div class="testimonial">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <p>"SuccessWay made my dream of studying abroad a reality. Their guidance throughout the process was invaluable."</p>
+                                <div class="testimonial-author">- Former Student</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Slide Indicators -->
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="1">
+                <div class="indicator-inner"></div>
+                <div class="indicator-label">Team</div>
+            </div>
+            <div class="indicator" data-slide="2">
+                <div class="indicator-inner"></div>
+                <div class="indicator-label">Story</div>
+            </div>
+            <div class="indicator" data-slide="3">
+                <div class="indicator-inner"></div>
+                <div class="indicator-label">Mission</div>
+            </div>
+            <div class="indicator" data-slide="4">
+                <div class="indicator-inner"></div>
+                <div class="indicator-label">Why Us</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+    <script src="about-us.js"></script>
+    <script>
+        // Detect if we're in an iframe
+        const isEmbedded = window.self !== window.top;
+        
+        if (isEmbedded) {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Hide navigation elements
+                const elementsToHide = [
+                    '.navbar',
+                    '.mobile-menu',
+                    '.mobile-menu-toggle',
+                    '.preloader'
+                ];
+                
+                elementsToHide.forEach(selector => {
+                    const elements = document.querySelectorAll(selector);
+                    elements.forEach(el => {
+                        if (el) el.style.display = 'none';
+                    });
+                });
+                
+                // Make all slide content visible and properly positioned
+                const slides = document.querySelectorAll('.slide');
+                slides.forEach(slide => {
+                    // Ensure slide content is visible
+                    slide.style.opacity = '1';
+                    slide.style.visibility = 'visible';
+                    
+                    // Fix any potential positioning issues
+                    const slideContent = slide.querySelector('.slide-content');
+                    if (slideContent) {
+                        slideContent.style.opacity = '1';
+                        slideContent.style.visibility = 'visible';
+                        slideContent.style.position = 'relative';
+                        
+                        // Make text visible
+                        const textContainers = slideContent.querySelectorAll('.text-container');
+                        textContainers.forEach(container => {
+                            container.style.opacity = '1';
+                            container.style.visibility = 'visible';
+                        });
+                        
+                        // Make images visible
+                        const imageContainers = slideContent.querySelectorAll('.image-container');
+                        imageContainers.forEach(container => {
+                            container.style.opacity = '1';
+                            container.style.visibility = 'visible';
+                        });
+                    }
+                });
+                
+                // Fix slide container styles
+                const slidesContainer = document.querySelector('.slides-container');
+                if (slidesContainer) {
+                    slidesContainer.style.height = '100%';
+                    slidesContainer.style.overflow = 'visible';
+                }
+                
+                // Fix scroll container styles
+                const scrollContainer = document.querySelector('.scroll-container');
+                if (scrollContainer) {
+                    scrollContainer.style.paddingTop = '0';
+                    scrollContainer.style.height = '100vh';
+                    scrollContainer.style.overflow = 'visible';
+                }
+                
+                // Ensure content gets loaded for each slide
+                function preloadAllSlides() {
+                    const slides = document.querySelectorAll('.slide');
+                    slides.forEach((slide, index) => {
+                        if (typeof animateSlideContent === 'function') {
+                            animateSlideContent(index);
+                        }
+                    });
+                }
+                
+                // Run preload after a slight delay
+                setTimeout(preloadAllSlides, 1000);
+                
+                // Improve the goToSlide function to ensure content is shown
+                window.goToSlide = function(index) {
+                    const slidesContainer = document.querySelector('.slides-container');
+                    const indicators = document.querySelectorAll('.indicator');
+                    const slides = document.querySelectorAll('.slide');
+                    const checkpoints = document.querySelectorAll('.checkpoint');
+                    
+                    if (!slidesContainer || !slides.length) return;
+                    
+                    // Ensure index is valid
+                    const currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+                    
+                    // Update slides position
+                    const slideWidth = 100 / slides.length;
+                    slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+                    
+                    // Update indicators
+                    if (indicators) {
+                        indicators.forEach((indicator, i) => {
+                            if (i === currentSlide) {
+                                indicator.classList.add('active');
+                            } else {
+                                indicator.classList.remove('active');
+                            }
+                        });
+                    }
+                    
+                    // Update checkpoints
+                    if (checkpoints) {
+                        checkpoints.forEach((checkpoint, i) => {
+                            if (i === currentSlide) {
+                                checkpoint.classList.add('active');
+                            } else {
+                                checkpoint.classList.remove('active');
+                            }
+                        });
+                    }
+                    
+                    // Ensure all slide content is visible
+                    slides.forEach((slide, slideIndex) => {
+                        // Ensure content is visible regardless of active state
+                        const slideContent = slide.querySelector('.slide-content');
+                        if (slideContent) {
+                            // Always show content
+                            slideContent.style.opacity = '1';
+                            slideContent.style.visibility = 'visible';
+                            
+                            // Make text containers visible
+                            const textContainers = slideContent.querySelectorAll('.text-container');
+                            textContainers.forEach(container => {
+                                container.style.opacity = '1';
+                                container.style.visibility = 'visible';
+                            });
+                        }
+                        
+                        // Activate the current slide specifically
+                        if (slideIndex === currentSlide) {
+                            // Force this slide's animations
+                            if (typeof animateSlideContent === 'function') {
+                                animateSlideContent(currentSlide);
+                            }
+                            
+                            // Make sure the slide is visible
+                            slide.style.opacity = '1';
+                            slide.style.visibility = 'visible';
+                        }
+                    });
+                    
+                    // Update progress bar if available
+                    if (typeof updateProgressBar === 'function') {
+                        updateProgressBar();
+                    }
+                    
+                    // Notify parent about slide change
+                    window.parent.postMessage(`slideChanged:${currentSlide}`, '*');
+                };
+                
+                // Handle wheel events to forward to parent
+                document.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    
+                    // Send scroll event to parent window
+                    window.parent.postMessage(e.deltaY > 0 ? 'scrollDown' : 'scrollUp', '*');
+                    
+                }, { passive: false });
+                
+                // Listen for messages from parent
+                window.addEventListener('message', function(event) {
+                    if (event.data === 'initialize') {
+                        // Initial setup
+                        goToSlide(0);
+                        // Preload all slides
+                        preloadAllSlides();
+                    } else if (typeof event.data === 'string' && event.data.startsWith('goToSlide:')) {
+                        // Go to specific slide
+                        const slideIndex = parseInt(event.data.split(':')[1]);
+                        goToSlide(slideIndex);
+                    }
+                });
+            });
+        }
+        </script>
+        <!-- Load embedded mode fixes -->
+<script src="embedded-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 2.5rem;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(64, 179, 162, 0.08);
+    max-width: 1400px; /* Increased width */
+    width: 90%; /* More responsive width */
+    
+    /* Fixed positioning properties */
+    position: fixed;
+    top: 20px; /* Distance from top of viewport */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+.nav-links {
+    display: flex;
+    gap: 2.5rem; /* Increased spacing between links */
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.rem 0.8rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #40b3a2;
+}
+
+.nav-links .faq-btn {
+    background-color: #40b3a2;
+    color: white;
+    padding: 0.7rem 2.2rem; /* Wider button */
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
+    font-weight: 600;
+}
+
+.nav-links .faq-btn:hover {
+    background-color: #368f82;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(64, 179, 162, 0.3);
+}
