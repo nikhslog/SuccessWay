@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessWay - Country Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #40b3a2;
+            --primary-dark: #368f82;
+            --secondary-color: #1a1a1a;
+            --light-bg: #e7fbf7;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --text-color: #333333;
+            --text-light: #777777;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 15px;
+            --radius-lg: 30px;
+            --radius-full: 50px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation styles */
+        /* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 2.5rem;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(64, 179, 162, 0.08);
+    max-width: 1400px;
+    width: 90%;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    width: 38px;
+    height: 38px;
+}
+
+.logo-text {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.logo-text .success {
+    color: #40b3a2;
+}
+
+.logo-text .way {
+    color: #1a1a1a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #40b3a2;
+}
+
+.nav-links .faq-btn {
+    background-color: #40b3a2;
+    color: white;
+    padding: 0.7rem 2.2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
+    font-weight: 600;
+}
+
+.nav-links .faq-btn:hover {
+    background-color: #368f82;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(64, 179, 162, 0.3);
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger-line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .navbar {
+        width: 95%;
+        padding: 0.8rem 2rem;
+    }
+    
+    .nav-links {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 30px;
+        width: 95%;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        transform: scale(0.85);
+        transform-origin: left center;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        z-index: 100;
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links a {
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+        font-size: 0.95rem;
+    }
+    
+    .nav-links a:hover {
+        background-color: rgba(92, 184, 178, 0.1);
+    }
+    
+    .nav-links .faq-btn {
+        margin-top: 10px;
+        padding: 0.6rem 1.5rem;
+        width: 80%;
+        align-self: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 8px 12px;
+        height: 50px;
+        border-radius: 25px;
+        width: 95%;
+        top: 10px;
+    }
+    
+    .logo {
+        transform: scale(0.75);
+    }
+    
+    .hamburger-menu {
+        right: 15px;
+    }
+    
+    .nav-links {
+        top: 60px;
+        padding: 12px;
+        gap: 8px;
+        width: 85%;
+    }
+}
+        
+        /* Countries navigation */
+        .countries-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 40px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .country-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+            position: relative;
+            width: 110px;
+        }
+        
+        .country-nav-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .country-nav-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+        
+        .country-nav-item:hover img {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .country-nav-item span {
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .country-nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+        
+        .country-nav-item:hover::after {
+            width: 50px;
+        }
+        
+        /* Country specific pages styling */
+        .country-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 100px;
+        }
+        
+        .country-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 60px 30px;
+            border-radius: var(--radius-md);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .country-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .country-header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .country-flag {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            margin-right: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        .country-header:hover .country-flag {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .country-title h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .country-title p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+        
+        .country-info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .info-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+            overflow: hidden; /* Fix for table overflow */
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .info-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--medium-gray);
+            position: relative;
+        }
+        
+        .info-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .info-content ul {
+            list-style-type: none;
+        }
+        
+        .info-content ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            padding-left: 28px;
+            position: relative;
+        }
+        
+        .info-content ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-color: rgba(64, 179, 162, 0.1);
+            border-radius: 50%;
+        }
+        
+        .costs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            table-layout: fixed; /* Fix for table width issues */
+        }
+        
+        .costs-table th, .costs-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--medium-gray);
+            word-wrap: break-word; /* Ensure text wraps in cells */
+        }
+        
+        .costs-table th {
+            background-color: #f1f9f8;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .costs-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .costs-table tr:hover td {
+            background-color: rgba(64, 179, 162, 0.05);
+        }
+        
+        .costs-table tr:last-child {
+            font-weight: 600;
+        }
+        
+        .procedure-steps {
+            counter-reset: step-counter;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .procedure-steps li {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 35px;
+            min-height: 60px;
+        }
+        
+        .procedure-steps li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 10px rgba(64, 179, 162, 0.3);
+            transition: var(--transition);
+        }
+        
+        .procedure-steps li:hover::before {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(64, 179, 162, 0.4);
+        }
+        
+        .procedure-steps li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background-color: var(--medium-gray);
+        }
+        
+        .procedure-steps li strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+        }
+        
+        .programs-list {
+            column-count: 2;
+            column-gap: 30px;
+        }
+        
+        .programs-list ul {
+            break-inside: avoid;
+            margin-bottom: 20px;
+        }
+        
+        .programs-list ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 28px;
+        }
+        
+        .programs-list ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 18px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+        
+        /* Different background colors for different country sections */
+        #canada-header { background-image: url('https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        #malaysia-header { background-image: url('https://images.unsplash.com/photo-1508766206392-8bd5cf550d1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        #china-header { background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        #india-header { background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        #turkey-header { background-image: url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        #tunisia-header { background-image: url('https://images.unsplash.com/photo-1540552999122-a0ac7a9a0008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            background-image: linear-gradient(135deg, var(--primary-color) 0%, #368f82 100%);
+            color: var(--white);
+            padding: 50px 0 30px;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            margin-top: 60px;
+            box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-info, .footer-links, .footer-contact {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-info h3, .footer-links h3, .footer-contact h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-info h3::after, .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: var(--radius-sm);
+        }
+        
+        .footer-links ul {
+            list-style-type: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links ul li a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            padding-left: 20px;
+        }
+        
+        .footer-links ul li a:hover::before {
+            left: 5px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact p i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(64, 179, 162, 0.3);
+            z-index: 99;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(64, 179, 162, 0.4);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .navbar {
+                position: relative;
+                top: 0;
+                padding: 0.8rem 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .countries-nav {
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .country-nav-item {
+                width: 90px;
+            }
+            
+            .country-nav-item img {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .country-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .countries-nav {
+                gap: 15px;
+            }
+            
+            .country-nav-item {
+                width: 80px;
+            }
+            
+            .country-nav-item img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .programs-list {
+                column-count: 1;
+            }
+            
+            .country-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .country-flag {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .country-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .procedure-steps li {
+                padding-left: 60px;
+            }
+            
+            .procedure-steps li::before {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .procedure-steps li:not(:last-child)::after {
+                left: 20px;
+                top: 40px;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            /* Adjust table for mobile */
+            .costs-table {
+                font-size: 0.9rem;
+            }
+            
+            .costs-table th, .costs-table td {
+                padding: 8px 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .navbar {
+                border-radius: var(--radius-md);
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .country-header {
+                padding: 40px 20px;
+            }
+            
+            .country-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .country-title p {
+                font-size: 1rem;
+            }
+            
+            .countries-nav {
+                gap: 10px;
+            }
+            
+            .country-nav-item {
+                width: 70px;
+            }
+            
+            .country-nav-item img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .country-nav-item span {
+                font-size: 0.8rem;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .info-card h2 {
+                font-size: 1.2rem;
+            }
+            
+            .costs-table th, .costs-table td {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
+            
+            .procedure-steps li {
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                gap: 20px;
+            }
+            
+            .footer-info, .footer-links, .footer-contact {
+                min-width: 100%;
+            }
+        }
+        .sw-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* High z-index to stay on top */
+    pointer-events: none; 
+}
+
+.sw-preloader.hidden {
+    display: none;
+}
+
+.sw-plane-container {
+    position: relative;
+    width: 200px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.sw-plane {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    animation: sw-fly 2s infinite ease-in-out;
+}
+
+.sw-plane-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #40b3a2; /* Hardcoded color instead of var to avoid conflicts */
+    transform: translateY(-50%);
+    animation: sw-drawLine 2s infinite ease-in-out;
+}
+
+.sw-loading-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #40b3a2; /* Hardcoded color instead of var to avoid conflicts */
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: sw-fadeText 2s infinite ease-in-out;
+}
+
+/* Scoped animations with unique names */
+@keyframes sw-fly {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 180px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes sw-drawLine {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes sw-fadeText {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+/* Translation Toggle Button */
+.translation-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.translation-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.translation-toggle .icon {
+    margin-right: 8px;
+    color: #5cbfb9;
+}
+
+.translation-toggle .label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.language-options {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.language-options.active {
+    display: flex;
+}
+
+.language-option {
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 0 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.language-option:hover,
+.language-option.active {
+    background-color: #5cbfb9;
+    color: white;
+}
+
+/* Google Translate notification bar remover */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Mobile responsiveness for translation toggle */
+@media (max-width: 768px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .translation-toggle {
+        padding: 8px 12px;
+    }
+    
+    .translation-toggle .label {
+        font-size: 0.85rem;
+    }
+    
+    .language-option {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+.success-way-text::before {
+    content: "Success";
+    color: #5CB8B2;
+    font-weight: bold;
+}
+
+.success-way-text::after {
+    content: "Way";
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+    </style>
+</head>
+<body>
+
+
+<!-- Hidden iframe for reset (optional, use if needed) -->
+<iframe name="reset_frame" style="display:none;"></iframe>
+    <div class="sw-preloader" id="sw-preloader">
+        <div class="sw-plane-container">
+            <div class="sw-plane">✈️</div>
+            <div class="sw-plane-line"></div>
+        </div>
+        <div class="sw-loading-text">SuccessWay</div>
+    </div>
+    <div class="container">
+        <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="successway_logo.png" alt="SuccessWay Logo">
+        <!-- Use special attribute to mark this as a brand name -->
+        <div class="logo-text" translate="no" data-original-text="SuccessWay">
+            <!-- Use span with CSS content property instead of direct text -->
+            <span class="success-way-text"></span>
+        </div>
+    </div>
+    <div class="hamburger-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>s
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Accueil</a>
+            <a href="about_p.html">À propos de nous</a>
+            <a href="services.html">Nos services</a>
+            <a href="pricing_test.html">Tarifs</a>
+            <a href="contact.html">Contactez-nous</a>
+            <a href="students_register.php" class="faq-btn">Inscrivez-vous</a>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+        
+        <!-- Countries Navigation -->
+        <div class="countries-nav">
+            <a href="#canada" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/canada/flag-round-250.png" alt="Canada Flag">
+                <span>Canada</span>
+            </a>
+            <a href="#malaysia" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/malaysia/flag-round-250.png" alt="Malaysia Flag">
+                <span>Malaysia</span>
+            </a>
+            <a href="#china" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/china/flag-round-250.png" alt="China Flag">
+                <span>China</span>
+            </a>
+            <a href="#india" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/india/flag-round-250.png" alt="India Flag">
+                <span>India</span>
+            </a>
+            <a href="#turkey" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/turkey/flag-round-250.png" alt="Turkey Flag">
+                <span>Turkey</span>
+            </a>
+            <a href="#tunisia" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/tunisia/flag-round-250.png" alt="Tunisia Flag">
+                <span>Tunisia</span>
+            </a>
+        </div>
+        
+        <!-- Canada Section -->
+        <section id="canada" class="country-section">
+            <div class="country-header" id="canada-header">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/canada/flag-round-250.png" alt="Canada Flag" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier au Canada</h1>
+                        <p>Une éducation de haute qualité avec une reconnaissance mondiale et des opportunités de travail après l'obtention du diplôme</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de l'éducation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Frais</th>
+                                <th>Coût (USD)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité annuels</td>
+                                <td>13 000 $ - 14 000 $</td>
+                                <td>~7 000 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Hébergement</td>
+                                <td>700 $ - 900 $ / mois</td>
+                                <td>~400 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de subsistance</td>
+                                <td>700 $ - 1 000 $ / mois</td>
+                                <td>~500 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>~28 000 $</strong></td>
+                                <td><strong>~14 000 000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 15px; font-style: italic; color: var(--text-light);">Note : Ce montant n'est pas versé à Le chemin du succès et est fourni à titre informatif pour vous aider à préparer votre voyage.</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h2>Coûts de la procédure</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence (en deux versements)</td>
+                                <td>850 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais d'admission</td>
+                                <td>150 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de CAQ et de permis d'études</td>
+                                <td>200 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais d'examen médical</td>
+                                <td>175 000 FCFA</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Documents requis</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Diplôme/certificat d'études secondaires</li>
+                            <li>Relevé de notes du lycée</li>
+                            <li>Certificat de naissance</li>
+                            <li>Passeport</li>
+                            <li>Photo d'identité</li>
+                            <li>Bulletins scolaires du secondaire</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Pour les programmes de maîtrise :</strong> ajoutez les relevés de notes du baccalauréat</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Le chemin du succès peut faciliter l'admission aux collèges partenaires de Montréal et de Gatineau, mais pas directement aux universités</li>
+                            <li>Les nouveaux diplômés du secondaire auront du mal à obtenir une admission directe à l'université et devront peut-être d'abord passer par l'université.</li>
+                            <li>Les titulaires d'un baccalauréat peuvent avoir des difficultés à transférer des crédits vers les universités</li>
+                            <li>Les étudiants peuvent travailler à temps partiel mais ne peuvent pas subvenir entièrement à leurs besoins</li>
+                            <li>Le délai de traitement des visas varie de 1 à 12 mois et est déterminé par les agents d'immigration.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Processus de candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Premier paiement des frais d'agence (600 000 FCFA) + frais d'admission</strong><br>Soumettez vos documents et effectuez le premier paiement pour commencer le processus.</li>
+                        <li><strong>Obtention de la lettre d'admission</strong><br>Une fois votre candidature traitée, vous recevrez une lettre d'admission officielle.</li>
+                        <li><strong>Demande de visa (CAQ et permis d'études)</strong><br>Demandez le certificat d'acceptation du Québec et le permis d'études.</li>
+                        <li><strong>Rendez-vous biométrique et période d'attente</strong><br>Complétez la collecte de données biométriques et attendez le traitement.</li>
+                        <li><strong>Examen médical et soumission du passeport</strong><br>Après approbation du dossier, subissez un examen médical et soumettez votre passeport.</li>
+                        <li><strong>Délivrance du visa et paiement des frais d'agence restants</strong><br>Une fois votre visa approuvé, payez les frais d'agence restants.</li>
+                        <li><strong>Achat du billet d'avion et premier paiement des frais de scolarité</strong><br>Préparez votre départ en achetant votre vol et en payant votre premier versement de frais de scolarité.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Programmes disponibles</h2>
+                <div class="info-content">
+                    <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes DEC préuniversitaires (2 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Sciences humaines</li>
+                            <li>Sciences de la nature</li>
+                            <li>Arts, lettres et communication</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes DEC techniques (3 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Réseaux et télécommunications</li>
+                            <li>Informatique en nuage et sécurité</li>
+                            <li>Programmes Web et mobiles</li>
+                            <li>Électronique programmable</li>
+                            <li>Automatisation et contrôle</li>
+                            <li>Technologie de l'informatique</li>
+                            <li>Gestion des opérations et de la chaîne d'approvisionnement</li>
+                            <li>Techniques de travail social</li>
+                            <li>Gestion de projets en communications graphiques</li>
+                            <li>Techniques des services financiers et de l'assurance</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes d'attestation d'études collégiales (AEC)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Techniques d'éducation à l'enfance</li>
+                            <li>Commerce électronique</li>
+                            <li>Techniques juridiques</li>
+                            <li>Commerce international</li>
+                            <li>Marketing numérique</li>
+                            <li>Cybersécurité</li>
+                            <li>Organisation et gestion de projets d'événements</li>
+                            <li>Conseil en assurance et services financiers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Malaysia Section -->
+        <section id="malaysia" class="country-section">
+            <div class="country-header" id="malaysia-header">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/malaysia/flag-round-250.png" alt="Malaysia Flag" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier en Malaisie</h1>
+                        <p>Une éducation de qualité dans un environnement multiculturel</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de l'éducation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Frais</th>
+                                <th>Coût (USD)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité annuels</td>
+                                <td>~8 000 $</td>
+                                <td>~4 500 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Hébergement</td>
+                                <td>200 $ - 300 $ / mois</td>
+                                <td>~200 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de subsistance</td>
+                                <td>300 $ - 400 $ / mois</td>
+                                <td>~300 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>~14 000 $</strong></td>
+                                <td><strong>~8 000 000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Coûts de la procédure</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence (en deux versements)</td>
+                                <td>600 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de visa</td>
+                                <td>450 000 FCFA</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Le chemin du succès place des étudiants à l'Université de technologie et d'innovation Asie-Pacifique</li>
+                            <li>Les cours sont dispensés en anglais - les étudiants passent un test d'anglais à leur arrivée et peuvent avoir besoin de 3 à 7 mois de cours de langue selon leur niveau</li>
+                            <li>Les étudiants ne sont pas autorisés à travailler en Malaisie et doivent se concentrer entièrement sur leurs études.</li>
+                            <li>Les étudiants de première ou deuxième année de licence ne peuvent pas transférer de crédits et doivent terminer leur diplôme actuel avant de postuler à un programme de maîtrise.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="info-card">
+                <h2>Processus de candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Dépôt des documents et premier paiement des frais d'agence (400 000 FCFA)</strong></li>
+                        <li><strong>Réception de la lettre d'admission temporaire et du paiement de l'acompte des frais de scolarité</strong></li>
+                        <li><strong>Réception de la lettre d'admission officielle et du paiement des frais de visa</strong></li>
+                        <li><strong>Délai d'attente de 6 semaines pour l'approbation du visa</strong></li>
+                        <li><strong>Achat de billets d'avion et préparation du départ vers la Malaisie</strong></li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Durée de la procédure :</strong> 6 à 8 semaines pour le processus d'admission et de visa</p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Programmes disponibles</h2>
+                <div class="info-content">
+                    <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes de baccalauréat (3 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Informatique</li>
+                            <li>Multimédia</li>
+                            <li>Développement de jeux informatiques</li>
+                            <li>Réalité virtuelle (AR/VR)</li>
+                            <li>Affaires et gestion</li>
+                            <li>Marketing numérique</li>
+                            <li>Gestion des ressources humaines</li>
+                            <li>Comptabilité et finances</li>
+                            <li>Comptabilité judiciaire</li>
+                            <li>Analyse des investissements</li>
+                            <li>Architecture</li>
+                            <li>Dessin industriel</li>
+                            <li>Cybersécurité</li>
+                            <li>Effets visuels</li>
+                            <li>Animation</li>
+                            <li>Relations internationales</li>
+                            <li>Médias et communications</li>
+                            <li>Psychologie</li>
+                            <li>Banque et finance</li>
+                            <li>Mathématiques et statistiques</li>
+                            <li>Fintech</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes de baccalauréat (4 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Ingénierie mécatronique</li>
+                            <li>Génie mécanique</li>
+                            <li>Génie informatique</li>
+                            <li>Ingénierie électrique et électronique</li>
+                            <li>Ingénierie pétrolière</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes de maîtrise (2 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Gestion de la technologie</li>
+                            <li>L'informatique</li>
+                            <li>Ingénierie logicielle</li>
+                            <li>Gestion de projet</li>
+                            <li>Administration des affaires</li>
+                            <li>Sciences de la communication</li>
+                            <li>Affaires internationales</li>
+                            <li>Intelligence artificielle</li>
+                            <li>Cybersécurité</li>
+                            <li>Finance (spécialisation Fintech)</li>
+                            <li>Analyse comptable judiciaire</li>
+                            <li>Gestion de l'innovation en conception</li>
+                            <li>Gestion du marketing mondial et finances</li>
+                            <li>Transformation numérique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- China Section -->
+        <section id="china" class="country-section">
+            <div class="country-header" id="china-header">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/china/flag-round-250.png" alt="China Flag" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier en Chine</h1>
+                        <p>Une éducation abordable avec des possibilités de bourses</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de l'éducation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Frais</th>
+                                <th>Coût (RMB)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité annuels</td>
+                                <td>6 000 à 7 000 RMB</td>
+                                <td>~650 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Hébergement</td>
+                                <td>3 000 à 4 000 RMB/an</td>
+                                <td>~300 000 FCFA/an</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de subsistance</td>
+                                <td>~1 500 RMB/mois</td>
+                                <td>~150 000 FCFA/mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>~28 000 RMB</strong></td>
+                                <td><strong>~2 750 000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h2>Coûts de la procédure</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence (en deux versements)</td>
+                                <td>1 000 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais d'admission</td>
+                                <td>250 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de visa</td>
+                                <td>15 000 FCFA</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Le chemin du succès collabore avec des universités chinoises offrant des subventions aux étudiants</li>
+                            <li>Les cours sont dispensés en anglais et en chinois - les étudiants suivront des cours de langue dès leur arrivée (1 an)</li>
+                            <li>Les étudiants ne sont pas autorisés à travailler en Chine et doivent maintenir un bon niveau académique.</li>
+                            <li>Les étudiants de première ou deuxième année de licence ne peuvent pas transférer de crédits</li>
+                            <li>Pour le programme de génie pharmaceutique, les étudiants doivent avoir une note minimale de 12 au baccalauréat.</li>
+                            <li>Le tuteur de l'étudiant doit fournir un relevé bancaire avec un solde minimum de 2 000 000 FCFA après avoir reçu la lettre d'admission</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Documents requis</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Diplôme/certificat d'études secondaires</li>
+                            <li>relevé de notes du lycée</li>
+                            <li>Certificat de naissance</li>
+                            <li>Passeport</li>
+                            <li>Photo d'identité</li>
+                            <li>Bulletins scolaires du secondaire</li>
+                            <li>Vérification du casier judiciaire (pour la Chine en particulier)</li>
+                            <li>Relevé bancaire (pour la Chine en particulier)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Processus de candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Dépôt du dossier et premier paiement des frais d'agence (500 000 FCFA) + Frais d'admission</strong></li>
+                        <li><strong>Obtention d'une lettre d'admission et d'un formulaire JW (autorisation gouvernementale)</strong></li>
+                        <li><strong>Dépôt des documents à l'ambassade et paiement des frais de visa</strong></li>
+                        <li><strong>Délai d'attente de 2 semaines pour l'approbation du visa et le paiement des frais d'agence restants</strong></li>
+                        <li><strong>Achat de billets d'avion et préparation du départ vers la Chine</strong></li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Durée de la procédure :</strong> 8 à 10 semaines pour le processus d'admission et de visa</p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Programmes disponibles</h2>
+                <div class="info-content">
+                    <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes de licence à l'Université de Weifang (4 ans)</h3>
+                    <ul>
+                        <li>Ingénierie pharmaceutique</li>
+                        <li>Génie civil</li>
+                        <li>Génie mécanique</li>
+                        <li>Commerce international et économie</li>
+                    </ul>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes de licence à l'Académie des beaux-arts du Hebei (4 ans)</h3>
+                    <ul>
+                        <li>Architecture et design d'intérieur</li>
+                        <li>Conception de vêtements et d'accessoires</li>
+                        <li>Conception de produits</li>
+                        <li>Animation numérique</li>
+                        <li>Production cinématographique et télévisuelle</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- India Section -->
+        <section id="india" class="country-section">
+            <div class="country-header" id="india-header">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/india/flag-round-250.png" alt="India Flag" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier en Inde</h1>
+                        <p>Une éducation de qualité à des prix abordables</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de l'éducation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Frais</th>
+                                <th>Coût (USD)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité annuels</td>
+                                <td>2 000 $ - 4 000 $</td>
+                                <td>~1 500 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Hébergement</td>
+                                <td>100 $ - 200 $ / mois</td>
+                                <td>~75 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de subsistance</td>
+                                <td>100 $ - 150 $ / mois</td>
+                                <td>~100 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>~6 000 $</strong></td>
+                                <td><strong>~3 500 000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Coûts de la procédure</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence (deux versements)</td>
+                                <td>500 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de visa</td>
+                                <td>55 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de réception</td>
+                                <td>100 $</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Le chemin du succès place les étudiants de l'Université Jain à Bangalore, connue pour son éducation de qualité et sa diversité culturelle</li>
+                            <li>Les cours sont dispensés en anglais - les étudiants qui ne parlent pas anglais suivront des cours de langue (3 à 6 mois)</li>
+                            <li>Les étudiants de première ou deuxième année de licence ne peuvent pas transférer de crédits</li>
+                            <li>Les étudiants peuvent bénéficier d'opportunités de travail à temps partiel pour acquérir de l'expérience</li>
+                            <li>De nombreuses opportunités de bourses sont disponibles pour les étudiants internationaux</li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="info-card">
+                <h2>Processus de candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Premier paiement des frais d'agence (350 000 FCFA)</strong></li>
+                        <li><strong>Obtention d'une lettre d'admission temporaire et paiement d'un acompte (700 $)</strong></li>
+                        <li><strong>Obtention d'une lettre d'admission officielle et soumission de documents à l'ambassade</strong></li>
+                        <li><strong>Délai d'attente de 2 semaines pour l'approbation du visa et le paiement des frais d'agence restants</strong></li>
+                        <li><strong>Achat de billets d'avion et préparation du départ vers l'Inde</strong></li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Durée de la procédure :</strong> 2 à 4 semaines pour le processus d'admission et de visa</p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Programmes disponibles</h2>
+                <div class="info-content">
+                    <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes de baccalauréat (3 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Physiothérapie</li>
+                            <li>Microbiologie</li>
+                            <li>Biologie du cancer</li>
+                            <li>Technologie cardiaque</li>
+                            <li>Administration hospitalière</li>
+                            <li>Technologie de médecine nucléaire</li>
+                            <li>Gestion des soins de santé</li>
+                            <li>Génie civil</li>
+                            <li>Ingénierie électrique et électronique</li>
+                            <li>Génie mécanique</li>
+                            <li>Gestion</li>
+                            <li>Administration des affaires</li>
+                            <li>Économie</li>
+                            <li>Journalisme et communication</li>
+                            <li>Science des données et analyse</li>
+                            <li>sécurité informatique</li>
+                            <li>Ingénierie aéronautique</li>
+                            <li>Applications et technologies mobiles</li>
+                            <li>Intelligence artificielle</li>
+                            <li>Génie informatique</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes de maîtrise (2 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Administration des affaires (MBA)</li>
+                            <li>Commercialisation</li>
+                            <li>Finance</li>
+                            <li>Ressources humaines</li>
+                            <li>Gestion des soins de santé</li>
+                            <li>sciences médico-légales</li>
+                            <li>Biochimie, génétique et biotechnologie</li>
+                            <li>Science des données et analyse</li>
+                            <li>Génie informatique</li>
+                            <li>Sécurité numérique et informatique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Turkey Section -->
+        <section id="turkey" class="country-section">
+            <div class="country-header" id="turkey-header">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/turkey/flag-round-250.png" alt="Turkey Flag" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier en Turquie</h1>
+                        <p>Un pont entre l'Europe et l'Asie avec une éducation de haute qualité</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de l'éducation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Frais</th>
+                                <th>Coût (USD)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité annuels</td>
+                                <td>3 400 $ - 4 200 $</td>
+                                <td>~2 500 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Hébergement</td>
+                                <td>300 $ - 400 $ / mois</td>
+                                <td>~200 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de subsistance</td>
+                                <td>200 $ - 300 $ / mois</td>
+                                <td>~150 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>~10 000 $</strong></td>
+                                <td><strong>~6 000 000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 15px; font-style: italic; color: var(--text-light);">Note : Ce montant n'est pas versé à Le chemin du succès et est fourni à titre informatif pour vous aider à préparer votre voyage.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Coûts de la procédure</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence (en deux versements)</td>
+                                <td>600 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de visa et d'assurance</td>
+                                <td>175 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de réception</td>
+                                <td>150 $</td>
+                            </tr>
+                            <tr>
+                                <td>Assurance, permis de séjour et traductions officielles</td>
+                                <td>350 $</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Le chemin du succès place les étudiants dans des universités privées principalement à Antalya et Istanbul</li>
+                            <li>Les cours sont dispensés en anglais - les étudiants passent un test d'anglais à leur arrivée et peuvent avoir besoin de 1 à 2 semestres de cours de langue</li>
+                            <li>Les étudiants n'ont pas de permis de travail et doivent se concentrer entièrement sur leurs études</li>
+                            <li>Les étudiants de première ou deuxième année de licence ne peuvent pas transférer de crédits</li>
+                            <li>La Turquie offre un mélange de cultures européennes et moyen-orientales avec un coût de la vie relativement bas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="info-card">
+                <h2>Processus de candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Premier paiement des frais d'agence (400 000 FCFA)</strong></li>
+                        <li><strong>Obtention d'une lettre d'admission temporaire et paiement d'un acompte (1 000 $)</strong></li>
+                        <li><strong>Obtention d'une lettre d'admission officielle et demande de visa</strong></li>
+                        <li><strong>Délai d'attente de 2 à 3 semaines pour l'approbation du visa et le paiement des frais d'agence restants</strong></li>
+                        <li><strong>Paiement des frais de scolarité restants et préparation au départ</strong></li>
+                        <li><strong>Achat du billet d'avion et premier versement des frais de scolarité</strong></li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Durée de la procédure :</strong> 4 à 6 semaines</p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Programmes disponibles</h2>
+                <div class="info-content">
+                    <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes de baccalauréat (4 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Architecture</li>
+                            <li>Génie civil</li>
+                            <li>Génie industriel</li>
+                            <li>Ingénierie électrique et électronique</li>
+                            <li>Génie mécanique</li>
+                            <li>Génie informatique</li>
+                            <li>Allaitement</li>
+                            <li>Physiothérapie et réadaptation</li>
+                            <li>Dentisterie (en turc) : 14 000 $/an</li>
+                            <li>Médecine : 18 000 $/an</li>
+                            <li>Économie</li>
+                            <li>Administration des affaires</li>
+                            <li>Sciences politiques et relations internationales</li>
+                            <li>Psychologie</li>
+                            <li>Tourisme</li>
+                            <li>Design textile et mode</li>
+                            <li>Nutrition et diététique</li>
+                            <li>Pilotage (en turc) : 8 300 $/an</li>
+                            <li>Pharmacie : 15 000 $/an</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes de maîtrise (2 ans)</h3>
+                    <div class="programs-list">
+                        <ul>
+                            <li>Administration des affaires (MBA)</li>
+                            <li>Relations internationales</li>
+                            <li>Cybersécurité</li>
+                            <li>Génie civil</li>
+                            <li>Génie électrique</li>
+                            <li>Génie informatique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tunisia Section -->
+        <section id="tunisia" class="country-section">
+            <div class="country-header" id="tunisia-header">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/tunisia/flag-round-250.png" alt="Tunisia Flag" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier en Tunisie</h1>
+                        <p>Éducation en langue française avec des procédures simples</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de l'éducation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Frais</th>
+                                <th>Coût (EUR)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité annuels</td>
+                                <td>2 500 € - 3 000 €</td>
+                                <td>~2 000 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Hébergement</td>
+                                <td>250 € - 300 € / mois</td>
+                                <td>~150 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de subsistance</td>
+                                <td>200 € - 250 € / mois</td>
+                                <td>~150 000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>~7 000 €</strong></td>
+                                <td><strong>~4 500 000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Coûts de la procédure</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence</td>
+                                <td>350 000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité de première année (licence)</td>
+                                <td>2 500 €</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de scolarité de première année (Master)</td>
+                                <td>3 000 €</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Le chemin du succès place les étudiants dans une université privée à Tunis où les cours sont dispensés en français</li>
+                            <li>Aucun visa requis pour voyager - les procédures sont simples et rapides</li>
+                            <li>Excellente option pour les étudiants francophones</li>
+                            <li>La situation géographique de la Tunisie offre une proximité avec l'Europe et d'autres pays d'Afrique du Nord</li>
+                            <li>Coût de la vie inférieur à celui de nombreuses autres destinations d'études</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Programmes disponibles</h2>
+                    <div class="info-content">
+                        <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes de baccalauréat (3 ans)</h3>
+                        <div class="programs-list">
+                            <ul>
+                                <li>Administration des affaires</li>
+                                <li>Finance et banque</li>
+                                <li>Gestion du tourisme et de l'hôtellerie</li>
+                                <li>L'informatique</li>
+                                <li>Développement Web</li>
+                                <li>Génie civil</li>
+                                <li>Affaires internationales</li>
+                                <li>Marketing et communication</li>
+                                <li>Sciences de la santé</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes de maîtrise (2 ans)</h3>
+                        <div class="programs-list">
+                            <ul>
+                                <li>Administration des affaires (MBA)</li>
+                                <li>Finance</li>
+                                <li>Marketing international</li>
+                                <li>Informatique</li>
+                                <li>Génie civil</li>
+                                <li>Gestion des soins de santé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="info-card">
+                <h2>Processus de candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Paiement des frais d'agence (350 000 FCFA) et réception de la lettre d'admission temporaire</strong></li>
+                        <li><strong>Frais de scolarité de première année (2 500 € pour la licence ou 3 000 € pour le master)</strong></li>
+                        <li><strong>Obtention de la lettre d'admission officielle, achat du billet d'avion et départ pour Tunis</strong></li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Durée de la procédure :</strong> 1 à 2 semaines</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        
+    </div>
+    
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Scroll to sections when clicking on country navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            // Smooth scroll for country navigation
+            document.querySelectorAll('.country-nav-item').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Check if there's a hash in the URL and scroll to that section
+            if (window.location.hash) {
+                const targetSection = document.querySelector(window.location.hash);
+                if (targetSection) {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            }
+            
+            // Show/hide scroll-to-top button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when clicking the button
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Add active class to country nav items when scrolling
+            const sections = document.querySelectorAll('.country-section');
+            const navItems = document.querySelectorAll('.country-nav-item');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && !e.target.closest('.nav-links') && !e.target.closest('.hamburger-menu')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
+    </script>
+    <script>
+        // Show preloader with custom text
+function showPreloader(text) {
+    // Change the loading text if provided
+    if (text) {
+        const loadingText = document.querySelector('.sw-loading-text');
+        if (loadingText) {
+            loadingText.textContent = text;
+        }
+    }
+    
+    // Show preloader
+    const preloader = document.getElementById('sw-preloader');
+    preloader.classList.remove('hidden');
+}
+
+// Hide preloader
+function hidePreloader() {
+    const preloader = document.getElementById('sw-preloader');
+    preloader.classList.add('hidden');
+}
+
+// Initial preloader hide (for page load)
+window.addEventListener('load', function() {
+    setTimeout(hidePreloader, 2000);
+});
+
+// Fallback hide (in case window load doesn't fire)
+setTimeout(hidePreloader, 5000);
+    </script>
+    <script>
+        // When translating to French:
+showPreloader('Translating to French...');
+
+// When reverting to English:
+showPreloader('Resetting to English...');
+
+// After translation is complete:
+setTimeout(hidePreloader, 1000);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const translationToggle = document.getElementById('translationToggle');
+            const languageOptions = document.getElementById('languageOptions');
+            const languageOptionBtns = document.querySelectorAll('.language-option');
+            
+            // ----- COMPREHENSIVE COOKIE CLEARING -----
+            function nukeGoogleTranslateCookies() {
+                // Get all possible domain variations
+                const hostname = window.location.hostname;
+                const domains = [
+                    hostname,
+                    '.' + hostname,
+                    hostname.split('.').slice(1).join('.'),
+                    '.' + hostname.split('.').slice(1).join('.')
+                ];
+                
+                // Get all possible paths
+                const paths = ['/', '/en/', '/fr/', window.location.pathname];
+                
+                // Clear all variations of googtrans cookies
+                domains.forEach(domain => {
+                    paths.forEach(path => {
+                        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}; domain=${domain};`;
+                        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
+                    });
+                });
+                
+                // Also clear without specifying domain
+                paths.forEach(path => {
+                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
+                });
+                
+                // And root cookie without path/domain
+                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+            }
+            
+            // ----- CLEAR ALL STORAGE TYPES -----
+            function clearAllStorage() {
+                // Clear all storage types
+                localStorage.removeItem('successway_language');
+                sessionStorage.removeItem('successway_language');
+                localStorage.removeItem('googtrans');
+                sessionStorage.removeItem('googtrans');
+                
+                // Also try to clear any other Google Translate related items
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.includes('goog') || key.includes('trans')) {
+                        localStorage.removeItem(key);
+                    }
+                }
+                
+                for (let i = 0; i < sessionStorage.length; i++) {
+                    const key = sessionStorage.key(i);
+                    if (key.includes('goog') || key.includes('trans')) {
+                        sessionStorage.removeItem(key);
+                    }
+                }
+            }
+            
+            // ----- REMOVE ALL GOOGLE TRANSLATE ELEMENTS -----
+            function removeGoogleTranslateElements() {
+                // Remove all translate elements
+                document.querySelectorAll('#google_translate_element, .skiptranslate, .goog-te-gadget, .goog-te-banner-frame, iframe[src*="translate.google"]')
+                    .forEach(el => el.remove());
+                
+                // Reset body positioning
+                document.body.style.removeProperty('top');
+                document.body.style.position = '';
+                document.documentElement.style.removeProperty('overflow');
+                
+                // Remove any translate-specific classes
+                document.body.classList.remove('translated-ltr');
+                document.body.classList.remove('translated-rtl');
+            }
+            
+            // ----- REMOVE ALL GOOGLE TRANSLATE SCRIPTS -----
+            function removeGoogleTranslateScripts() {
+                document.querySelectorAll('script[src*="translate.google"], script[src*="element.js"]')
+                    .forEach(script => script.remove());
+                
+                // Also remove dynamically added scripts
+                document.querySelectorAll('script').forEach(script => {
+                    if (script.textContent.includes('googleTranslateElementInit')) {
+                        script.remove();
+                    }
+                });
+                
+                // Clean up global objects
+                delete window.googleTranslateElementInit;
+                delete window.google?.translate;
+            }
+            
+            // ----- COMPREHENSIVE GOOGLE TRANSLATE RESET -----
+            function resetTranslation() {
+                nukeGoogleTranslateCookies();
+                clearAllStorage();
+                removeGoogleTranslateElements();
+                removeGoogleTranslateScripts();
+                
+                // Also remove any meta tags Google might use
+                document.querySelectorAll('meta[name*="translate"], meta[http-equiv="Content-Language"]')
+                    .forEach(meta => meta.remove());
+            }
+            
+            // Toggle language options display
+            translationToggle.addEventListener('click', function() {
+                languageOptions.classList.toggle('active');
+                translationToggle.style.display = languageOptions.classList.contains('active') ? 'none' : 'flex';
+            });
+            
+            // Handle language selection
+            languageOptionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Remove active class from all buttons
+                    languageOptionBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    if (lang === 'en') {
+                        // Reset translation then force reload with special parameters
+                        resetTranslation();
+                        
+                        // Create a special reload URL that ensures cache busting
+                        const newUrl = new URL(window.location.href);
+                        
+                        // Clear any existing language params
+                        newUrl.searchParams.delete('lang');
+                        newUrl.searchParams.delete('googtrans');
+                        
+                        // Add special params to prevent translation and force reload
+                        newUrl.searchParams.set('notranslate', 'true');
+                        newUrl.searchParams.set('clearcache', Date.now());
+                        
+                        // Use location.replace to avoid history entries
+                        window.location.replace(newUrl.toString());
+                        return;
+                    }
+                    
+                    // For other languages
+                    setLanguage(lang);
+                    
+                    // Hide language options and show toggle
+                    languageOptions.classList.remove('active');
+                    translationToggle.style.display = 'flex';
+                });
+            });
+            
+            // Click outside to close language options
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.language-options') && 
+                    !event.target.closest('.translation-toggle') && 
+                    languageOptions.classList.contains('active')) {
+                    
+                    languageOptions.classList.remove('active');
+                    translationToggle.style.display = 'flex';
+                }
+            });
+            
+            // Set up translation for a specific language
+            function setLanguage(lang) {
+                // First reset everything
+                resetTranslation();
+                
+                // Create new translate element
+                const translateElement = document.createElement('div');
+                translateElement.id = 'google_translate_element';
+                translateElement.style.display = 'none';
+                document.body.appendChild(translateElement);
+                
+                // Define the initialization function
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,fr',
+                        autoDisplay: false,
+                        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+                    }, 'google_translate_element');
+                };
+                
+                // Load the script
+                const script = document.createElement('script');
+                script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                script.async = true;
+                document.body.appendChild(script);
+                
+                // Set timeout to wait for script to load
+                let attempts = 0;
+                const selectInterval = setInterval(function() {
+                    attempts++;
+                    
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        clearInterval(selectInterval);
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                        
+                        // Hide the Google elements
+                        hideGoogleElements();
+                    } 
+                    
+                    // Timeout after 10 seconds
+                    if (attempts > 20) {
+                        clearInterval(selectInterval);
+                        
+                        // Try direct cookie approach as fallback
+                        const langPair = "/en/" + lang;
+                        document.cookie = `googtrans=${langPair};path=/;`;
+                        location.reload();
+                    }
+                }, 500);
+            }
+            
+            // Function to hide Google elements
+            function hideGoogleElements() {
+                document.querySelectorAll('.goog-te-banner-frame, .skiptranslate')
+                    .forEach(el => {
+                        el.style.display = 'none';
+                    });
+                
+                document.body.style.top = '0';
+            }
+            
+            // Set up observer to keep hiding Google elements
+            const observer = new MutationObserver(hideGoogleElements);
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+            
+            // Check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // If notranslate is set, clear everything to ensure no translation
+            if (urlParams.has('notranslate')) {
+                resetTranslation();
+                
+                // Clean URL without reload
+                const cleanUrl = new URL(window.location.href);
+                cleanUrl.searchParams.delete('notranslate');
+                cleanUrl.searchParams.delete('clearcache');
+                window.history.replaceState({}, document.title, cleanUrl.toString());
+            } 
+            // Otherwise check for active language
+            else {
+                // Try to find translation language from URL or cookie
+                let currentLang = null;
+                
+                if (urlParams.has('lang')) {
+                    currentLang = urlParams.get('lang');
+                } else {
+                    // Check cookies
+                    const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
+                    if (match && match[1]) {
+                        currentLang = match[1];
+                    }
+                }
+                
+                // Apply translation if needed
+                if (currentLang && currentLang !== 'en') {
+                    // Mark the correct button
+                    languageOptionBtns.forEach(btn => {
+                        if (btn.getAttribute('data-lang') === currentLang) {
+                            btn.classList.add('active');
+                        }
+                    });
+                    
+                    // Start translation
+                    setLanguage(currentLang);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

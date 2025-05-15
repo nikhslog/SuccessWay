@@ -1480,6 +1480,205 @@
         padding: 8px !important;
     }
 }
+/* Translation Toggle Button */
+.translation-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.translation-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.translation-toggle .icon {
+    margin-right: 8px;
+    color: #5cbfb9;
+}
+
+.translation-toggle .label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.language-options {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.language-options.active {
+    display: flex;
+}
+
+.language-option {
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 0 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.language-option:hover,
+.language-option.active {
+    background-color: #5cbfb9;
+    color: white;
+}
+
+/* Google Translate notification bar remover */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Mobile responsiveness for translation toggle */
+@media (max-width: 768px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .translation-toggle {
+        padding: 8px 12px;
+    }
+    
+    .translation-toggle .label {
+        font-size: 0.85rem;
+    }
+    
+    .language-option {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+/* Fix for French translation text overflow */
+html.translated-ltr .feature-item,
+html[lang="fr"] .feature-item,
+.french-active .feature-item {
+    white-space: normal !important;
+}
+
+html.translated-ltr .feature-item span,
+html[lang="fr"] .feature-item span,
+.french-active .feature-item span {
+    white-space: normal !important;
+    display: inline-block !important;
+    width: auto !important;
+    max-width: calc(100% - 30px) !important;
+}
+.success-way-text::before {
+    content: "Success";
+    color: #5CB8B2;
+    font-weight: bold;
+}
+
+.success-way-text::after {
+    content: "Way";
+    font-weight: bold;
+    color: #1a1a1a;
+}
+.success-way-text.footer-version::before {
+    content: "Success";
+    color: white !important; 
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.success-way-text.footer-version::after {
+    content: "Way";
+    font-weight: bold; /* Note: footer version has both parts bold */
+    color: #333333;
+    font-size: 24px;
+}
+/* Extremely specific selector for the footer logo "Success" */
+.footer .logo-text .success-way-text.footer-version::before,
+footer .logo-text .success-way-text.footer-version::before,
+.footer-brand .logo-text .success-way-text.footer-version::before {
+    content: "Success" !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Extremely specific selector for the footer logo "Way" */
+.footer .logo-text .success-way-text.footer-version::after,
+footer .logo-text .success-way-text.footer-version::after,
+.footer-brand .logo-text .success-way-text.footer-version::after {
+    content: "Way" !important;
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Regular span selectors for the traditional approach */
+.footer .logo-text span.success,
+footer .logo-text span.success,
+.footer-brand .logo-text span.success {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+.footer .logo-text span.way,
+footer .logo-text span.way,
+.footer-brand .logo-text span.way {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Additional more aggressive targeting for the footer logo */
+body .footer .logo-text span:first-of-type,
+body footer .logo-text span:first-of-type,
+body .footer-brand .logo-text span:first-of-type {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+body .footer .logo-text span:last-of-type,
+body footer .logo-text span:last-of-type,
+body .footer-brand .logo-text span:last-of-type {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
     </style>
 </head>
 <body>
@@ -1494,8 +1693,10 @@
     <nav class="navbar">
         <div class="logo">
             <img src="successway_logo.png" alt="SuccessWay Logo">
-            <div class="logo-text">
-                <span class="success" style="color: #5CB8B2; font-weight: bold;">Success</span><span class="way">Way</span>
+            <!-- Use special attribute to mark this as a brand name -->
+            <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                <!-- Use span with CSS content property instead of direct text -->
+                <span class="success-way-text"></span>
             </div>
         </div>
         <div class="hamburger-menu">
@@ -1504,12 +1705,12 @@
             <span class="hamburger-line"></span>
         </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about_p.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="pricing_test.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html" class="faq-btn">Register</a>
+            <a href="index.html">Accueil</a>
+            <a href="about_p.html">À propos de nous</a>
+            <a href="services.html">Nos services</a>
+            <a href="pricing_test.html">Tarifs</a>
+            <a href="contact.html">Contactez-nous</a>
+            <a href="students_register.php" class="faq-btn">Inscrivez-vous</a>
         </div>
     </nav>
     
@@ -1519,7 +1720,7 @@
             <div class="globe-container" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background-color: white; display: flex; justify-content: center; align-items: center; padding: 5px; box-sizing: border-box; box-shadow: 0 0 10px rgba(255,255,255,0.5);">
                 <div class="globe" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
                     <!-- Using the provided image -->
-                    <img src="360_F_301954223_4imp5SfygHVz4tf9iSVOnPw2SElrz3yu-removebg-preview.png" alt="Globe" style="width: 150px; height: 150px; object-fit: contain; transform: scale(4.5);">
+                    <img src="globe.png" alt="Globe" style="width: 150px; height: 50px !important; object-fit: contain; transform: scale(4.5);">
                 </div>
                 <div class="airplane" style="position: absolute; top: 40%; right: 25%; font-size: 20px; transform: rotate(45deg);">✈️</div>
             </div>
@@ -1540,8 +1741,8 @@
     </header>
     <div class="services-intro">
         <div class="container">
-            <h2 class="services-subtitle">OUR SERVICES</h2>
-            <h1 class="services-main-title">Empowering Your International<br>Academic Journey</h1>
+            <h2 class="services-subtitle">NOS SERVICES</h2>
+            <h1 class="services-main-title">Boostez votre parcours <br>académique à l'international</h1>
             <div class="title-underline"></div>
         </div>
     </div>
@@ -1554,29 +1755,29 @@
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat">98%</div>
-                <div class="stat-title">Visa Victory Rate</div>
-                <div class="stat-description">We conquer visas with a 98% success rate. Your educational journey abroad is practically guaranteed!</div>
+                <div class="stat-title">Taux de réussite des visas</div>
+                <div class="stat-description">Visa approuvé à 98 % – Et si vous étiez le prochain ? Faites confiance à notre expertise pour concrétiser votre projet d'études à l'international.</div>
             </div>
             
             <div class="stat-card">
                 <div class="stat">15+</div>
-                <div class="stat-title">Global University Network</div>
-                <div class="stat-description">Access to 15+ opportunities across 6 countries. Your perfect academic match awaits!</div>
+                <div class="stat-title">Réseau universitaire mondial</div>
+                <div class="stat-description">Votre avenir académique commence ici, avec plus de 15 partenaires internationaux.</div>
             </div>
             
-            <div class="stat-card">
+            <!-- <div class="stat-card">
                 <div class="stat">2x</div>
                 <div class="stat-title">Scholarship Booster</div>
                 <div class="stat-description">Double your chances of securing financial aid with our proven application strategies.</div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Services Section -->
         <div class="services-container">
             <!-- Data Suite Card -->
             <div class="service-card data-suite">
-                <h2 class="service-title">Global Navigator</h2>
-                <p class="service-description">Get access to verified university programs, admission details, and scholarship opportunities across 15+ partner institutions.</p>
+                <h2 class="service-title">Navigateur Global</h2>
+                <p class="service-description">Accédez aux programmes universitaires vérifiés, aux détails d'admission et aux opportunités de bourses dans plus de 15 établissements partenaires.</p>
                 
                 <div class="service-content">
                     <div class="service-icon">
@@ -1586,15 +1787,15 @@
                     <div class="feature-list">
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Access real-time application status updates and deadlines.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Suivez en temps réel l'état de votre dossier et les échéances importantes.</span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Generate comprehensive university comparison reports.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Comparez facilement les universités grâce à des rapports complets.</span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Track visa application progress and requirements.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Suivez l'avancement de votre demande de visa et des documents requis.</span>
                         </div>
                     </div>
                 </div>
@@ -1602,8 +1803,8 @@
 
             <!-- Personality Suite Card -->
             <div class="service-card personality-suite">
-                <h2 class="service-title">Student Compass</h2>
-                <p class="service-description">Gain visibility into student life, housing options, and cultural integration strategies at your chosen destination.</p>
+                <h2 class="service-title">Boussole Étudiant</h2>
+                <p class="service-description">Plongez au cœur de la vie étudiante, explorez les options de logement et préparez-vous à une intégration culturelle réussie dans votre pays de destination.</p>
                 
                 <div class="service-content">
                     <div class="service-icon">
@@ -1613,25 +1814,27 @@
                     <div class="feature-list">
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Access insider tips from current international students.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Profitez des conseils d'étudiants internationaux déjà sur place.
+                            </span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Generate cost-of-living reports and budget planners.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Obtenez des rapports détaillés sur le coût de la vie et des outils de planification budgétaire.</span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Track orientation events and pre-departure checklists.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Suivez les événements d'orientation et votre checklist de départ.</span>
                         </div>
                     </div>
                 </div>
-            
+                
+
             </div>
 
             <!-- HR Suite Card -->
             <div class="service-card hr-suite">
-                <h2 class="service-title">Future Architect</h2>
-                <p class="service-description">Identify your ideal academic path with personalized guidance aligned to your career goals and personal strengths.</p>
+                <h2 class="service-title">Architecte de votre avenir</h2>
+                <p class="service-description">Trouvez le parcours académique qui vous correspond grâce à un accompagnement personnalisé, en accord avec vos objectifs professionnels et vos forces personnelles.</p>
                 
                 <div class="service-content">
                     <div class="service-icon">
@@ -1641,15 +1844,15 @@
                     <div class="feature-list">
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Access alumni success stories and networking opportunities.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Inspirez-vous des témoignages d'anciens étudiants et développez votre réseau.</span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Generate personalized study-to-career roadmaps.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Bénéficiez d'un plan d'action sur mesure, de vos études jusqu'à votre carrière.</span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-check">✓</div>
-                            <span>Track post-graduation work permit and career options.</span>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Suivez les options de permis de travail après les études et les débouchés professionnels.</span>
                         </div>
                     </div>
                 </div>
@@ -1660,8 +1863,8 @@
     </div>
     <div class="services-intro">
         <div class="container">
-            <h2 class="services-subtitle">Testimonial</h2>
-            <h1 class="services-main-title">What Our Students<br>Say About Us</h1>
+            <h2 class="services-subtitle">Témoignage</h2>
+            <h1 class="services-main-title">Ce que nos étudiants<br>disent de nous</h1>
             <div class="title-underline"></div>
         </div>
     </div>
@@ -1673,128 +1876,114 @@
                 <!-- First 6 Testimonials -->
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="Sarah Johnson">
-                        </div>
+                        
                         <div class="personInfo">
-                            <div class="personName">Sarah Johnson</div>
-                            <div class="personRole">Marketing Director</div>
+                            <div class="personName">Lamana Tounkara</div>
+                            <div class="personRole">China</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "This product completely transformed our marketing workflow. The analytics dashboard provided real-time insights that helped us optimize our campaigns with unprecedented precision."
+                        "Le chemin du Successway Mali a rendu mon voyage en Chine fluide et sans stress. Du dossier universitaire au traitement des visas, ils ont tout géré de manière professionnelle. J'étudie maintenant dans l'une des meilleures universités de Chine, grâce à leurs conseils !"
                     </div>
                 </div>
                 
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="Michael Chen">
-                        </div>
+                        
                         <div class="personInfo">
-                            <div class="personName">Michael Chen</div>
-                            <div class="personRole">Software Engineer</div>
+                            <div class="personName">Soya Yaranangoré</div>
+                            <div class="personRole">Canada</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "The integration capabilities are outstanding. We were able to connect it with our existing tech stack in minutes, not days. The API documentation is comprehensive and well-organized."
+                        "Déménager au Canada pour mes études était un grand pas, mais avec les conseils d'experts du chemin du Successway Mali, tout s'est bien passé. Ils m'ont aidé à trouver le meilleur programme, à obtenir mon visa et à me préparer à la vie à l'étranger. Je le recommande vivement !"
                     </div>
                 </div>
                 
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="Emily Rodriguez">
-                        </div>
+                       
                         <div class="personInfo">
-                            <div class="personName">Emily Rodriguez</div>
-                            <div class="personRole">Operations Manager</div>
+                            <div class="personName">Salimata Sangaré</div>
+                            <div class="personRole">Malaysia</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "Our team's efficiency increased by 200% after implementing this solution. The automated workflows eliminated redundant tasks and allowed our team to focus on strategic initiatives."
+                        "Je n'ai jamais imaginé qu'étudier en Malaisie pourrait être aussi facile ! Le chemin du Successway Mali a tout géré de manière professionnelle, de l'admission aux arrangements de voyage. Je leur suis éternellement reconnaissante pour leur soutien !"
                     </div>
                 </div>
                 
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="David Thompson">
-                        </div>
+                        
                         <div class="personInfo">
-                            <div class="personName">David Thompson</div>
-                            <div class="personRole">Creative Director</div>
+                            <div class="personName">Bintou Koné</div>
+                            <div class="personRole">Turkey</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "The attention to detail and personalized support makes this product stand out. Whenever we've had questions, the customer service team has been responsive, knowledgeable, and incredibly helpful."
+                        "Grâce au chemin du Successway Mali, j'étudie maintenant en Turquie, je fais l'expérience d'une excellente éducation et d'une nouvelle culture. Leur assistance personnalisée a rendu tout sans stress !"
                     </div>
                 </div>
                 
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="Jessica Lee">
-                        </div>
+                        
                         <div class="personInfo">
-                            <div class="personName">Jessica Lee</div>
-                            <div class="personRole">Startup Founder</div>
+                            <div class="personName">Abibatou Koné</div>
+                            <div class="personRole">India</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "As a startup with limited resources, finding a solution that scales with our growth was crucial. This platform has been the perfect fit, growing alongside us without breaking our budget."
+                        "L'Inde a été une expérience académique formidable pour moi. Le chemin du Successway Mali s'est assuré que j'entre dans une université de premier plan, et leurs conseils avant le départ m'ont préparé pour ce voyage. Je n'aurais pas pu le faire sans eux !"
                     </div>
                 </div>
                 
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="Robert Wilson">
-                        </div>
+
                         <div class="personInfo">
-                            <div class="personName">Robert Wilson</div>
-                            <div class="personRole">IT Director</div>
+                            <div class="personName">Lassina Oundia</div>
+                            <div class="personRole">Tunisia</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "Security was our top concern, and this product exceeded all our expectations. The robust encryption, compliance certifications, and regular security updates give us complete peace of mind."
+                        "Avec le chemin du Successway Mali, étudier en Tunisie est devenu une réalité. Ils ont fourni les meilleurs conseils, ont géré toute ma paperasserie et ont facilité ma transition. Je les recommande vivement à tout étudiant qui cherche à étudier à l'étranger !"
                     </div>
                 </div>
                 
                 <!-- Duplicate Testimonials for Infinite Scroll -->
                 <div class="testimonialCard">
                     <div class="avatarContainer">
-                        <div class="avatar">
-                            <img src="/api/placeholder/60/60" alt="Sarah Johnson">
-                        </div>
+                        
                         <div class="personInfo">
-                            <div class="personName">Sarah Johnson</div>
-                            <div class="personRole">Marketing Director</div>
+                            <div class="personName">Lamana Tounkara</div>
+                            <div class="personRole">China</div>
                         </div>
                     </div>
                     <div class="stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                     <div class="testimonialContent">
-                        "This product completely transformed our marketing workflow. The analytics dashboard provided real-time insights that helped us optimize our campaigns with unprecedented precision."
+                        "Le chemin du Successway Mali a rendu mon voyage en Chine fluide et sans stress. Du dossier universitaire au traitement des visas, ils ont tout géré de manière professionnelle. J'étudie maintenant dans l'une des meilleures universités de Chine, grâce à leurs conseils !"
                     </div>
                 </div>
                 
@@ -1814,43 +2003,41 @@
                 <div class="footer-brand">
                     <div class="logo" style="display: flex; align-items: center; margin-bottom: 10px;">
                         <img src="successway_logo.png" alt="SuccessWay Logo" style="height: 40px; width: auto; margin-right: 10px; background-color: white; padding: 5px; border-radius: 50px;">
-                        <div class="logo-text">
-                            <span class="success" style="color: white !important; font-weight: bold; font-size: 24px;">Success</span><span class="way" style="color: #333333; font-weight: bold; font-size: 24px;">Way</span>
+                        <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                            <!-- Use span with CSS content property instead of direct text -->
+                            <span class="success-way-text footer-version"></span>
                         </div>
                     </div>
                     <div class="copyright">
-                        <p>© 2025 SuccessWay. All rights reserved</p>
+                        <p>© 2025 SuccessWay. Tous droits réservés.</p>
                     </div>
-                    <div class="legal-links">
-                        <a href="#terms">Terms & Conditions</a>
-                        <a href="#privacy">Privacy Center</a>
-                    </div>
+                    
                 </div>
     
                 <!-- Company Links -->
                 <div class="footer-links-column">
-                    <h3 class="footer-heading">Company</h3>
+                    <h3 class="footer-heading">Entreprise</h3>
                     <ul class="footer-links">
-                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="about_p.html">À propos de nous</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
                     </ul>
                 </div>
     
                 <!-- Resources Links -->
                 <div class="footer-links-column">
-                    <h3 class="footer-heading">Resources</h3>
+                    <h3 class="footer-heading">Ressources</h3>
                     <ul class="footer-links">
-                        <li><a href="login.html">Register</a></li>
-                        <li><a href="pricing_test.html">Pricing</a></li>
+                        <li><a href="students_register.php">Inscrivez-vous maintenant</a></li>
+                        <li><a href="pricing_test.html">Tarification</a></li>
                         <!-- <li><a href="#careers">Careers</a></li> -->
                     </ul>
                 </div>
     
                 <!-- Get in Touch Section -->
                 <div class="footer-cta">
-                    <h3 class="footer-heading">Get in Touch</h3>
-                    <a href="#get-started" class="get-started-btn">Get Started</a>
+                    <h3 class="footer-heading">Entrer en contact</h3>
+                    <a href="students_register.php" class="get-started-btn">Commencer</a>
                     
                     <!-- Social Links -->
                     <div class="social-links">

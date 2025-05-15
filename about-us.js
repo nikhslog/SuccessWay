@@ -494,3 +494,16 @@ document.addEventListener('DOMContentLoaded', () => {
     animateBackgroundShapes();
     animateClouds();
 });
+// Make indicators clickable
+document.addEventListener('DOMContentLoaded', function() {
+    const indicators = document.querySelectorAll('.indicator');
+    
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', function() {
+        const slideIndex = parseInt(this.getAttribute('data-slide')) - 1;
+        if (window.goToSlide) {
+          window.goToSlide(slideIndex);
+        }
+      });
+    });
+  });

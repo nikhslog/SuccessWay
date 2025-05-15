@@ -1325,9 +1325,315 @@
         padding: 8px !important;
     }
 }
+/* Updated Team Section Styles */
+.team-section {
+    text-align: center !important;
+    margin: 80px auto !important;
+    max-width: 1000px !important; /* Narrower container for better spacing */
+    padding: 0 20px !important;
+}
+
+.team-title {
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    color: var(--dark) !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding-bottom: 15px !important;
+}
+
+.team-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 80px !important;
+    height: 3px !important;
+    background: linear-gradient(to right, var(--primary), var(--secondary)) !important;
+}
+
+.team-subtitle {
+    font-size: 1.1rem !important;
+    color: var(--medium-gray) !important;
+    max-width: 700px !important;
+    margin: 0 auto 50px !important;
+    line-height: 1.7 !important;
+}
+
+.team-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Always show exactly 2 columns */
+    gap: 40px !important; /* Increase gap between team members */
+    margin-top: 50px !important;
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.team-member {
+    background-color: white !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.member-image {
+    width: 100% !important;
+    height: 320px !important;
+    overflow: hidden !important;
+}
+
+.member-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.5s ease !important;
+}
+
+.member-details {
+    padding: 25px 20px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    justify-content: space-between !important;
+}
+
+.member-role {
+    color: var(--primary) !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    margin-bottom: 15px !important;
+}
+
+.social-icons {
+    margin-top: 20px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr !important; /* Switch to single column on mobile */
+        max-width: 450px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+/* Translation Toggle Button */
+.translation-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.translation-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.translation-toggle .icon {
+    margin-right: 8px;
+    color: #5cbfb9;
+}
+
+.translation-toggle .label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.language-options {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.language-options.active {
+    display: flex;
+}
+
+.language-option {
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 0 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.language-option:hover,
+.language-option.active {
+    background-color: #5cbfb9;
+    color: white;
+}
+
+/* Google Translate notification bar remover */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Mobile responsiveness for translation toggle */
+@media (max-width: 768px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .translation-toggle {
+        padding: 8px 12px;
+    }
+    
+    .translation-toggle .label {
+        font-size: 0.85rem;
+    }
+    
+    .language-option {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+.success-way-text::before {
+    content: "Success";
+    color: #5CB8B2;
+    font-weight: bold;
+}
+
+.success-way-text::after {
+    content: "Way";
+    font-weight: bold;
+    color: #1a1a1a;
+}
+.success-way-text.footer-version::before {
+    content: "Success";
+    color: white !; 
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.success-way-text.footer-version::after {
+    content: "Way";
+    font-weight: bold; /* Note: footer version has both parts bold */
+    color: #333333;
+    font-size: 24px;
+}
+/* Extremely specific selector for the footer logo "Success" */
+.footer .logo-text .success-way-text.footer-version::before,
+footer .logo-text .success-way-text.footer-version::before,
+.footer-brand .logo-text .success-way-text.footer-version::before {
+    content: "Success" !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Extremely specific selector for the footer logo "Way" */
+.footer .logo-text .success-way-text.footer-version::after,
+footer .logo-text .success-way-text.footer-version::after,
+.footer-brand .logo-text .success-way-text.footer-version::after {
+    content: "Way" !important;
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Regular span selectors for the traditional approach */
+.footer .logo-text span.success,
+footer .logo-text span.success,
+.footer-brand .logo-text span.success {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+.footer .logo-text span.way,
+footer .logo-text span.way,
+.footer-brand .logo-text span.way {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Additional more aggressive targeting for the footer logo */
+body .footer .logo-text span:first-of-type,
+body footer .logo-text span:first-of-type,
+body .footer-brand .logo-text span:first-of-type {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+body .footer .logo-text span:last-of-type,
+body footer .logo-text span:last-of-type,
+body .footer-brand .logo-text span:last-of-type {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
     </style>
 </head>
 <body>
+    <!-- Translation Toggle Button -->
+    <div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Traduire en anglais</div>
+    </div>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+
+<!-- Hidden iframe for reset (optional, use if needed) -->
+<iframe name="reset_frame" style="display:none;"></iframe>
     <div class="sw-preloader" id="sw-preloader">
         <div class="sw-plane-container">
             <div class="sw-plane">✈️</div>
@@ -1339,8 +1645,10 @@
     <nav class="navbar">
         <div class="logo">
             <img src="successway_logo.png" alt="SuccessWay Logo">
-            <div class="logo-text">
-                <span class="success" style="color: #5CB8B2; font-weight: bold;">Success</span><span class="way">Way</span>
+            <!-- Use special attribute to mark this as a brand name -->
+            <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                <!-- Use span with CSS content property instead of direct text -->
+                <span class="success-way-text"></span>
             </div>
         </div>
         <div class="hamburger-menu">
@@ -1349,12 +1657,12 @@
             <span class="hamburger-line"></span>
         </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about_p.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="pricing_test.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html" class="faq-btn">Register</a>
+            <a href="index.html">Accueil</a>
+            <a href="about_p.html">À propos de nous</a>
+            <a href="services.html">Nos services</a>
+            <a href="pricing_test.html">Tarifs</a>
+            <a href="contact.html">Contactez-nous</a>
+            <a href="students_register.php" class="faq-btn">Inscrivez-vous</a>
         </div>
     </nav>
     
@@ -1374,20 +1682,20 @@
                 <div class="globe-container" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background-color: white; display: flex; justify-content: center; align-items: center; padding: 5px; box-sizing: border-box; box-shadow: 0 0 10px rgba(255,255,255,0.5);">
                     <div class="globe" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
                         <!-- Using the provided image -->
-                        <img src="360_F_301954223_4imp5SfygHVz4tf9iSVOnPw2SElrz3yu-removebg-preview.png" alt="Globe" style="width: 150px; height: 150px; object-fit: contain; transform: scale(4.5);">
+                        <img src="globe.png" alt="Globe" style="width: 150px; height: 50px; object-fit: contain; transform: scale(4.5);">
                     </div>
                     <div class="airplane" style="position: absolute; top: 40%; right: 25%; font-size: 20px; transform: rotate(45deg);">✈️</div>
                 </div>
         </div>
         <div class="page-title-container">
-            <h1 class="page-title">About Us</h1>
+            <h1 class="page-title">À propos de nous</h1>
         </div>
     </header>
 
     <div class="about-intro">
         <div class="container">
-            <h2 class="about-subtitle">OUR STORY</h2>
-            <h1 class="about-main-title">Building Bridges To Global<br>Educational Opportunities</h1>
+            <h2 class="about-subtitle">NOTRE HISTOIRE</h2>
+            <h1 class="about-main-title">Construire des ponts vers<br>des opportunités éducatives mondiales</h1>
             <div class="title-underline"></div>
         </div>
     </div>
@@ -1395,26 +1703,27 @@
     <!-- Our Story Section -->
     <section class="about-section">
         <div class="about-image">
-            <img src="/api/placeholder/600/400" alt="SuccessWay Team">
+            <img src="who_we_are-min.png" alt="SuccessWay Team">
         </div>
         <div class="about-content">
-            <h2 class="section-title">Who We Are</h2>
-            <p class="section-text">Founded in 2018, SuccessWay has been at the forefront of international education consultancy, helping students navigate their academic journey abroad. What began as a small team of passionate education enthusiasts has grown into a trusted name in global education solutions.</p>
-            <p class="section-text">Our team consists of experienced advisors, many of whom have studied internationally themselves, providing firsthand insights and guidance to students looking to pursue education abroad. With expertise across multiple countries and education systems, we pride ourselves on offering tailored advice that aligns with each student's unique needs and aspirations.</p>
+            <h2 class="section-title">Qui sommes-nous</h2>
+            <p class="section-text">Fondé en 2018, Successway est à la pointe du conseil en éducation internationale, accompagnant les étudiants dans leur parcours académique à l'étranger. Ce qui avait commencé comme une petite équipe de passionnés de l'éducation est devenu aujourd'hui un nom de confiance dans le domaine des solutions éducatives à l'échelle mondiale.</p>
+            <p class="section-text">Notre équipe est composée de conseillers expérimentés, dont plusieurs ont eux-mêmes étudié à l'international, offrant ainsi des conseils et des perspectives fondées sur leur propre expérience. Grâce à notre expertise dans divers pays et systèmes éducatifs, nous sommes fiers de proposer un accompagnement personnalisé, adapté aux besoins et aux ambitions de chaque étudiant.
+                </p>
         </div>
     </section>
 
     <!-- Our Mission & Vision Section -->
     <section class="mission-vision">
         <div class="mission">
-            <h3 class="mission-vision-title">Our Mission</h3>
-            <p class="mission-vision-text">SuccessWay was founded with the mission of transforming the way students connect with international educational opportunities. Our team is a diverse group of passionate individuals united by a common goal: to create the most reliable and supportive platform for students seeking to study abroad.</p>
-            <p class="mission-vision-text">We strive to break down barriers to international education by providing accurate information, personalized guidance, and ongoing support throughout the application process and beyond.</p>
+            <h3 class="mission-vision-title">Notre mission</h3>
+            <p class="mission-vision-text">Successway a été fondé avec la mission de transformer la manière dont les étudiants accèdent aux opportunités d'études à l'international. Notre équipe est un groupe diversifié de personnes passionnées, unies par un objectif commun : créer la plateforme la plus fiable et la plus engagée pour les étudiants souhaitant étudier à l'étranger.</p>
+            <p class="mission-vision-text">Nous nous efforçons de lever les barrières à l'éducation internationale en fournissant des informations précises, un accompagnement personnalisé et un soutien continu tout au long du processus de candidature et au-delà.</p>
         </div>
         <div class="vision">
-            <h3 class="mission-vision-title">Our Vision</h3>
-            <p class="mission-vision-text">We envision a world where geographical boundaries don't limit educational pursuits. Our vision is to empower students with the knowledge, tools, and confidence to pursue academic excellence globally.</p>
-            <p class="mission-vision-text">By fostering stronger relationships between students and institutions worldwide, we aim to create more opportunities for cross-cultural learning and development, ultimately helping students achieve their educational and career objectives.</p>
+            <h3 class="mission-vision-title">Notre vision</h3>
+            <p class="mission-vision-text">Nous imaginons un monde où les frontières géographiques ne limitent pas les aspirations éducatives. Notre vision est de donner aux étudiants les connaissances, les outils et la confiance nécessaires pour poursuivre l'excellence académique à l'échelle mondiale.</p>
+            <p class="mission-vision-text">En renforçant les liens entre les étudiants et les établissements du monde entier, nous visons à créer davantage d'opportunités d'apprentissage et de développement interculturels, afin d'aider les étudiants à atteindre leurs objectifs éducatifs et professionnels</p>
         </div>
     </section>
 
@@ -1422,19 +1731,19 @@
     <div class="stats-container">
         <div class="stat-card">
             <div class="stat">400+</div>
-            <div class="stat-title">Students Placed</div>
-            <div class="stat-description">Successfully guided students to top universities across the globe with personalized counseling.</div>
+            <div class="stat-title">Étudiants placés</div>
+            <div class="stat-description">Nous avons guidé avec succès des étudiants vers les meilleures universités du monde entier grâce à des conseils personnalisés.</div>
         </div>
         <div class="stat-card">
             <div class="stat">15</div>
-            <div class="stat-title">University Partners</div>
-            <div class="stat-description">Extensive network of partner universities offering diverse programs through our strategic global relationships.</div>
+            <div class="stat-title">Partenaires universitaires</div>
+            <div class="stat-description">Vaste réseau d’universités partenaires offrant des programmes diversifiés grâce à nos relations mondiales stratégiques.</div>
         </div>
         
         <div class="stat-card">
             <div class="stat">5</div>
-            <div class="stat-title">Countries</div>
-            <div class="stat-description">Opening doors to premier educational opportunities across five international destinations with personalized guidance.</div>
+            <div class="stat-title">Pays</div>
+            <div class="stat-description">Ouvrir les portes à des opportunités éducatives de premier ordre dans cinq destinations internationales avec un accompagnement personnalisé.</div>
         </div>
         
         
@@ -1442,24 +1751,24 @@
 
     <!-- Team Section -->
     <section class="team-section">
-        <h2 class="team-title">Our Leadership Team</h2>
-        <p class="team-subtitle">Meet the passionate individuals behind SuccessWay who work tirelessly to ensure your international academic journey is seamless and successful.</p>
+        <h2 class="team-title">Notre équipe de direction</h2>
+        <p class="team-subtitle">Rencontrez les personnes passionnées derrière SuccessWay qui travaillent sans relâche pour garantir que votre parcours académique international soit fluide et réussi.</p>
         
         <div class="team-grid">
             <div class="team-member">
                 <div class="member-image">
-                    <img src="/api/placeholder/300/320" alt="Sarah Johnson">
+                    <img src="fatooua-minn.jpeg" alt="Fatoumata">
                 </div>
                 <div class="member-details">
-                    <h3 class="member-name">Sarah Johnson</h3>
-                    <p class="member-role">Founder & CEO</p>
-                    <p class="member-bio">With over 15 years of experience in international education, Sarah founded SuccessWay with the vision of democratizing access to global education opportunities.</p>
+                    <h3 class="member-name">Fatoumata Youchaou Traoré</h3>
+                    <p class="member-role">Fondateur et PDG</p>
+                    <p class="member-bio">Diplômée en administration des affaires de l'Université d'Antalya Bilim en Turquie, elle est une entrepreneure visionnaire engagée dans la transformation du paysage éducatif et professionnel au Mali. En fondant Successway, elle a créé un pont entre les ambitions académiques des jeunes et des opportunités concrètes à l'échelle internationale.</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <a href="https://www.instagram.com/mrs.sweetnes?igsh=MTFndzg3bmF2cnB3ag==" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
-                        <a href="#" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"></path></svg>
+                        <a href="https://www.facebook.com/FatoOu.fashiOnistaa/" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                         </a>
                     </div>
                 </div>
@@ -1467,37 +1776,18 @@
             
             <div class="team-member">
                 <div class="member-image">
-                    <img src="/api/placeholder/300/320" alt="Michael Chen">
+                    <img src="bakari.jpg" alt="Bakari">
                 </div>
                 <div class="member-details">
-                    <h3 class="member-name">Michael Chen</h3>
-                    <p class="member-role">Director of International Relations</p>
-                    <p class="member-bio">Michael leverages his extensive network with universities worldwide to create strategic partnerships that benefit our students.</p>
+                    <h3 class="member-name">Bakari Camara</h3>
+                    <p class="member-role">Directeur commercial et marketing</p>
+                    <p class="member-bio">Je suis passionné par l'accompagnement des étudiants vers des opportunités d'études à l'étranger qui changent leur vie. Fort d'une solide expérience en affaires et d'une approche axée sur les résultats, je m'engage à accompagner nos clients à chaque étape de leur parcours, de l'ambition à la réussite.</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <a href="https://www.instagram.com/bekri_c/" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
-                        <a href="#" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="team-member">
-                <div class="member-image">
-                    <img src="/api/placeholder/300/320" alt="Priya Sharma">
-                </div>
-                <div class="member-details">
-                    <h3 class="member-name">Priya Sharma</h3>
-                    <p class="member-role">Head of Student Success</p>
-                    <p class="member-bio">Having studied in three different countries, Priya brings personal insights to guide students through their international education journey.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"></path></svg>
+                        <a href="https://www.facebook.com/bkrcamara/" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                         </a>
                     </div>
                 </div>
@@ -1508,12 +1798,12 @@
     <!-- Additional About Section -->
     <section class="about-section">
         <div class="about-content">
-            <h2 class="section-title">Our Approach</h2>
-            <p class="section-text">At SuccessWay, we believe that every student is unique, with individual goals, abilities, and circumstances. That's why we take a personalized approach to education consultancy, tailoring our services to meet each student's specific needs.</p>
-            <p class="section-text">Our comprehensive process begins with understanding your academic background, career aspirations, and personal preferences. We then match you with institutions and programs that align with your profile, guide you through the application process, help with visa applications, and provide pre-departure support.</p>
+            <h2 class="section-title">Notre approche</h2>
+            <p class="section-text">Chez SuccessWay, nous sommes convaincus que chaque élève est unique, avec des objectifs, des capacités et une situation qui lui sont propres. C'est pourquoi nous adoptons une approche personnalisée du conseil pédagogique, en adaptant nos services aux besoins spécifiques de chaque élève.</p>
+            <p class="section-text">Notre processus complet commence par une analyse de votre parcours universitaire, de vos aspirations professionnelles et de vos préférences personnelles. Nous vous mettons ensuite en relation avec les établissements et les programmes correspondant à votre profil, vous accompagnons dans le processus de candidature, vous aidons dans vos démarches de visa et vous proposons un accompagnement avant votre départ.</p>
         </div>
         <div class="about-image">
-            <img src="/api/placeholder/600/400" alt="SuccessWay Consulting Session">
+            <img src="our_appro-min.png" alt="SuccessWay Consulting Session">
         </div>
     </section>
 
@@ -1524,43 +1814,41 @@
                 <div class="footer-brand">
                     <div class="logo" style="display: flex; align-items: center; margin-bottom: 10px;">
                         <img src="successway_logo.png" alt="SuccessWay Logo" style="height: 40px; width: auto; margin-right: 10px; background-color: white; padding: 5px; border-radius: 50px;">
-                        <div class="logo-text">
-                            <span class="success" style="color: white; font-weight: bold; font-size: 24px;">Success</span><span class="way" style="color: #333333; font-weight: bold; font-size: 24px;">Way</span>
+                        <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                            <!-- Use span with CSS content property instead of direct text -->
+                            <span class="success-way-text footer-version"></span>
                         </div>
                     </div>
                     <div class="copyright">
-                        <p>© 2025 SuccessWay. All rights reserved</p>
+                        <p>© 2025 SuccessWay. Tous droits réservés.</p>
                     </div>
-                    <div class="legal-links">
-                        <a href="#terms">Terms & Conditions</a>
-                        <a href="#privacy">Privacy Center</a>
-                    </div>
+                    
                 </div>
     
                 <!-- Company Links -->
                 <div class="footer-links-column">
-                    <h3 class="footer-heading">Company</h3>
+                    <h3 class="footer-heading">Entreprise</h3>
                     <ul class="footer-links">
-                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="about_p.html">À propos de nous</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
                     </ul>
                 </div>
     
                 <!-- Resources Links -->
                 <div class="footer-links-column">
-                    <h3 class="footer-heading">Resources</h3>
+                    <h3 class="footer-heading">Ressources</h3>
                     <ul class="footer-links">
-                        <li><a href="login.html">Register</a></li>
-                        <li><a href="pricing_test.html">Pricing</a></li>
+                        <li><a href="students_register.php">Inscrivez-vous maintenant</a></li>
+                        <li><a href="pricing_test.html">Tarification</a></li>
                         <!-- <li><a href="#careers">Careers</a></li> -->
                     </ul>
                 </div>
     
                 <!-- Get in Touch Section -->
                 <div class="footer-cta">
-                    <h3 class="footer-heading">Get in Touch</h3>
-                    <a href="#get-started" class="get-started-btn">Get Started</a>
+                    <h3 class="footer-heading">Entrer en contact</h3>
+                    <a href="students_register.php" class="get-started-btn">Commencer</a>
                     
                     <!-- Social Links -->
                     <div class="social-links">
@@ -1680,5 +1968,6 @@
         }
     });
 </script>
+
 </body>
 </html>

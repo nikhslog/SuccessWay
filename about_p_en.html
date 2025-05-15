@@ -1,0 +1,3433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessWay - About Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #54b7a5;     /* Teal */
+            --secondary: #f3856f;   /* Coral */
+            --accent: #edc855;      /* Yellow */
+            --light: #e7f7f4;       /* Light mint */
+            --dark: #333333;
+            --coral: #f3856f;
+            --teal: #54b7a5;
+            --yellow: #edc855;
+            --light-mint: #e7f7f4;
+            --white: #ffffff;
+            --medium-gray: #4a4a4a;
+        }
+        
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            padding-top: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 6rem 0 5rem 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            color: white;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .floating-bubble {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            z-index: 0;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(10px, 10px); }
+            50% { transform: translate(0, 15px); }
+            75% { transform: translate(-10px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .floating-bubble:nth-child(1) { animation-duration: 20s; }
+        .floating-bubble:nth-child(2) { animation-duration: 15s; animation-delay: 1s; }
+        .floating-bubble:nth-child(3) { animation-duration: 18s; animation-delay: 2s; }
+        .floating-bubble:nth-child(4) { animation-duration: 22s; animation-delay: 0.5s; }
+        .floating-bubble:nth-child(5) { animation-duration: 25s; animation-delay: 1.5s; }
+        .floating-bubble:nth-child(6) { animation-duration: 17s; animation-delay: 3s; }
+        .floating-bubble:nth-child(7) { animation-duration: 21s; animation-delay: 2.5s; }
+        .floating-bubble:nth-child(8) { animation-duration: 19s; animation-delay: 1s; }
+        
+        .globe-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 1rem;
+        }
+        
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            background-color: #e0f2f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .globe img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 0;
+        }
+        
+        .airplane {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 10;
+            animation: fly 10s linear infinite;
+        }
+
+        /* Navigation bar styles */
+/* Navbar Styles */
+.navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.3rem 2.5rem !important;
+    background-color: white !important;
+    border-radius: 50px !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(64, 179, 162, 0.08) !important;
+    max-width: 1400px !important;
+    width: 90% !important;
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+}
+
+/* Logo Styling - For leftmost positioning */
+.navbar .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-right: auto !important; /* Push everything else to the right */
+    padding-left: 5px !important; /* Add a bit of padding on the left */
+}
+.airplane {
+    position: absolute !important;
+    font-size: 20px !important;
+    z-index: 10 !important;
+    animation: flyAround 8s linear infinite !important;
+}
+
+@keyframes flyAround {
+    0% {
+        left: -10%;
+        top: 40%;
+        transform: rotate(15deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    25% {
+        left: 30%;
+        top: 20%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        left: 60%;
+        top: 60%;
+        transform: rotate(-15deg);
+        opacity: 1;
+    }
+    75% {
+        left: 85%;
+        top: 30%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        left: 95%;
+        top: 40%;
+        transform: rotate(15deg);
+        opacity: 0;
+    }
+}
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-logo img {
+            width: 38px;
+            height: 38px;
+        }
+        
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+        
+        .logo-text .success {
+            color: #40b3a2;
+        }
+        
+        .logo-text .way {
+            color: #1a1a1a;
+        }
+
+        /* Position logo to leftmost side with proper spacing */
+.navbar .logo {
+    display: flex !important;
+    align-items: center !important;
+    margin-right: auto !important; /* Push everything else to the right */
+    padding-left: 15px !important; /* Add more padding on the left for better spacing */
+}
+
+.navbar {
+    justify-content: space-between !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .logo {
+        transform-origin: left center !important;
+    }
+    
+    .hamburger-menu {
+        right: 15px !important;
+    }
+}
+.nav-links {
+    display: flex;
+    gap: 2.5rem; /* Increased spacing between links */
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.rem 0.8rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #40b3a2;
+}
+
+.nav-links .faq-btn {
+    background-color: #40b3a2;
+    color: white;
+    padding: 0.7rem 2.2rem; /* Wider button */
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
+    font-weight: 600;
+}
+
+.nav-links .faq-btn:hover {
+    background-color: #368f82;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(64, 179, 162, 0.3);
+}
+        
+        .page-title-container {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+            padding: 2rem 0 1.5rem;
+            z-index: 10;
+        }
+                
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes fly {
+            0% {
+                left: -10%;
+                top: 40%;
+                transform: rotate(15deg);
+            }
+            25% {
+                left: 30%;
+                top: 20%;
+                transform: rotate(0deg);
+            }
+            50% {
+                left: 60%;
+                top: 60%;
+                transform: rotate(-15deg);
+            }
+            75% {
+                left: 85%;
+                top: 30%;
+                transform: rotate(0deg);
+            }
+            100% {
+                left: 110%;
+                top: 40%;
+                transform: rotate(15deg);
+            }
+        }
+
+        /* About Us Page Specific Styles */
+        .about-intro {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .about-subtitle {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .about-main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .title-underline {
+            width: 160px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 0 auto;
+        }
+
+        /* Our Story Section */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin: 60px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .about-image {
+            flex: 0 0 48%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-content {
+            flex: 0 0 48%;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--teal);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            background-color: white;
+            border-radius: 24px;
+            padding: 60px;
+            margin: 80px auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 60px;
+        }
+
+        .mission, .vision {
+            flex: 1;
+        }
+
+        .mission-vision-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .mission-vision-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .mission-vision-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--medium-gray);
+        }
+
+        /* Team Section */
+        .team-section {
+            text-align: center;
+            margin: 80px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .team-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .team-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .team-subtitle {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
+        }
+
+        .member-details {
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .member-bio {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            gap: 24px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .stat-card {
+            padding: 32px;
+            border-radius: 24px;
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:nth-child(1) {
+            background: linear-gradient(135deg, #fff 0%, #ffe9e6 100%);
+            border: 1px solid rgba(243, 133, 111, 0.1);
+            color: var(--coral);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #fff 0%, #e7f7f4 100%);
+            border: 1px solid rgba(84, 183, 165, 0.1);
+            color: var(--teal);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #fff 0%, #fef9e6 100%);
+            border: 1px solid rgba(237, 200, 85, 0.1);
+            color: var(--yellow);
+        }
+
+        .stat {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .stat-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .stat-description {
+            font-size: 16px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        .footer {
+        background-color: #5bbfb1;
+        color: #f0f0f0;
+        padding: 60px 0 40px;
+        position: relative;
+        font-family: system-ui, -apple-system, sans-serif;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        margin-top: 40px;
+    }
+
+    .footer-container {
+        max-width: 1400px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    /* Brand Section */
+    .footer-brand {
+        flex: 0 0 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    
+    .copyright {
+        color: #f0f0f0;
+        font-size: 0.9rem;
+        margin: 10px 0;
+        opacity: 0.9;
+    }
+
+    .legal-links {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .logo-text {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    
+    .logo-text .success {
+        color: #f0f0f0;
+    }
+    
+    .logo-text .way {
+        color: #333333;
+    }
+
+    .legal-links a {
+        color: #f0f0f0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+        opacity: 0.9;
+    }
+
+    .legal-links a:hover {
+        color: #fff;
+        opacity: 1;
+    }
+
+    /* Links Columns */
+    .footer-links-column {
+        flex: 0 0 15%;
+    }
+
+    .footer-heading {
+        color: #f0f0f0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links li {
+        margin: 0;
+    }
+
+    .footer-links a {
+        color: #f0f0f0;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        opacity: 1;
+    }
+
+    /* CTA Section */
+    .footer-cta {
+        flex: 0 0 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .get-started-btn {
+        display: inline-block;
+        background-color: #ffffff;
+        color: #5bbfb1;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .get-started-btn:hover {
+        background-color: #f5f5f5;
+        color: #4ba99c;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Social Links */
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 5px;
+    }
+
+    .social-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        color: #40b3a2;
+        transition: all 0.3s;
+    }
+
+    .social-link:hover {
+        background-color: #1a1a1a;
+        color: #ffffff;
+        transform: translateY(-3px);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #40b3a2;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 100;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        transform: translateY(-5px);
+        background-color: #1a1a1a;
+        color: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .footer-brand, .footer-links-column, .footer-cta {
+            flex: 0 0 calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-brand, .footer-links-column, .footer-cta {
+            flex: 0 0 100%;
+        }
+        
+        .social-links {
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .footer {
+            padding: 40px 0 30px;
+        }
+        
+        .footer-main {
+            gap: 30px;
+        }
+        
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.7rem 1.5rem;
+                border-radius: 30px;
+                width: 98%;
+            }
+            
+            .nav-links {
+                gap: 1.2rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 0.4rem 0.6rem;
+            }
+            
+            .nav-links .faq-btn {
+                padding: 0.6rem 1.5rem;
+            }
+
+            .about-main-title {
+                font-size: 2rem;
+            }
+
+            .section-title, .team-title {
+                font-size: 1.8rem;
+            }
+
+            .mission-vision-title {
+                font-size: 1.5rem;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .footer-brand, .footer-links-column, .footer-cta {
+                flex: 0 0 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+                border-radius: 25px;
+                top: 5px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .mission-vision {
+                padding: 30px;
+            }
+
+            .footer {
+                padding: 40px 0 30px;
+            }
+            
+            .footer-main {
+                gap: 30px;
+            }
+        }
+        .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .logo-text {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    
+    .logo-text .success {
+        color: #40b3a2;
+    }
+    
+    .logo-text .way {
+        color: #1a1a1a;
+    }
+    .sw-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* High z-index to stay on top */
+            /* Ensures this is separate from other elements */
+            pointer-events: none; 
+        }
+
+        .sw-preloader.hidden {
+            display: none;
+        }
+
+        .sw-plane-container {
+            position: relative;
+            width: 200px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .sw-plane {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: sw-fly 2s infinite ease-in-out;
+        }
+
+        .sw-plane-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #40b3a2; /* Hardcoded color instead of var to avoid conflicts */
+            transform: translateY(-50%);
+            animation: sw-drawLine 2s infinite ease-in-out;
+        }
+
+        .sw-loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #40b3a2; /* Hardcoded color instead of var to avoid conflicts */
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: sw-fadeText 2s infinite ease-in-out;
+        }
+
+        /* Scoped animations with unique names */
+        @keyframes sw-fly {
+            0% {
+                left: 0;
+            }
+            50% {
+                left: 180px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes sw-drawLine {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: 100%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+
+        @keyframes sw-fadeText {
+            0% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+        /* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 30px !important;
+    height: 21px !important;
+    cursor: pointer !important;
+    z-index: 100 !important;
+}
+
+.hamburger-line {
+    display: block !important;
+    height: 3px !important;
+    width: 100% !important;
+    border-radius: 10px !important;
+    background-color: #333 !important;
+    transition: all 0.3s ease !important;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex !important;
+        position: absolute !important;
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .nav-links {
+        position: absolute !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 90% !important;
+        margin: 0 auto !important;
+        background-color: white !important;
+        border-radius: 15px !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+        padding: 15px !important;
+        z-index: 100 !important;
+        display: none !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links a {
+        padding: 10px !important;
+        text-align: center !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+        transition: background-color 0.3s !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .nav-links .faq-btn {
+        margin-top: 10px !important;
+        padding: 0.6rem 1.5rem !important;
+        width: 80% !important;
+        align-self: center !important;
+    }
+}
+/* Enhanced Responsive Styling */
+@media (max-width: 768px) {
+    header {
+        padding: 4rem 0 3rem 0;
+    }
+    
+    .page-title {
+        font-size: 2.8rem !important;
+    }
+    
+    .globe-container {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    
+    .about-main-title {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .about-section {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .about-image {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .about-content {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .mission-vision {
+        flex-direction: column !important;
+        gap: 40px !important;
+        padding: 40px 30px !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 8px 12px !important;
+        height: 50px !important;
+    }
+    
+    .logo {
+        transform: scale(0.75) !important;
+        margin-left: 0 !important;
+    }
+    
+    .hamburger-menu {
+        right: 15px !important;
+    }
+    
+    .page-title {
+        font-size: 2.2rem !important;
+    }
+    
+    .globe-container {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .about-main-title {
+        font-size: 1.7rem !important;
+    }
+    
+    .section-title, .team-title {
+        font-size: 1.6rem !important;
+    }
+    
+    .stats-container {
+        gap: 15px !important;
+    }
+    
+    .stat-card {
+        padding: 20px !important;
+    }
+    
+    .stat {
+        font-size: 36px !important;
+    }
+    
+    .stat-title {
+        font-size: 20px !important;
+    }
+    
+    .mission-vision {
+        padding: 30px 20px !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    }
+    
+    .member-image {
+        height: 250px !important;
+    }
+}
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px !important;
+        height: 60px !important;
+        border-radius: 30px !important;
+        width: 95% !important;
+    }
+    
+    .logo {
+        transform: scale(0.85) !important;
+        transform-origin: left center !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    
+    .nav-links a {
+        padding: 10px !important;
+        text-align: center !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .nav-links .faq-btn {
+        margin-top: 10px !important;
+        padding: 0.6rem 1.5rem !important;
+        width: 80% !important;
+        align-self: center !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 8px 12px !important;
+        height: 50px !important;
+        border-radius: 25px !important;
+        width: 95% !important;
+        top: 10px !important;
+    }
+    
+    .logo {
+        transform: scale(0.75) !important;
+    }
+    
+    .hamburger-menu {
+        right: 15px !important;
+    }
+    
+    .nav-links {
+        top: 60px !important;
+        padding: 12px !important;
+        gap: 8px !important;
+        width: 85% !important;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem !important;
+        padding: 8px !important;
+    }
+}
+/* Updated Team Section Styles */
+.team-section {
+    text-align: center !important;
+    margin: 80px auto !important;
+    max-width: 1000px !important; /* Narrower container for better spacing */
+    padding: 0 20px !important;
+}
+
+.team-title {
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    color: var(--dark) !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding-bottom: 15px !important;
+}
+
+.team-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 80px !important;
+    height: 3px !important;
+    background: linear-gradient(to right, var(--primary), var(--secondary)) !important;
+}
+
+.team-subtitle {
+    font-size: 1.1rem !important;
+    color: var(--medium-gray) !important;
+    max-width: 700px !important;
+    margin: 0 auto 50px !important;
+    line-height: 1.7 !important;
+}
+
+.team-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Always show exactly 2 columns */
+    gap: 40px !important; /* Increase gap between team members */
+    margin-top: 50px !important;
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.team-member {
+    background-color: white !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.member-image {
+    width: 100% !important;
+    height: 320px !important;
+    overflow: hidden !important;
+}
+
+.member-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.5s ease !important;
+}
+
+.member-details {
+    padding: 25px 20px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    justify-content: space-between !important;
+}
+
+.member-role {
+    color: var(--primary) !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    margin-bottom: 15px !important;
+}
+
+.social-icons {
+    margin-top: 20px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr !important; /* Switch to single column on mobile */
+        max-width: 450px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+/* Translation Toggle Button */
+.translation-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.translation-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.translation-toggle .icon {
+    margin-right: 8px;
+    color: #5cbfb9;
+}
+
+.translation-toggle .label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.language-options {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.language-options.active {
+    display: flex;
+}
+
+.language-option {
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 0 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.language-option:hover,
+.language-option.active {
+    background-color: #5cbfb9;
+    color: white;
+}
+
+/* Google Translate notification bar remover */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Mobile responsiveness for translation toggle */
+@media (max-width: 768px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .translation-toggle {
+        padding: 8px 12px;
+    }
+    
+    .translation-toggle .label {
+        font-size: 0.85rem;
+    }
+    
+    .language-option {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+.success-way-text::before {
+    content: "Success";
+    color: #5CB8B2;
+    font-weight: bold;
+}
+
+.success-way-text::after {
+    content: "Way";
+    font-weight: bold;
+    color: #1a1a1a;
+}
+.success-way-text.footer-version::before {
+    content: "Success";
+    color: white !; 
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.success-way-text.footer-version::after {
+    content: "Way";
+    font-weight: bold; /* Note: footer version has both parts bold */
+    color: #333333;
+    font-size: 24px;
+}
+/* Extremely specific selector for the footer logo "Success" */
+.footer .logo-text .success-way-text.footer-version::before,
+footer .logo-text .success-way-text.footer-version::before,
+.footer-brand .logo-text .success-way-text.footer-version::before {
+    content: "Success" !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Extremely specific selector for the footer logo "Way" */
+.footer .logo-text .success-way-text.footer-version::after,
+footer .logo-text .success-way-text.footer-version::after,
+.footer-brand .logo-text .success-way-text.footer-version::after {
+    content: "Way" !important;
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Regular span selectors for the traditional approach */
+.footer .logo-text span.success,
+footer .logo-text span.success,
+.footer-brand .logo-text span.success {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+.footer .logo-text span.way,
+footer .logo-text span.way,
+.footer-brand .logo-text span.way {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Additional more aggressive targeting for the footer logo */
+body .footer .logo-text span:first-of-type,
+body footer .logo-text span:first-of-type,
+body .footer-brand .logo-text span:first-of-type {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+body .footer .logo-text span:last-of-type,
+body footer .logo-text span:last-of-type,
+body .footer-brand .logo-text span:last-of-type {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+    </style>
+</head>
+<body>
+    <!-- Translation Toggle Button -->
+<div class="translation-toggle" id="translationToggle">
+    <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 8l6 6"></path>
+            <path d="M4 14l6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2h1"></path>
+            <path d="M22 22l-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+        </svg>
+    </div>
+    <div class="label">Translate</div>
+</div>
+
+<!-- Language Options -->
+<div class="language-options" id="languageOptions">
+    <div class="language-option" data-lang="en">English</div>
+    <div class="language-option" data-lang="fr">Français</div>
+</div>
+
+<!-- Hidden element for Google Translate -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<!-- Hidden iframe for reset (optional, use if needed) -->
+<iframe name="reset_frame" style="display:none;"></iframe>
+    <div class="sw-preloader" id="sw-preloader">
+        <div class="sw-plane-container">
+            <div class="sw-plane">✈️</div>
+            <div class="sw-plane-line"></div>
+        </div>
+        <div class="sw-loading-text">SuccessWay</div>
+    </div>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="successway_logo.png" alt="SuccessWay Logo">
+            <!-- Use special attribute to mark this as a brand name -->
+            <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                <!-- Use span with CSS content property instead of direct text -->
+                <span class="success-way-text"></span>
+            </div>
+        </div>
+        <div class="hamburger-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_p.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing_test.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="students_register.php" class="faq-btn">Sign Up Now</a>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="floating-shapes" id="floatingShapes">
+            <div class="floating-bubble" style="width: 80px; height: 80px; top: 15%; left: 10%; opacity: 0.3;"></div>
+            <div class="floating-bubble" style="width: 120px; height: 120px; top: 60%; left: 5%; opacity: 0.15;"></div>
+            <div class="floating-bubble" style="width: 40px; height: 40px; top: 25%; left: 30%; opacity: 0.25;"></div>
+            <div class="floating-bubble" style="width: 60px; height: 60px; top: 75%; left: 25%; opacity: 0.2;"></div>
+            <div class="floating-bubble" style="width: 100px; height: 100px; top: 10%; left: 60%; opacity: 0.1;"></div>
+            <div class="floating-bubble" style="width: 50px; height: 50px; top: 40%; left: 75%; opacity: 0.3;"></div>
+            <div class="floating-bubble" style="width: 70px; height: 70px; top: 65%; left: 85%; opacity: 0.2;"></div>
+            <div class="floating-bubble" style="width: 30px; height: 30px; top: 20%; left: 90%; opacity: 0.25;"></div>
+        </div>
+        <div class="container">
+            <div class="container">
+                <div class="globe-container" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background-color: white; display: flex; justify-content: center; align-items: center; padding: 5px; box-sizing: border-box; box-shadow: 0 0 10px rgba(255,255,255,0.5);">
+                    <div class="globe" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                        <!-- Using the provided image -->
+                        <img src="globe.png" alt="Globe" style="width: 150px; height: 50px; object-fit: contain; transform: scale(4.5);">
+                    </div>
+                    <div class="airplane" style="position: absolute; top: 40%; right: 25%; font-size: 20px; transform: rotate(45deg);">✈️</div>
+                </div>
+        </div>
+        <div class="page-title-container">
+            <h1 class="page-title">À propos de nous</h1>
+        </div>
+    </header>
+
+    <div class="about-intro">
+        <div class="container">
+            <h2 class="about-subtitle">NOTRE HISTOIRE</h2>
+            <h1 class="about-main-title">Construire des ponts vers<br>des opportunités éducatives mondiales</h1>
+            <div class="title-underline"></div>
+        </div>
+    </div>
+    
+    <!-- Our Story Section -->
+    <section class="about-section">
+        <div class="about-image">
+            <img src="who_we_are-min.png" alt="SuccessWay Team">
+        </div>
+        <div class="about-content">
+            <h2 class="section-title">Qui sommes-nous</h2>
+            <p class="section-text">Fondé en 2018, Successway est à la pointe du conseil en éducation internationale, accompagnant les étudiants dans leur parcours académique à l'étranger. Ce qui avait commencé comme une petite équipe de passionnés de l'éducation est devenu aujourd'hui un nom de confiance dans le domaine des solutions éducatives à l'échelle mondiale.</p>
+            <p class="section-text">Our team is comprised of experienced advisors, many of whom have studied internationally themselves, offering advice and insights based on their own experiences. With our expertise in various countries and education systems, we pride ourselves on providing personalized support tailored to each student's needs and ambitions.</p>
+        </div>
+    </section>
+
+    <!-- Our Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="mission">
+            <h3 class="mission-vision-title">Our Mission</h3>
+            <p class="mission-vision-text">SuccessWay was founded with the mission of transforming the way students connect with international educational opportunities. Our team is a diverse group of passionate individuals united by a common goal: to create the most reliable and supportive platform for students seeking to study abroad.</p>
+            <p class="mission-vision-text">We strive to break down barriers to international education by providing accurate information, personalized guidance, and ongoing support throughout the application process and beyond.</p>
+        </div>
+        <div class="vision">
+            <h3 class="mission-vision-title">Our Vision</h3>
+            <p class="mission-vision-text">We envision a world where geographical boundaries don't limit educational pursuits. Our vision is to empower students with the knowledge, tools, and confidence to pursue academic excellence globally.</p>
+            <p class="mission-vision-text">By fostering stronger relationships between students and institutions worldwide, we aim to create more opportunities for cross-cultural learning and development, ultimately helping students achieve their educational and career objectives.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat">400+</div>
+            <div class="stat-title">Students Placed</div>
+            <div class="stat-description">We have successfully guided students to top universities around the world through personalized guidance.</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat">15</div>
+            <div class="stat-title">University Partners</div>
+            <div class="stat-description">Extensive network of partner universities offering diverse programs through our strategic global relationships.</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat">5</div>
+            <div class="stat-title">Countries</div>
+            <div class="stat-description">Opening doors to premier educational opportunities across five international destinations with personalized guidance.</div>
+        </div>
+        
+        
+    </div>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2 class="team-title">Our Leadership Team</h2>
+        <p class="team-subtitle">Meet the passionate individuals behind SuccessWay who work tirelessly to ensure your international academic journey is seamless and successful.</p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="fatooua-minn.jpeg" alt="Fatoumata">
+                </div>
+                <div class="member-details">
+                    <h3 class="member-name">Fatoumata Youchaou Traore</h3>
+                    <p class="member-role">Founder & CEO</p>
+                    <p class="member-bio">A graduate of Business Administration from Antalya Bilim University in Turkey, she is a visionary entrepreneur committed to transforming the educational and professional landscape in Mali. By founding Successway, she has created a bridge between the academic ambitions of young people and concrete opportunities on an international scale.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/mrs.sweetnes?igsh=MTFndzg3bmF2cnB3ag==" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.facebook.com/FatoOu.fashiOnistaa/" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="bakari.jpg" alt="Bakari">
+                </div>
+                <div class="member-details">
+                    <h3 class="member-name">Bakari Camara</h3>
+                    <p class="member-role">Commercial and Marketing Director</p>
+                    <p class="member-bio">I lead with a passion for connecting students to life-changing educational opportunities abroad. With a strong background in business and a results-driven approach, I’m dedicated to guiding our clients every step of the way—from ambition to achievement</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/bekri_c/" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.facebook.com/bkrcamara/" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">Our Approach</h2>
+            <p class="section-text">At SuccessWay, we believe that every student is unique, with individual goals, abilities, and circumstances. That's why we take a personalized approach to education consultancy, tailoring our services to meet each student's specific needs.</p>
+            <p class="section-text">Our comprehensive process begins with understanding your academic background, career aspirations, and personal preferences. We then match you with institutions and programs that align with your profile, guide you through the application process, help with visa applications, and provide pre-departure support.</p>
+        </div>
+        <div class="about-image">
+            <img src="our_appro-min.png" alt="SuccessWay Consulting Session">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- Logo and Copyright Section -->
+                <div class="footer-brand">
+                    <div class="logo" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <img src="successway_logo.png" alt="SuccessWay Logo" style="height: 40px; width: auto; margin-right: 10px; background-color: white; padding: 5px; border-radius: 50px;">
+                        <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                            <!-- Use span with CSS content property instead of direct text -->
+                            <span class="success-way-text footer-version"></span>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2025 SuccessWay. All rights reserved</p>
+                    </div>
+                </div>
+    
+                <!-- Company Links -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about_p.html">About us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Resources Links -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="students_register.php">Sign Up Now</a></li>
+                        <li><a href="pricing_test.html">Pricing</a></li>
+                        <!-- <li><a href="#careers">Careers</a></li> -->
+                    </ul>
+                </div>
+    
+                <!-- Get in Touch Section -->
+                <div class="footer-cta">
+                    <h3 class="footer-heading">Get in Touch</h3>
+                    <a href="students_register.php" class="get-started-btn">Get Started</a>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://x.com/SuccesswayM" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.38 7.773 21.692 5.25 22 4.009z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/successway-mali-998703313/?originalSubdomain=ml" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://www.facebook.com/successway.mali/" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="https://www.instagram.com/succeswaymali/" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to top button -->
+        <div class="back-to-top" id="backToTopBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </div>
+    </footer>
+    <script>
+        // Add animation classes when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, 100 * index);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const statsElements = document.querySelectorAll('.stat');
+    
+    function animateValue(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            element.textContent = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                element.textContent = end;
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statElement = entry.target;
+                const endValue = parseInt(statElement.textContent);
+                statElement.textContent = '0';
+                animateValue(statElement, 0, endValue, 2000);
+                observer.unobserve(statElement);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    statsElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+    </script>
+    <script>
+        // Preloader control function
+        function hideSwPreloader() {
+            document.getElementById('sw-preloader').classList.add('hidden');
+        }
+        
+        // Add to window load event
+        window.addEventListener('load', function() {
+            // Optional: delay hiding for visual effect
+            setTimeout(hideSwPreloader, 2000);
+        });
+        
+        // For development - in case window load doesn't fire
+        setTimeout(hideSwPreloader, 1000);
+    </script>
+    <!-- Hamburger Menu JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (navLinks.classList.contains('active') && !e.target.closest('.nav-links') && !e.target.closest('.hamburger-menu')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking a link
+            const navItems = navLinks.querySelectorAll('a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const translationToggle = document.getElementById('translationToggle');
+        const languageOptions = document.getElementById('languageOptions');
+        const languageOptionBtns = document.querySelectorAll('.language-option');
+        const preloader = document.getElementById('sw-preloader');
+        let isTranslating = false;
+        
+        // ----- COMPREHENSIVE COOKIE CLEARING -----
+        function nukeGoogleTranslateCookies() {
+            // Get all possible domain variations
+            const hostname = window.location.hostname;
+            const domains = [
+                hostname,
+                '.' + hostname,
+                hostname.split('.').slice(1).join('.'),
+                '.' + hostname.split('.').slice(1).join('.')
+            ];
+            
+            // Get all possible paths
+            const paths = ['/', '/en/', '/fr/', window.location.pathname];
+            
+            // Clear all variations of googtrans cookies
+            domains.forEach(domain => {
+                paths.forEach(path => {
+                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}; domain=${domain};`;
+                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
+                });
+            });
+            
+            // Also clear without specifying domain
+            paths.forEach(path => {
+                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
+            });
+            
+            // And root cookie without path/domain
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+        }
+        
+        // ----- CLEAR ALL STORAGE TYPES -----
+        function clearAllStorage() {
+            // Clear all storage types
+            localStorage.removeItem('successway_language');
+            sessionStorage.removeItem('successway_language');
+            localStorage.removeItem('googtrans');
+            sessionStorage.removeItem('googtrans');
+            
+            // Also try to clear any other Google Translate related items
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.includes('goog') || key.includes('trans')) {
+                    localStorage.removeItem(key);
+                }
+            }
+            
+            for (let i = 0; i < sessionStorage.length; i++) {
+                const key = sessionStorage.key(i);
+                if (key.includes('goog') || key.includes('trans')) {
+                    sessionStorage.removeItem(key);
+                }
+            }
+        }
+        
+        // ----- REMOVE ALL GOOGLE TRANSLATE ELEMENTS -----
+        function removeGoogleTranslateElements() {
+            // Remove all translate elements
+            document.querySelectorAll('#google_translate_element, .skiptranslate, .goog-te-gadget, .goog-te-banner-frame, iframe[src*="translate.google"]')
+                .forEach(el => el.remove());
+            
+            // Reset body positioning
+            document.body.style.removeProperty('top');
+            document.body.style.position = '';
+            document.documentElement.style.removeProperty('overflow');
+            
+            // Remove any translate-specific classes
+            document.body.classList.remove('translated-ltr');
+            document.body.classList.remove('translated-rtl');
+        }
+        
+        // ----- REMOVE ALL GOOGLE TRANSLATE SCRIPTS -----
+        function removeGoogleTranslateScripts() {
+            document.querySelectorAll('script[src*="translate.google"], script[src*="element.js"]')
+                .forEach(script => script.remove());
+            
+            // Also remove dynamically added scripts
+            document.querySelectorAll('script').forEach(script => {
+                if (script.textContent.includes('googleTranslateElementInit')) {
+                    script.remove();
+                }
+            });
+            
+            // Clean up global objects
+            delete window.googleTranslateElementInit;
+            delete window.google?.translate;
+        }
+        
+        // ----- COMPREHENSIVE GOOGLE TRANSLATE RESET -----
+        function resetTranslation() {
+            nukeGoogleTranslateCookies();
+            clearAllStorage();
+            removeGoogleTranslateElements();
+            removeGoogleTranslateScripts();
+            
+            // Also remove any meta tags Google might use
+            document.querySelectorAll('meta[name*="translate"], meta[http-equiv="Content-Language"]')
+                .forEach(meta => meta.remove());
+        }
+        
+        // Show preloader with custom text
+        function showPreloader(text) {
+            // Change the loading text if provided
+            if (text) {
+                const loadingText = document.querySelector('.sw-loading-text');
+                if (loadingText) {
+                    loadingText.textContent = text;
+                }
+            }
+            
+            // Show preloader
+            preloader.classList.remove('hidden');
+        }
+        
+        // Hide preloader
+        function hidePreloader() {
+            preloader.classList.add('hidden');
+        }
+        
+        // Toggle language options display
+        translationToggle.addEventListener('click', function() {
+            languageOptions.classList.toggle('active');
+            translationToggle.style.display = languageOptions.classList.contains('active') ? 'none' : 'flex';
+        });
+        
+        // Handle language selection
+        languageOptionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Prevent multiple clicks
+                if (isTranslating) return;
+                isTranslating = true;
+                
+                const lang = this.getAttribute('data-lang');
+                
+                // Remove active class from all buttons
+                languageOptionBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide language options and show toggle
+                languageOptions.classList.remove('active');
+                translationToggle.style.display = 'flex';
+                
+                if (lang === 'en') {
+                    // Show preloader for English (reset to original)
+                    showPreloader('Resetting to English...');
+                    
+                    // Reset translation then force reload with special parameters
+                    resetTranslation();
+                    
+                    // Create a special reload URL that ensures cache busting
+                    const newUrl = new URL(window.location.href);
+                    
+                    // Clear any existing language params
+                    newUrl.searchParams.delete('lang');
+                    newUrl.searchParams.delete('googtrans');
+                    
+                    // Add special params to prevent translation and force reload
+                    newUrl.searchParams.set('notranslate', 'true');
+                    newUrl.searchParams.set('clearcache', Date.now());
+                    
+                    // Small delay to ensure preloader is visible
+                    setTimeout(() => {
+                        // Use location.replace to avoid history entries
+                        window.location.replace(newUrl.toString());
+                    }, 300);
+                    return;
+                }
+                
+                // Show preloader for other languages
+                showPreloader('Translating to ' + (lang === 'fr' ? 'French' : lang.toUpperCase()) + '...');
+                
+                // For other languages
+                setLanguage(lang);
+            });
+        });
+        
+        // Click outside to close language options
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.language-options') && 
+                !event.target.closest('.translation-toggle') && 
+                languageOptions.classList.contains('active')) {
+                
+                languageOptions.classList.remove('active');
+                translationToggle.style.display = 'flex';
+            }
+        });
+        
+        // Set up translation for a specific language - with more robust approach
+        function setLanguage(lang) {
+            // First reset everything
+            resetTranslation();
+            
+            // Create new translate element
+            const translateElement = document.createElement('div');
+            translateElement.id = 'google_translate_element';
+            translateElement.style.display = 'none';
+            document.body.appendChild(translateElement);
+            
+            // Pre-define the cookie approach as a backup
+            const setDirectCookieApproach = () => {
+                const langPair = "/en/" + lang;
+                document.cookie = `googtrans=${langPair};path=/;`;
+                
+                // Multiple domains for broader compatibility
+                if (window.location.hostname !== 'localhost') {
+                    document.cookie = `googtrans=${langPair};path=/;domain=${window.location.hostname};`;
+                    document.cookie = `googtrans=${langPair};path=/;domain=.${window.location.hostname};`;
+                }
+                
+                // Use a custom event to force Google Translate to recognize the cookie
+                const event = new Event('gtrans');
+                window.dispatchEvent(event);
+                
+                // Save to localStorage as well for persistence
+                localStorage.setItem('successway_language', lang);
+                
+                // Reload after setting cookie
+                window.location.reload();
+            };
+            
+            // Define the initialization function
+            window.googleTranslateElementInit = function() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,fr',
+                    autoDisplay: false,
+                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+                }, 'google_translate_element');
+            };
+            
+            // Use Promise to better handle the script loading
+            const loadScript = () => {
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                    script.async = true;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.body.appendChild(script);
+                });
+            };
+            
+            // Load script and handle translation
+            loadScript()
+                .then(() => {
+                    // Wait for Google Translate to initialize
+                    let attempts = 0;
+                    const maxAttempts = 30;
+                    const checkInterval = 300; // Check every 300ms
+                    
+                    const waitForTranslateCombo = setInterval(() => {
+                        attempts++;
+                        const select = document.querySelector('.goog-te-combo');
+                        
+                        if (select) {
+                            clearInterval(waitForTranslateCombo);
+                            
+                            // Add a small delay to ensure the widget is fully loaded
+                            setTimeout(() => {
+                                // Set the language
+                                select.value = lang;
+                                select.dispatchEvent(new Event('change'));
+                                
+                                // Hide the Google elements
+                                hideGoogleElements();
+                                
+                                // Save to localStorage for persistence
+                                localStorage.setItem('successway_language', lang);
+                                
+                                // Hide preloader after a bit
+                                setTimeout(() => {
+                                    hidePreloader();
+                                    isTranslating = false;
+                                }, 1000);
+                            }, 500);
+                        } 
+                        else if (attempts >= maxAttempts) {
+                            clearInterval(waitForTranslateCombo);
+                            console.log("Failed to find Google Translate combo, trying direct cookie approach");
+                            setDirectCookieApproach();
+                        }
+                    }, checkInterval);
+                })
+                .catch(error => {
+                    console.error("Error loading Google Translate script:", error);
+                    // Fallback to cookie approach if script fails to load
+                    setDirectCookieApproach();
+                });
+        }
+        
+        // Function to hide Google elements
+        function hideGoogleElements() {
+            document.querySelectorAll('.goog-te-banner-frame, .skiptranslate')
+                .forEach(el => {
+                    el.style.display = 'none';
+                });
+            
+            document.body.style.top = '0';
+        }
+        
+        // Set up observer to keep hiding Google elements
+        const observer = new MutationObserver(hideGoogleElements);
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        // Check URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // If notranslate is set, clear everything to ensure no translation
+        if (urlParams.has('notranslate')) {
+            resetTranslation();
+            
+            // Clean URL without reload
+            const cleanUrl = new URL(window.location.href);
+            cleanUrl.searchParams.delete('notranslate');
+            cleanUrl.searchParams.delete('clearcache');
+            window.history.replaceState({}, document.title, cleanUrl.toString());
+        } 
+        // Otherwise check for active language
+        else {
+            // Try to find translation language from URL or cookie or localStorage
+            let currentLang = null;
+            
+            // Check localStorage first (most reliable)
+            currentLang = localStorage.getItem('successway_language');
+            
+            // If not in localStorage, check URL
+            if (!currentLang && urlParams.has('lang')) {
+                currentLang = urlParams.get('lang');
+            }
+            
+            // If not in URL, check cookies
+            if (!currentLang) {
+                const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
+                if (match && match[1]) {
+                    currentLang = match[1];
+                }
+            }
+            
+            // Apply translation if needed
+            if (currentLang && currentLang !== 'en') {
+                // Mark the correct button
+                languageOptionBtns.forEach(btn => {
+                    if (btn.getAttribute('data-lang') === currentLang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Show preloader
+                showPreloader('Translating to ' + (currentLang === 'fr' ? 'French' : currentLang.toUpperCase()) + '...');
+                
+                // Start translation
+                setLanguage(currentLang);
+            }
+        }
+    });
+</script>
+<script>
+    // Create a translation correction system with duplicate prevention
+    document.addEventListener('DOMContentLoaded', function() {
+    // Create a map of incorrect translations and their corrections
+    const translationFixes = {
+        // Format: 'incorrect text': 'correct text'
+        'La voie du succès': 'SuccessWay',
+        'Success': 'Success', // Keep "Success" as is
+        'Way': 'Way',         // Keep "Way" as is
+        'Maison': 'Accueil',
+        'À propos': 'À propos de nous',
+        'Services': 'Nos services',
+        'Tarification': 'Tarifs',
+        'Contact': 'Contactez-nous',
+        
+        // Add more corrections here in the future as needed
+    };
+    
+    // Track processed elements to prevent multiple corrections
+    const processedElements = new WeakSet();
+    // Store original content for reverting when needed
+    const originalContent = new WeakMap();
+    
+    // Function to save original content
+    function saveOriginalContent(element) {
+        if (!originalContent.has(element)) {
+            if (element.nodeType === Node.TEXT_NODE) {
+                originalContent.set(element, element.nodeValue);
+            } else if (element.nodeType === Node.ELEMENT_NODE) {
+                originalContent.set(element, element.innerHTML);
+            }
+        }
+    }
+    
+    // Utility function to check if a string contains duplicated phrases
+    function hasDuplicatedPhrases(text) {
+        // Check for common duplicate patterns
+        const patterns = [
+            /(\bÀ propos de nous\b).*\1/i,
+            /(\bNos services\b).*\1/i,
+            /(\bContactez-nous\b).*\1/i,
+
+            /(\bNos\b)\s+\1/i,
+            /(\bde nous\b).*\1/i
+        ];
+        
+        return patterns.some(pattern => pattern.test(text));
+    }
+    
+    // Function to apply corrections after Google Translation completes
+    function applyTranslationFixes() {
+        // Check if page is translated to French
+        const isTranslatedToFrench = document.documentElement.classList.contains('translated-ltr') || 
+            document.cookie.includes('googtrans=/en/fr') ||
+            localStorage.getItem('successway_language') === 'fr';
+            
+        if (!isTranslatedToFrench) return;
+        
+        console.log('Applying French translation fixes...');
+        
+        // ===== FIX THE LOGO ======
+        // Direct targeting of the logo to ensure it's always "SuccessWay"
+
+        const logoElements = document.querySelectorAll('.logo-text');
+logoElements.forEach(logoEl => {
+    if (!processedElements.has(logoEl)) {
+        saveOriginalContent(logoEl);
+        
+        // First clear any potential translations/duplications
+        logoEl.innerHTML = ''; // Clear existing content
+        
+        // Create and add the two spans back with the correct text
+        const successSpan = document.createElement('span');
+        successSpan.className = 'success';
+        
+        // Check if this logo is in the footer by looking at its parent elements
+        const isInFooter = logoEl.closest('.footer') || logoEl.closest('.footer-brand');
+        
+        if (isInFooter) {
+            // Footer version - white Success, #333333 Way
+            successSpan.style.color = 'white';
+            successSpan.style.fontWeight = 'bold';
+            successSpan.style.fontSize = '24px';
+        } else {
+            // Navbar version - #5CB8B2 Success
+            successSpan.style.color = '#5CB8B2';
+            successSpan.style.fontWeight = 'bold';
+        }
+        
+        successSpan.textContent = 'Success';
+        
+        const waySpan = document.createElement('span');
+        waySpan.className = 'way';
+        
+        if (isInFooter) {
+            // Footer version of Way - #333333 and bold
+            waySpan.style.color = '#333333';
+            waySpan.style.fontWeight = 'bold';
+            waySpan.style.fontSize = '24px';
+        }
+        
+        waySpan.textContent = 'Way';
+        
+        logoEl.appendChild(successSpan);
+        logoEl.appendChild(waySpan);
+        
+        // Mark as processed
+        processedElements.add(logoEl);
+    }
+});
+        
+        // ===== FIX REGISTER BUTTON =====
+        // Specifically target the top register button
+        const registerButtons = document.querySelectorAll('.faq-btn.dropdown-toggle');
+        registerButtons.forEach(button => {
+            if (!processedElements.has(button)) {
+                saveOriginalContent(button);
+                
+                // Check if it contains spans with the notranslate class
+                const notranslateSpan = button.querySelector('.notranslate');
+                const translateOnlySpan = button.querySelector('.translate-only');
+                
+                if (notranslateSpan && translateOnlySpan) {
+                    // This is our special button with language control classes
+                    notranslateSpan.style.display = 'inline'; // Show French
+                    translateOnlySpan.style.display = 'none';  // Hide English
+                } else {
+                    // Regular button - just set text
+                    button.textContent = 'Inscrivez-vous';
+                }
+                
+                processedElements.add(button);
+            }
+        });
+        
+        // ===== FIX DROPDOWN MENU ITEMS =====
+        // Fix items in dropdown menus, especially under Register/Inscrivez-vous
+        
+        
+        // First pass: Fix the navigation links directly to prevent duplications
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            // Skip if already processed
+            if (processedElements.has(link)) return;
+            
+            saveOriginalContent(link);
+            const href = link.getAttribute('href');
+            
+            // Skip the dropdown toggle (register button) as we handled it separately
+            if (link.classList.contains('dropdown-toggle')) {
+                return;
+            }
+            
+            // Fix home link
+            if (href === '#home') {
+                link.textContent = 'Accueil';
+            } 
+            if (href === 'index.html') {
+                link.textContent = 'Accueil';
+            } 
+            // Fix about link - prevent duplications
+            else if (href === 'about_p.html') {
+                link.textContent = 'À propos de nous';
+            }
+            // Fix services link - prevent duplications of "Nos"
+            else if (href === 'services.html') {
+                link.textContent = 'Nos services';
+            }
+            // Fix pricing link
+            else if (href === 'pricing_test.html') {
+                link.textContent = 'Tarifs';
+            }
+            // Fix contact link - prevent duplications
+            else if (href === 'contact.html') {
+                link.textContent = 'Contactez-nous';
+            }
+            // Fix register/login links inside dropdown
+            
+            else if (href === 'student_login.php') {
+                link.textContent = 'Connexion';
+            }
+            
+            // Mark as processed
+            processedElements.add(link);
+        });
+        
+        // Process text nodes to fix translations
+        function processNode(node) {
+            // Skip already processed elements
+            if (node.nodeType === 1 && processedElements.has(node)) {
+                return;
+            }
+            
+            // Skip certain elements that shouldn't be processed
+            if (node.nodeType === 1) {
+                const nodeName = node.nodeName.toLowerCase();
+                const nodeClass = (node.className || '').toLowerCase();
+                
+                // Skip script tags, style tags, and elements with notranslate class
+                if (nodeName === 'script' || nodeName === 'style' || 
+                    nodeClass.includes('notranslate') || 
+                    node.classList.contains('notranslate')) {
+                    return;
+                }
+                
+                // Handle the logo-text class specially
+                if (node.classList && node.classList.contains('logo-text')) {
+                    return; // Skip as we handled it separately above
+                }
+                
+                // Handle the register dropdown toggle specially
+                if (node.classList && node.classList.contains('dropdown-toggle')) {
+                    return; // Skip as we handled it separately above
+                }
+                
+                // Mark element as processed to avoid duplicate corrections
+                processedElements.add(node);
+                
+                // For element nodes, save original content
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    saveOriginalContent(node);
+                }
+            }
+            
+            // Handle text nodes
+            if (node.nodeType === 3) { // Text node
+                // Skip empty text nodes
+                if (!node.nodeValue.trim()) return;
+                
+                // Save original content
+                saveOriginalContent(node);
+                
+                let newText = node.nodeValue;
+                let changed = false;
+                
+                // Apply all fixes to this text node
+                for (const [incorrect, correct] of Object.entries(translationFixes)) {
+                    // Use case-insensitive matching for better coverage
+                    const regex = new RegExp('\\b' + incorrect + '\\b', 'gi');
+                    if (regex.test(newText)) {
+                        newText = newText.replace(regex, correct);
+                        changed = true;
+                    }
+                }
+                
+                // Special handling for "Success Way" as two separate words
+                if (newText.includes('Success') && newText.includes('Way')) {
+                    newText = newText.replace(/Success\s+Way/gi, 'SuccessWay');
+                    changed = true;
+                }
+                
+                // Fix "SuccèsWay" (partially translated logo)
+                if (newText.includes('Succès') && newText.includes('Way')) {
+                    newText = newText.replace(/Succès\s*Way/gi, 'SuccessWay');
+                    changed = true;
+                }
+                
+                // Fix "SuccessWayChemin" (partially translated logo)
+                if (newText.includes('Success') && newText.includes('Chemin')) {
+                    newText = newText.replace(/Success\s*Chemin/gi, 'SuccessWay');
+                    changed = true;
+                }
+                
+                // Fix "SuccèsWayChemin" (fully translated logo)
+                if (newText.includes('Succès') && newText.includes('Chemin')) {
+                    newText = newText.replace(/Succès\s*Chemin/gi, 'SuccessWay');
+                    changed = true;
+                }
+                
+                // Handle common duplication patterns
+                const duplicationPatterns = [
+                    [/SuccèsWaySuccessChemin/gi, 'SuccessWay'],
+                    [/Nos\s+Nos\s+Nos\s+services/gi, 'Nos services'],
+                    [/Nos\s+Nos\s+services/gi, 'Nos services'],
+                    [/À propos de nous de nous/gi, 'À propos de nous'],
+                    [/À propos de nous de nous de nous/gi, 'À propos de nous'],
+                    [/Contactez-nousez-nous/gi, 'Contactez-nous'],
+                    [/Contactez-nousez-nousez-nous/gi, 'Contactez-nous'],
+                    
+                ];
+                
+                for (const [pattern, replacement] of duplicationPatterns) {
+                    if (pattern.test(newText)) {
+                        newText = newText.replace(pattern, replacement);
+                        changed = true;
+                    }
+                }
+                
+                // Check for any repeating words
+                if (hasDuplicatedPhrases(newText)) {
+                    // Try to fix common duplications
+                    newText = newText
+                        .replace(/(\bÀ propos de nous\b).*\1/gi, 'À propos de nous')
+                        .replace(/(\bNos services\b).*\1/gi, 'Nos services')
+                        .replace(/(\bContactez-nous\b).*\1/gi, 'Contactez-nous')
+
+                        .replace(/(\bNos\b)\s+\1/gi, 'Nos')
+                        .replace(/(\bde nous\b).*\1/gi, 'de nous');
+                    changed = true;
+                }
+                
+                // Only update if changes were made
+                if (changed) {
+                    node.nodeValue = newText;
+                }
+            }
+            
+            // Process child nodes recursively (if this node has children)
+            if (node.hasChildNodes()) {
+                // Create a static copy of childNodes to avoid live collection issues
+                const childNodes = Array.from(node.childNodes);
+                childNodes.forEach(processNode);
+            }
+        }
+        
+        // Process the entire document body for other elements
+        processNode(document.body);
+        
+        // Final check for any missed register buttons
+        
+    }
+    
+    // A more aggressive cleanup for multiple "de nous" and "Nos"
+    function deepCleanDuplicates() {
+        // Fix logo text
+        document.querySelectorAll('.logo-text').forEach(logo => {
+            const successSpan = logo.querySelector('.success');
+            const waySpan = logo.querySelector('.way');
+            
+            if (successSpan) {
+                successSpan.textContent = 'Success';
+            }
+            
+            if (waySpan) {
+                waySpan.textContent = 'Way';
+            }
+        });
+        
+        // Fix any mistranslated logo text
+        const logoTextPattern = /SuccèsWay|SuccessWayChemin|SuccèsWayChemin|SuccèsWaySuccessChemin/gi;
+        document.querySelectorAll('*').forEach(el => {
+            if (el.childNodes && el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                const text = el.textContent;
+                if (logoTextPattern.test(text)) {
+                    el.textContent = text.replace(logoTextPattern, 'SuccessWay');
+                }
+            }
+        });
+        
+        // Fix dropdown items in all dropdown menus
+        
+        
+        // Fix register buttons that might have been missed
+        
+        
+        // Fix navigation links
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            const text = link.textContent;
+            
+            // Fix "À propos de nous de nous de nous"
+            if (text.includes('À propos')) {
+                link.textContent = 'À propos de nous';
+            }
+            
+            // Fix "Nos Nos Nos services"
+            if (text.includes('Nos') && text.includes('services')) {
+                link.textContent = 'Nos services';
+            }
+            
+            // Fix "Contactez-nousez-nous" 
+            if (text.includes('Contactez')) {
+                link.textContent = 'Contactez-nous';
+            }
+            
+            // Fix "Registre" or "envoyez-vous"
+            
+        });
+        
+        // Check for duplications in subheadings and paragraphs
+        document.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach(element => {
+            let text = element.textContent;
+            let changed = false;
+            
+            // Check for all possible duplications 
+            const dupePatterns = [
+                [/Nos\s+Nos\s+Nos\s+services/gi, 'Nos services'],
+                [/Nos\s+Nos\s+services/gi, 'Nos services'],
+                [/À propos de nous de nous de nous/gi, 'À propos de nous'],
+                [/À propos de nous de nous/gi, 'À propos de nous'],
+                [/Contactez-nousez-nous/gi, 'Contactez-nous'],
+                [/Contactez-nousez-nousez-nous/gi, 'Contactez-nous'],
+                [/Inscrivez-vousez-vous/gi, 'Inscrivez-vous'],
+                [/envoyez-vousez-vous/gi, 'Inscrivez-vous']
+            ];
+            
+            for (const [pattern, replacement] of dupePatterns) {
+                if (pattern.test(text)) {
+                    text = text.replace(pattern, replacement);
+                    changed = true;
+                }
+            }
+            
+            if (changed) {
+                element.textContent = text;
+            }
+        });
+    }
+    
+    // Function to revert to English
+    function revertToEnglish() {
+        // Show English spans, hide French spans
+        const notranslateSpans = document.querySelectorAll('.notranslate');
+        const translateOnlySpans = document.querySelectorAll('.translate-only');
+        
+        notranslateSpans.forEach(span => {
+            span.style.display = 'none';
+        });
+        
+        translateOnlySpans.forEach(span => {
+            span.style.display = 'inline';
+        });
+        
+        // Process the rest of the elements if needed
+    }
+    
+    // Set up a MutationObserver to detect translation changes
+    const translationObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            // Check if the translation has been applied
+            if (mutation.target.classList && 
+                (mutation.target.classList.contains('translated-ltr') || 
+                 mutation.target.classList.contains('translated-rtl'))) {
+                
+                // Apply fixes with increasing delays to catch all translation phases
+                setTimeout(applyTranslationFixes, 500);
+                setTimeout(() => {
+                    applyTranslationFixes();
+                    deepCleanDuplicates();
+                }, 1500);
+                
+                // Final cleanup for persistent duplications
+                setTimeout(deepCleanDuplicates, 2500);
+                break;
+            }
+        }
+    });
+    
+    // Start observing the document for translation changes
+    translationObserver.observe(document.documentElement, {
+        attributes: true,
+        childList: false,
+        subtree: false,
+        attributeFilter: ['class']
+    });
+    
+    // Set up listeners for the language toggle buttons
+    const languageOptionBtns = document.querySelectorAll('.language-option');
+    languageOptionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            
+            // Reset the processed elements set when changing languages
+            processedElements.clear();
+            
+            if (lang === 'fr') {
+                // For French, set up multiple attempts to apply fixes as translation completes
+                setTimeout(applyTranslationFixes, 1000);
+                
+                setTimeout(() => {
+                    applyTranslationFixes();
+                    deepCleanDuplicates();
+                }, 2000);
+                
+                // Final aggressive cleanup
+                setTimeout(deepCleanDuplicates, 3000);
+                setTimeout(deepCleanDuplicates, 4000);
+            } else if (lang === 'en') {
+                // When switching back to English
+                setTimeout(revertToEnglish, 1000);
+            }
+        });
+    });
+    
+    // Check if already translated on page load
+    if (localStorage.getItem('successway_language') === 'fr') {
+        setTimeout(() => {
+            // Show French, hide English in the toggle spans
+            const notranslateSpans = document.querySelectorAll('.notranslate');
+            const translateOnlySpans = document.querySelectorAll('.translate-only');
+            
+            notranslateSpans.forEach(span => {
+                span.style.display = 'inline';
+            });
+            
+            translateOnlySpans.forEach(span => {
+                span.style.display = 'none';
+            });
+            
+            // Apply main fixes
+            applyTranslationFixes();
+        }, 1000);
+        
+        setTimeout(() => {
+            applyTranslationFixes();
+            deepCleanDuplicates();
+        }, 2000);
+        
+        setTimeout(deepCleanDuplicates, 3000);
+    }
+    
+    // Add event listeners to fix dropdown menu specifically when opened
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function() {
+            // Get the language
+            const isTranslatedToFrench = document.documentElement.classList.contains('translated-ltr') || 
+                document.cookie.includes('googtrans=/en/fr') ||
+                localStorage.getItem('successway_language') === 'fr';
+                
+            if (isTranslatedToFrench) {
+                // Fix the dropdown items
+                const dropdownItems = this.querySelectorAll('.dropdown-content a');
+                dropdownItems.forEach(item => {
+                    const href = item.getAttribute('href');
+                    const text = item.textContent.trim();
+                    
+                    // Register/Signup
+                    if (href === 'student_register.php' || 
+                        text === 'Register' || 
+                        text === 'Registre' || 
+                        text === 'envoyez-vous') {
+                        item.textContent = 'Inscrivez-vous';
+                    } 
+                    // Login
+                    else if (href === 'student_login.php' || 
+                             text === 'Login' || 
+                             text === 'Rapport') {
+                        item.textContent = 'Connexion';
+                    }
+                });
+            }
+        });
+    });
+    
+    // Create a custom event that can be triggered to force correction application
+    document.addEventListener('applyTranslationFixes', () => {
+        processedElements.clear(); // Reset processed elements
+        applyTranslationFixes();
+        deepCleanDuplicates();
+    });
+    
+    // Expose global functions for debugging and manual fixing
+    window.fixFrenchTranslation = () => {
+        processedElements.clear();
+        applyTranslationFixes();
+        deepCleanDuplicates();
+    };
+    
+    window.cleanDuplicates = deepCleanDuplicates;
+    
+    // Add a helper function to the window object for adding new corrections at runtime
+    window.addTranslationFix = function(incorrect, correct) {
+        translationFixes[incorrect] = correct;
+        console.log(`Added translation fix: "${incorrect}" → "${correct}"`);
+        processedElements.clear();
+        applyTranslationFixes();
+    };
+});
+</script>
+<script>
+    // Add this after the previous translation code
+
+// French paragraph replacement system for About Us page
+document.addEventListener('DOMContentLoaded', function() {
+    // Create a map of original paragraphs and their improved translations
+    const paragraphReplacements = {
+        // 1. Original about founder paragraph
+        "Fondée en 2018, SuccessWay est une référence en matière de conseil en éducation internationale, accompagnant les étudiants dans leur parcours universitaire à l'étranger. Ce qui n'était au départ qu'une petite équipe de passionnés d'éducation est devenue une référence en matière de solutions éducatives internationales.": 
+        "Fondé en 2018, Successway est à la pointe du conseil en éducation internationale, accompagnant les étudiants dans leur parcours académique à l'étranger. Ce qui avait commencé comme une petite équipe de passionnés de l'éducation est devenu aujourd'hui un nom de confiance dans le domaine des solutions éducatives à l'échelle mondiale.",
+        
+        // 2. Team description
+        "Notre équipe est composée de conseillers expérimentés, dont beaucoup ont eux-mêmes étudié à l'étranger. Ils apportent un éclairage précieux et des conseils avisés aux étudiants souhaitant poursuivre leurs études à l'étranger. Forts d'une expertise couvrant de nombreux pays et systèmes éducatifs, nous sommes fiers de proposer des conseils personnalisés, adaptés aux besoins et aspirations uniques de chaque étudiant.":
+        "Notre équipe est composée de conseillers expérimentés, dont plusieurs ont eux-mêmes étudié à l'international, offrant ainsi des conseils et des perspectives fondés sur leur propre expérience. Grâce à notre expertise dans divers pays et systèmes éducatifs, nous sommes fiers de proposer un accompagnement personnalisé, adapté aux besoins et aux ambitions de chaque étudiant.",
+        
+        // 3. Company mission
+        "SuccessWay a été fondée avec pour mission de transformer la façon dont les étudiants accèdent aux opportunités d'études internationales. Notre équipe est composée de personnes passionnées et diversifiées, unies par un objectif commun : créer la plateforme la plus fiable et la plus adaptée aux étudiants souhaitant étudier à l'étranger.":
+        "Successway a été fondé avec la mission de transformer la manière dont les étudiants accèdent aux opportunités d'études à l'international. Notre équipe est un groupe diversifié de personnes passionnées, unies par un objectif commun : créer la plateforme la plus fiable et la plus engagée pour les étudiants souhaitant étudier à l'étranger.",
+        
+        // 4. Mission statement
+        "Nous nous efforçons de briser les barrières à l'éducation internationale en fournissant des informations précises, des conseils personnalisés et un soutien continu tout au long du processus de candidature et au-delà.":
+        "Nous nous efforçons de lever les barrières à l'éducation internationale en fournissant des informations précises, un accompagnement personnalisé et un soutien continu tout au long du processus de candidature et au-delà.",
+        
+        // 5. Vision statement
+        "Nous rêvons d'un monde où les frontières géographiques ne limitent pas les aspirations éducatives. Notre vision est de donner aux étudiants les connaissances, les outils et la confiance nécessaires pour viser l'excellence académique à l'international.":
+        "Nous imaginons un monde où les frontières géographiques ne limitent pas les aspirations éducatives. Notre vision est de donner aux étudiants les connaissances, les outils et la confiance nécessaires pour poursuivre l'excellence académique à l'échelle mondiale.",
+        
+        // 6. Goals statement
+        "En favorisant des relations plus solides entre les étudiants et les institutions du monde entier, nous visons à créer davantage d'opportunités d'apprentissage et de développement interculturels, aidant ainsi les étudiants à atteindre leurs objectifs éducatifs et professionnels.":
+        "En renforçant les liens entre les étudiants et les établissements du monde entier, nous visons à créer davantage d'opportunités d'apprentissage et de développement interculturels, afin d'aider les étudiants à atteindre leurs objectifs éducatifs et professionnels.",
+        
+        // Add more paragraph replacements here as needed
+    };
+    
+    // Also add variations with slight differences to improve matching chances
+    const addVariations = () => {
+        const variations = {};
+        
+        // For each original paragraph, create variations with common Google Translate alterations
+        for (const [original, improved] of Object.entries(paragraphReplacements)) {
+            // Variation 1: SuccessWay might be translated as "SuccèsWay" or have gender changes
+            let variation1 = original.replace(/SuccessWay/g, "SuccèsWay");
+            variations[variation1] = improved;
+            
+            // Variation 2: Different spacing or punctuation
+            let variation2 = original.replace(/\s+/g, " ").replace(/\.\s+/g, ". ");
+            variations[variation2] = improved;
+            
+            // Variation 3: Common word substitutions Google might make
+            let variation3 = original
+                .replace(/étudiants/g, "élèves")
+                .replace(/à l'étranger/g, "à l'international");
+            variations[variation3] = improved;
+        }
+        
+        // Add all variations to the main object
+        Object.assign(paragraphReplacements, variations);
+    };
+    
+    // Call the function to add variations
+    addVariations();
+    
+    // Track processed paragraph elements to prevent multiple replacements
+    const processedParagraphs = new WeakSet();
+    
+    // Function to apply paragraph replacements after translation
+    function applyParagraphReplacements() {
+        // Check if page is translated to French
+        const isTranslatedToFrench = document.documentElement.classList.contains('translated-ltr') || 
+            document.cookie.includes('googtrans=/en/fr') ||
+            localStorage.getItem('successway_language') === 'fr';
+            
+        if (!isTranslatedToFrench) return;
+        
+        console.log('Applying French paragraph replacements...');
+        
+        // Function to find close matches in paragraphs
+        function findClosestMatch(text) {
+            // Simple exact match first
+            if (paragraphReplacements[text]) {
+                return paragraphReplacements[text];
+            }
+            
+            // Try with normalized text (remove extra spaces, normalize quotes)
+            const normalizedText = text
+                .replace(/\s+/g, ' ')
+                .replace(/[""]/g, '"')
+                .trim();
+                
+            if (paragraphReplacements[normalizedText]) {
+                return paragraphReplacements[normalizedText];
+            }
+            
+            // Try to find partial matches for longer paragraphs
+            for (const [original, improved] of Object.entries(paragraphReplacements)) {
+                // Check if it's a substring match (for handling partial paragraph rendering)
+                if (text.includes(original.substring(0, 50)) && 
+                    text.includes(original.substring(original.length - 50))) {
+                    return improved;
+                }
+                
+                // If 70% of the words match, consider it the same paragraph
+                const originalWords = original.split(/\s+/).filter(w => w.length > 3); // Only count significant words
+                const textWords = text.split(/\s+/).filter(w => w.length > 3);
+                
+                // Skip very short texts
+                if (textWords.length < 5) continue;
+                
+                let matchCount = 0;
+                textWords.forEach(word => {
+                    // Check if original contains this word
+                    if (originalWords.some(w => w.toLowerCase() === word.toLowerCase() || 
+                                          w.toLowerCase().includes(word.toLowerCase()) ||
+                                          word.toLowerCase().includes(w.toLowerCase()))) {
+                        matchCount++;
+                    }
+                });
+                
+                const matchPercentage = matchCount / Math.min(textWords.length, originalWords.length);
+                if (matchPercentage > 0.65) { // Slightly lower threshold (65%)
+                    return improved;
+                }
+                
+                // Check for key phrase matches (beginning and end of paragraph)
+                const firstWordsOriginal = original.split(/\s+/).slice(0, 8).join(' ').toLowerCase();
+                const firstWordsText = text.split(/\s+/).slice(0, 8).join(' ').toLowerCase();
+                const lastWordsOriginal = original.split(/\s+/).slice(-8).join(' ').toLowerCase();
+                const lastWordsText = text.split(/\s+/).slice(-8).join(' ').toLowerCase();
+                
+                // Calculate similarity scores using Levenshtein distance or simple inclusion
+                const beginSimilar = firstWordsText.includes(firstWordsOriginal.substring(0, 20)) || 
+                                   firstWordsOriginal.includes(firstWordsText.substring(0, 20));
+                                   
+                const endSimilar = lastWordsText.includes(lastWordsOriginal.substring(0, 20)) || 
+                                 lastWordsOriginal.includes(lastWordsText.substring(0, 20));
+                
+                if (beginSimilar && endSimilar) {
+                    return improved;
+                }
+                
+                // Check if this is a merged paragraph (sometimes Google combines paragraphs)
+                for (const [origKey, impValue] of Object.entries(paragraphReplacements)) {
+                    if (text.includes(origKey) && text.length > origKey.length + 20) {
+                        // This might be a merged paragraph, replace the part we recognize
+                        return text.replace(origKey, impValue);
+                    }
+                }
+            }
+            
+            return null; // No close match found
+        }
+        
+        // Get all text nodes in the document for thorough scanning
+        function getAllTextNodes(node) {
+            const result = [];
+            
+            // Skip certain node types
+            if (node.nodeName === 'SCRIPT' || node.nodeName === 'STYLE' || 
+                node.nodeName === 'NOSCRIPT' || node.nodeName === 'IFRAME') {
+                return result;
+            }
+            
+            // Handle text nodes
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.nodeValue.trim();
+                if (text.length > 50) { // Only collect substantial text
+                    result.push(node);
+                }
+            }
+            
+            // Recursively process child nodes
+            const children = node.childNodes;
+            for (let i = 0; i < children.length; i++) {
+                result.push(...getAllTextNodes(children[i]));
+            }
+            
+            return result;
+        }
+        
+        // Target all potential paragraph elements using conventional selectors
+        const potentialParagraphs = document.querySelectorAll('p, .about-section p, .mission-box p, .vision-box p, .feature-item p, .testimonial p, .new-slide-content p, .new-text-container p, div.about-paragraph, .about-text p, .company-description p, .team-description p, .our-story p');
+        
+        potentialParagraphs.forEach(paragraph => {
+            // Skip if already processed
+            if (processedParagraphs.has(paragraph)) return;
+            
+            // Get the text content
+            const text = paragraph.textContent.trim();
+            if (!text || text.length < 50) return; // Skip short text blocks
+            
+            // Find the closest match
+            const replacement = findClosestMatch(text);
+            if (replacement) {
+                paragraph.textContent = replacement;
+                processedParagraphs.add(paragraph);
+            }
+        });
+        
+        // Also look for text nodes that might not be in paragraphs but contain our target text
+        const allTextNodes = getAllTextNodes(document.body);
+        allTextNodes.forEach(textNode => {
+            // Skip if the parent is already processed
+            if (processedParagraphs.has(textNode.parentNode)) return;
+            
+            const text = textNode.nodeValue.trim();
+            if (!text || text.length < 50) return;
+            
+            const replacement = findClosestMatch(text);
+            if (replacement) {
+                textNode.nodeValue = replacement;
+                processedParagraphs.add(textNode.parentNode);
+            }
+        });
+        
+        // Special handling for About Us sections that might be in iframes or nested structures
+        const aboutSections = document.querySelectorAll('#about, .about-section, .new-about-section, #about-iframe, #team-section, #mission-section, #vision-section, #story-section');
+        aboutSections.forEach(section => {
+            // If it's an iframe, try to access its document
+            if (section.tagName === 'IFRAME') {
+                try {
+                    const iframeDoc = section.contentDocument || section.contentWindow.document;
+                    const iframeParagraphs = iframeDoc.querySelectorAll('p, div.about-paragraph, .text-container p');
+                    
+                    iframeParagraphs.forEach(paragraph => {
+                        const text = paragraph.textContent.trim();
+                        if (!text || text.length < 50) return;
+                        
+                        const replacement = findClosestMatch(text);
+                        if (replacement) {
+                            paragraph.textContent = replacement;
+                        }
+                    });
+                    
+                    // Also scan for text nodes in the iframe
+                    const iframeTextNodes = getAllTextNodes(iframeDoc.body);
+                    iframeTextNodes.forEach(textNode => {
+                        const text = textNode.nodeValue.trim();
+                        if (!text || text.length < 50) return;
+                        
+                        const replacement = findClosestMatch(text);
+                        if (replacement) {
+                            textNode.nodeValue = replacement;
+                        }
+                    });
+                } catch (e) {
+                    console.log('Cannot access iframe content due to same-origin policy');
+                }
+            } else {
+                // Regular section - check deeply nested paragraphs
+                const deepParagraphs = section.querySelectorAll('p, div.about-paragraph, .text-container p, .mission-box p, .vision-box p, .feature-item p');
+                
+                deepParagraphs.forEach(paragraph => {
+                    // Skip if already processed
+                    if (processedParagraphs.has(paragraph)) return;
+                    
+                    const text = paragraph.textContent.trim();
+                    if (!text || text.length < 50) return;
+                    
+                    const replacement = findClosestMatch(text);
+                    if (replacement) {
+                        paragraph.textContent = replacement;
+                        processedParagraphs.add(paragraph);
+                    }
+                });
+            }
+        });
+    }
+    
+    // Set up a MutationObserver specifically for about page content
+    const aboutObserver = new MutationObserver((mutations) => {
+        // Check if any of the mutations involve about page sections
+        const isAboutPageChange = mutations.some(mutation => {
+            if (mutation.target.id === 'about' || 
+                mutation.target.classList.contains('about-section') ||
+                mutation.target.classList.contains('new-about-section') ||
+                mutation.target.id === 'about-iframe' ||
+                mutation.target.id === 'team-section' ||
+                mutation.target.id === 'mission-section' ||
+                mutation.target.id === 'vision-section') {
+                return true;
+            }
+            
+            return false;
+        });
+        
+        if (isAboutPageChange) {
+            setTimeout(applyParagraphReplacements, 500);
+        }
+    });
+    
+    // Start observing about page sections when they're available
+    const startAboutObserver = () => {
+        const aboutSections = document.querySelectorAll('#about, .about-section, .new-about-section, #about-iframe, #team-section, #mission-section, #vision-section');
+        aboutSections.forEach(section => {
+            aboutObserver.observe(section, {
+                childList: true,
+                subtree: true,
+                characterData: true
+            });
+        });
+    };
+    
+    // Try to start immediately, but also retry after a delay in case sections load later
+    startAboutObserver();
+    setTimeout(startAboutObserver, 1000);
+    setTimeout(startAboutObserver, 2500); // Extra check for late-loading sections
+    
+    // Set up a reaction to translation events specifically for paragraphs
+    const translationObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            // Check if the translation has been applied
+            if (mutation.target.classList && 
+                (mutation.target.classList.contains('translated-ltr') || 
+                 mutation.target.classList.contains('translated-rtl'))) {
+                
+                // Apply paragraph replacements with increasing delays
+                setTimeout(applyParagraphReplacements, 1000);
+                setTimeout(applyParagraphReplacements, 2500);
+                setTimeout(applyParagraphReplacements, 4000); // Final pass
+                setTimeout(applyParagraphReplacements, 6000); // Extra pass for very slow connections
+                
+                break;
+            }
+        }
+    });
+    
+    // Start observing the document for translation changes
+    translationObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+    
+    // Check on page load if already translated
+    if (localStorage.getItem('successway_language') === 'fr') {
+        setTimeout(applyParagraphReplacements, 1000);
+        setTimeout(applyParagraphReplacements, 2500);
+        setTimeout(applyParagraphReplacements, 4000);
+    }
+    
+    // Listen for page navigation or history changes that might load the about page
+    window.addEventListener('popstate', () => {
+        setTimeout(applyParagraphReplacements, 1000);
+    });
+    
+    // Listen for scroll events which might reveal new content
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (document.documentElement.classList.contains('translated-ltr') || 
+                document.cookie.includes('googtrans=/en/fr') ||
+                localStorage.getItem('successway_language') === 'fr') {
+                applyParagraphReplacements();
+            }
+        }, 500);
+    }, { passive: true });
+    
+    // Set up listeners for navigation links to about page
+    document.querySelectorAll('a[href*="about"], a[href="#about"], a[href="#team"], a[href="#mission"], a[href="#vision"]').forEach(link => {
+        link.addEventListener('click', () => {
+            setTimeout(applyParagraphReplacements, 1000);
+            setTimeout(applyParagraphReplacements, 2500);
+        });
+    });
+    
+    // Expose global function for adding new paragraph replacements
+    window.addParagraphReplacement = function(original, improved) {
+        paragraphReplacements[original] = improved;
+        console.log(`Added paragraph replacement (${original.length} chars)`);
+        processedParagraphs.clear();
+        applyParagraphReplacements();
+    };
+    
+    // Expose global function for manually triggering replacements
+    window.applyFrenchParagraphFixes = function() {
+        processedParagraphs.clear();
+        applyParagraphReplacements();
+    };
+});
+</script>
+<script>
+    // Add this JavaScript code to fix the specific word "étudiés" to "étudié"
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Function to fix "étudiés" to "étudié"
+    function fixEtudieWord() {
+        // Check if page is translated to French
+        const isTranslatedToFrench = document.documentElement.classList.contains('translated-ltr') || 
+            document.cookie.includes('googtrans=/en/fr') ||
+            localStorage.getItem('successway_language') === 'fr';
+            
+        if (!isTranslatedToFrench) return;
+        
+        console.log('Fixing "étudiés" to "étudié"...');
+        
+        // Function to process all text nodes in an element
+        function processTextNodes(element) {
+            // Create a TreeWalker to find all text nodes
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            const textNodes = [];
+            let node;
+            
+            // Collect all text nodes
+            while (node = walker.nextNode()) {
+                textNodes.push(node);
+            }
+            
+            // Process each text node
+            textNodes.forEach(textNode => {
+                const originalText = textNode.nodeValue;
+                
+                // Replace "étudiés" with "étudié" (case-sensitive)
+                if (originalText.includes('étudiés')) {
+                    const correctedText = originalText.replace(/étudiés/g, 'étudié');
+                    textNode.nodeValue = correctedText;
+                    console.log('Fixed:', originalText, '→', correctedText);
+                }
+                
+                // Also handle capitalized version
+                if (originalText.includes('Étudiés')) {
+                    const correctedText = originalText.replace(/Étudiés/g, 'Étudié');
+                    textNode.nodeValue = correctedText;
+                    console.log('Fixed:', originalText, '→', correctedText);
+                }
+            });
+        }
+        
+        // Process the entire document body
+        processTextNodes(document.body);
+        
+        // Specifically target the "Who We Are" section if it exists
+        const whoWeAreSection = document.querySelector('.about-section');
+        if (whoWeAreSection) {
+            processTextNodes(whoWeAreSection);
+        }
+        
+        // Also target all paragraphs in about sections
+        const aboutParagraphs = document.querySelectorAll('.about-section p, .section-text');
+        aboutParagraphs.forEach(paragraph => {
+            processTextNodes(paragraph);
+        });
+    }
+    
+    // Apply the fix when translation completes
+    const translationObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            // Check if the translation has been applied
+            if (mutation.target.classList && 
+                (mutation.target.classList.contains('translated-ltr') || 
+                 mutation.target.classList.contains('translated-rtl'))) {
+                
+                // Apply fix with delays to catch all translation phases
+                setTimeout(fixEtudieWord, 500);
+                setTimeout(fixEtudieWord, 1500);
+                setTimeout(fixEtudieWord, 3000);
+                break;
+            }
+        }
+    });
+    
+    // Start observing the document for translation changes
+    translationObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+    
+    // Set up listeners for the language toggle buttons
+    const languageOptionBtns = document.querySelectorAll('.language-option');
+    languageOptionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            
+            if (lang === 'fr') {
+                // For French, apply fix multiple times as translation completes
+                setTimeout(fixEtudieWord, 1000);
+                setTimeout(fixEtudieWord, 2500);
+                setTimeout(fixEtudieWord, 4000);
+            }
+        });
+    });
+    
+    // Check if already translated on page load
+    if (localStorage.getItem('successway_language') === 'fr') {
+        setTimeout(fixEtudieWord, 1000);
+        setTimeout(fixEtudieWord, 2500);
+        setTimeout(fixEtudieWord, 4000);
+    }
+    
+    // Expose global function for manual fixing
+    window.fixEtudieWord = fixEtudieWord;
+    
+    // Add MutationObserver to watch for content changes in the about section
+    const aboutObserver = new MutationObserver(() => {
+        // Check if page is translated to French before applying fix
+        const isTranslatedToFrench = document.documentElement.classList.contains('translated-ltr') || 
+            document.cookie.includes('googtrans=/en/fr') ||
+            localStorage.getItem('successway_language') === 'fr';
+            
+        if (isTranslatedToFrench) {
+            setTimeout(fixEtudieWord, 300);
+        }
+    });
+    
+    // Observe the about section for changes
+    const aboutSection = document.querySelector('.about-section');
+    if (aboutSection) {
+        aboutObserver.observe(aboutSection, {
+            childList: true,
+            subtree: true,
+            characterData: true
+        });
+    }
+});
+</script>
+</body>
+</html>
