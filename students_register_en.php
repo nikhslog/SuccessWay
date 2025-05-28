@@ -84,7 +84,7 @@ $conn->close();
 $container_class = '';
 $current_file = basename($_SERVER['PHP_SELF']);
 
-if ($current_file === 'students_register.php') {
+if ($current_file === 'students_register_en.php') {
     $container_class = 'active';
 } else {
     $container_class = '';
@@ -838,15 +838,15 @@ body {
                     <a href="index.html">
                     </a>
                 </div>
-                <h1>Se connecter</h1>
-                <p>Bienvenue dans votre parcours éducatif</p>
+                <h1>Login</h1>
+                <p>Welcome back to your educational journey</p>
                 
                 <?php if ($login_error): ?>
                     <div class="error-message"><?php echo $login_error; ?></div>
                 <?php endif; ?>
                 
                 <?php if ($register_success): ?>
-                    <div class="success-message">Inscription réussie ! Vous pouvez maintenant vous connecter.</div>
+                    <div class="success-message">Registration successful! You can now login.</div>
                 <?php endif; ?>
                 
                 <div class="input-box">
@@ -861,7 +861,7 @@ body {
                 <div class="forgot-link">
                     <a href="#">Forgot Password?</a>
                 </div>
-                <button type="submit" name="login" class="btn">Se connecter</button>
+                <button type="submit" name="login" class="btn">Login</button>
                 <!-- <p>or login with</p>
                 <div class="social-icons">
                     <a href="#"><i class='bx bxl-google'></i></a>
@@ -878,15 +878,15 @@ body {
                         
                     </a>
                 </div>
-                <h1>Inscrivez-vous</h1>
-                <p>Commencez votre parcours éducatif avec nous</p>
+                <h1>Register</h1>
+                <p>Start your educational journey with us</p>
                 
                 <?php if ($register_error): ?>
                     <div class="error-message"><?php echo $register_error; ?></div>
                 <?php endif; ?>
                 
                 <div class="input-box">
-                    <input type="text" name="fullname" placeholder="Nom et prénom" required>
+                    <input type="text" name="fullname" placeholder="Full Name" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
@@ -894,20 +894,20 @@ body {
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
                     <i class='bx bxs-phone'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" id="register-password" placeholder="Mot de passe" required>
+                    <input type="password" name="password" id="register-password" placeholder="Password" required>
                     <i class='bx bx-show show-password' id="register-show-password"></i>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirmez le mot de passe" required>
+                    <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirm Password" required>
                     <i class='bx bx-show show-password' id="confirm-show-password"></i>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
-                <button type="submit" name="register" class="btn">Inscrivez-vous</button>
+                <button type="submit" name="register" class="btn">Register</button>
                 <!-- <p>or register with</p>
                 <div class="social-icons">
                     <a href="#"><i class='bx bxl-google'></i></a>
@@ -925,9 +925,9 @@ body {
             </div>
 
             <div class="toggle-panel toggle-right">
-                <h1>Content de te revoir!</h1>
-                <p>Vous avez déjà un compte ? Connectez-vous pour poursuivre votre parcours éducatif.</p>
-                <button class="btn login-btn">Se connecter</button>
+                <h1>Welcome Back!</h1>
+                <p>Already have an account? Login to continue your educational journey.</p>
+                <button class="btn login-btn">Login</button>
             </div>
         </div>
     </div>
@@ -991,11 +991,11 @@ body {
                 <path d="M14 18h6"></path>
             </svg>
         </div>
-        <div class="label">Traduire en anglais</div>
+        <div class="label">Translate into french</div>
     </div>
     <script>
         document.getElementById('translationToggle').addEventListener('click', function() {
-            window.location.href = 'students_register_en.php';
+            window.location.href = 'students_register.php';
         });
     </script>
 

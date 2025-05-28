@@ -259,24 +259,27 @@
         
         /* Cards container */
         .cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin: 4rem 0;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Reduced from 2rem to fit 4 cards */
+    margin: 4rem 0;
+}
         
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 280px;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
+.card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 1.5rem); /* Changed from fixed width to 25% minus gap */
+    max-width: 280px; /* Added max-width to prevent cards from becoming too wide */
+    min-width: 220px; /* Added min-width to prevent cards from becoming too narrow */
+    padding: 1.8rem; /* Slightly reduced padding from 2rem */
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    flex-grow: 0;
+}
         
         .card:hover {
             transform: translateY(-15px);
@@ -967,6 +970,54 @@
                 height: 40px;
             }
         }
+        @media (max-width: 1200px) {
+    .card {
+        width: calc(33.333% - 1.5rem) !important; /* 3 per row for large screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .card {
+        width: calc(50% - 1.5rem) !important; /* 2 per row for medium screens */
+    }
+    
+    .cards-container {
+        gap: 1.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100% !important; /* 1 per row for small screens */
+        max-width: 320px !important;
+    }
+    
+    .cards-container {
+        gap: 1rem !important;
+    }
+}
+
+/* Additional animation delay for 4th card */
+.card:nth-child(4) {
+    transition-delay: 0.4s !important;
+}
+
+/* Adjust transition delay for remaining cards */
+.card:nth-child(5) {
+    transition-delay: 0.5s !important;
+}
+
+.card:nth-child(6) {
+    transition-delay: 0.6s !important;
+}
+
+.card:nth-child(7) {
+    transition-delay: 0.7s !important;
+}
+
+.card:nth-child(8) {
+    transition-delay: 0.8s !important;
+}
         /* Translation Toggle Button */
 .translation-toggle {
     position: fixed;
@@ -1411,6 +1462,24 @@ body .footer-brand .logo-text span:last-of-type {
     </style>
 </head>
 <body>
+    <div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Traduire en anglais</div>
+    </div>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'pricing_test_en.html';
+        });
+    </script>
     <div class="sw-preloader" id="sw-preloader">
         <div class="sw-plane-container">
             <div class="sw-plane">✈️</div>
@@ -1483,25 +1552,25 @@ body .footer-brand .logo-text span:last-of-type {
         <div class="cards-container">
             <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
                 <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">📝</div>
-                <h3 style="font-size: 1.4rem;">Assistance aux Candidatures</h3>
+                <h3 style="font-size: 1.4rem;">Admission</h3>
                 <div class="unique-feature">Un accompagnement complet pour vos demandes d'admission et la préparation de tous vos documents universitaires.</div>
             </div>
             
             <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
                 <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">🛂</div>
-                <h3 style="font-size: 1.4rem;">Accompagnement pour votre demande de visa</h3>
+                <h3 style="font-size: 1.4rem;">Demande de visa</h3>
                 <div class="unique-feature">Notre équipe vous aide à réussir votre demande de visa grâce à un accompagnement personnalisé</div>
             </div>
             
             <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
                 <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">🏠</div>
-                <h3 style="font-size: 1.4rem;">Accompagnement dans la recherche de logement étudiant</h3>
+                <h3 style="font-size: 1.4rem;">Recherche de Logement</h3>
                 <div class="unique-feature">Trouver un logement à l'étranger peut être un défi. Grâce à notre réseau de partenaires et nos conseils pratiques, nous vous aidons à choisir la meilleure option pour vivre sereinement votre aventure académique.</div>
             </div>
             
             <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
                 <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">🌍</div>
-                <h3 style="font-size: 1.4rem;">Pré-départ</h3>
+                <h3 style="font-size: 1.4rem;">Sessions d’orientations et Suivi à l’étranger</h3>
                 <div class="unique-feature">Nos sessions de préparation au départ couvrent tout ce que vous devez savoir pour réussir votre installation à l'étranger : culture locale, attentes académiques, codes sociaux, conseils pratiques, gestion du stress et adaptation. Objectif : partir confiant et bien informé.</div>
             </div>
         </div>
@@ -1525,16 +1594,6 @@ body .footer-brand .logo-text span:last-of-type {
                 <div class="unique-feature">Système éducatif de qualité alliant les approches pédagogiques orientales et occidentales</div>
 
             </div>
-            <div class="card fade-in">
-                <div class="popular-badge">Popular</div>
-                <div class="card-flag">
-                    <img src="canada-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                </div>
-                <h3>Canada</h3>
-                <div class="price">850,000</div>
-                <div class="unique-feature">Des universités de renommée mondiale avec des recherches innovantes et des programmes diversifiés</div>
-
-            </div>
 
             <div class="card fade-in">
                 <div class="popular-badge">Popular</div>
@@ -1546,6 +1605,25 @@ body .footer-brand .logo-text span:last-of-type {
                 <div class="unique-feature">Un héritage académique ancien avec des normes éducatives en évolution rapide</div>
 
             </div>
+            <div class="card fade-in">
+                <div class="popular-badge">Popular</div>
+                <div class="card-flag">
+                    <img src="canada-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>Canada</h3>
+                <div class="price">850,000</div>
+                <div class="unique-feature">Des universités de renommée mondiale avec des recherches innovantes et des programmes diversifiés</div>
+
+            </div>
+            <div class="card fade-in">
+                
+                <div class="card-flag">
+                    <img src="usa.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>USA</h3>
+                <div class="price">850,000</div>
+                <div class="unique-feature">Terre d'opportunités avec des cultures diverses et un potentiel de carrière illimité</div>
+        </div>
             
             <div class="card fade-in">
                 
@@ -1579,9 +1657,6 @@ body .footer-brand .logo-text span:last-of-type {
                 <div class="unique-feature">Tradition éducative méditerranéenne respectée avec influence française</div>
 
             </div>
-            
-
-        </div>
     </div>
     
     <footer class="footer">

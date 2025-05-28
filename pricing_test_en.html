@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successway Mali - Study Destinations & Pricing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #5EBCAD;
+            --primary-dark: #459A8C;
+            --secondary: #EC9A7B;
+            --accent: #F7D060;
+            --light: #F2F2F2;
+            --light-green: #E5F5F2;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            flex: 1;
+        }
+        
+        header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 0; /* Changed to 0 to remove white space */
+}
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img {
+            width: 38px;
+            height: 38px;
+        }
+        
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+        
+        .logo-text .success {
+            color: #40b3a2;
+        }
+        
+        .logo-text .way {
+            color: #1a1a1a;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.3rem 2.5rem;
+            background-color: white;
+            border-radius: 50px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(64, 179, 162, 0.08);
+            max-width: 1400px;
+            width: 90%;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            height: 60px;
+        }
+        
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: auto;
+            padding-left: 5px;
+        }
+        
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        .hamburger-line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.rem 0.8rem;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #40b3a2;
+        }
+        
+        .nav-links .faq-btn {
+            background-color: #40b3a2;
+            color: white;
+            padding: 0.7rem 2.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
+            font-weight: 600;
+        }
+        
+        .nav-links .faq-btn:hover {
+            background-color: #368f82;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(64, 179, 162, 0.3);
+        }
+        
+        .register-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .register-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(94, 188, 173, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .floating-bubble {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            z-index: 0;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(10px, 10px); }
+            50% { transform: translate(0, 15px); }
+            75% { transform: translate(-10px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        .floating-bubble:nth-child(1) { animation-duration: 20s; }
+        .floating-bubble:nth-child(2) { animation-duration: 15s; animation-delay: 1s; }
+        .floating-bubble:nth-child(3) { animation-duration: 18s; animation-delay: 2s; }
+        .floating-bubble:nth-child(4) { animation-duration: 22s; animation-delay: 0.5s; }
+        .floating-bubble:nth-child(5) { animation-duration: 25s; animation-delay: 1.5s; }
+        .floating-bubble:nth-child(6) { animation-duration: 17s; animation-delay: 3s; }
+        .floating-bubble:nth-child(7) { animation-duration: 21s; animation-delay: 2.5s; }
+        .floating-bubble:nth-child(8) { animation-duration: 19s; animation-delay: 1s; }
+        
+        .title-section {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .title-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title-section h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Cards container */
+        .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Reduced from 2rem to fit 4 cards */
+    margin: 4rem 0;
+}
+        
+.card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 1.5rem); /* Changed from fixed width to 25% minus gap */
+    max-width: 280px; /* Added max-width to prevent cards from becoming too wide */
+    min-width: 220px; /* Added min-width to prevent cards from becoming too narrow */
+    padding: 1.8rem; /* Slightly reduced padding from 2rem */
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    flex-grow: 0;
+}
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 7px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .card-flag {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+        }
+        
+        .card-flag img {
+            width: 130%;
+            height: auto;
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 1rem 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .price::after {
+            content: 'FCFA';
+            font-size: 0.8rem;
+            position: absolute;
+            top: 0;
+            right: -40px;
+            color: #999;
+        }
+        
+        .unique-feature {
+            padding: 0.8rem 0;
+            margin: 1.5rem 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+            font-size: 0.9rem;
+            min-height: 60px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(94, 188, 173, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 1rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(94, 188, 173, 0.4);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -32px;
+            background: var(--accent);
+            color: var(--dark);
+            transform: rotate(45deg);
+            padding: 8px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: rotate(45deg) scale(1);
+            }
+            50% {
+                transform: rotate(45deg) scale(1.05);
+            }
+            100% {
+                transform: rotate(45deg) scale(1);
+            }
+        }
+        
+        /* Globe container */
+        .globe-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 1rem;
+        }
+        
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            background-color: #e0f2f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .globe img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 0;
+        }
+        
+        .airplane {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 10;
+            animation: fly 8s linear infinite;
+        }
+        
+        @keyframes fly {
+            0% {
+                left: calc(0% - 15px);
+                top: 50%;
+                transform: rotate(15deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            25% {
+                left: 25%;
+                top: 30%;
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                left: 50%;
+                top: 70%;
+                transform: rotate(-15deg);
+                opacity: 1;
+            }
+            75% {
+                left: 75%;
+                top: 40%;
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                left: calc(100% + 15px);
+                top: 50%;
+                transform: rotate(15deg);
+                opacity: 0;
+            }
+        }
+        
+        .page-title-container {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+            padding: 2rem 0 1.5rem;
+            z-index: 10;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered delay for cards */
+        .card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .card:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .card:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+        
+        /* Footer styles */
+        .footer {
+            background-color: #5bbfb1;
+            color: #f0f0f0;
+            padding: 60px 0 40px;
+            position: relative;
+            font-family: system-ui, -apple-system, sans-serif;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            margin-top: 40px;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        /* Brand Section */
+        .footer-brand {
+            flex: 0 0 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-brand .logo-text .success {
+            color: #f0f0f0;
+        }
+        
+        .footer-brand .logo-text .way {
+            color: #333333;
+        }
+        
+        .copyright {
+            color: #f0f0f0;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .legal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .legal-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            opacity: 0.9;
+        }
+        
+        .legal-links a:hover {
+            color: #fff;
+            opacity: 1;
+        }
+        
+        /* Links Columns */
+        .footer-links-column {
+            flex: 0 0 15%;
+        }
+        
+        .footer-heading {
+            color: #f0f0f0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .footer-links li {
+            margin: 0;
+        }
+        
+        .footer-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+            opacity: 1;
+        }
+        
+        /* CTA Section */
+        .footer-cta {
+            flex: 0 0 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .get-started-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #5bbfb1;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .get-started-btn:hover {
+            background-color: #f5f5f5;
+            color: #4ba99c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            color: #40b3a2;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #40b3a2;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Preloader */
+        .sw-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        .sw-preloader.hidden {
+            display: none;
+        }
+        
+        .sw-plane-container {
+            position: relative;
+            width: 200px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .sw-plane {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: sw-fly 2s infinite ease-in-out;
+        }
+        
+        .sw-plane-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #40b3a2;
+            transform: translateY(-50%);
+            animation: sw-drawLine 2s infinite ease-in-out;
+        }
+        
+        .sw-loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #40b3a2;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: sw-fadeText 2s infinite ease-in-out;
+        }
+        
+        @keyframes sw-fly {
+            0% { left: 0; }
+            50% { left: 180px; }
+            100% { left: 0; }
+        }
+        
+        @keyframes sw-drawLine {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        
+        @keyframes sw-fadeText {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .cards-container {
+                gap: 1.5rem;
+            }
+            
+            .footer-brand, .footer-links-column, .footer-cta {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                margin-top: 70px;
+            }
+            
+            .hamburger-menu {
+                display: flex;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                width: 90%;
+                margin: 0 auto;
+                background-color: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+                z-index: 100;
+                display: none;
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+                border-radius: 8px;
+                transition: background-color 0.3s;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(92, 184, 178, 0.1);
+            }
+            
+            .nav-links .faq-btn {
+                margin-top: 10px;
+                width: 80%;
+                align-self: center;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .title-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .globe-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .footer-brand, .footer-links-column, .footer-cta {
+                flex: 0 0 100%;
+            }
+            
+            .social-links {
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 8px 12px;
+                height: 60px;
+            }
+            
+            .logo {
+                transform: scale(0.75);
+            }
+            
+            .hamburger-menu {
+                right: 15px;
+            }
+            
+            .nav-links {
+                top: 60px;
+                padding: 12px;
+                gap: 8px;
+                width: 85%;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .globe-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .title-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer {
+                padding: 40px 0 30px;
+            }
+            
+            .footer-main {
+                gap: 30px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        /* Translation Toggle Button */
+.translation-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.translation-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.translation-toggle .icon {
+    margin-right: 8px;
+    color: #5cbfb9;
+}
+
+.translation-toggle .label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.language-options {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border: 1px solid rgba(92, 184, 178, 0.2);
+}
+
+.language-options.active {
+    display: flex;
+}
+
+.language-option {
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 0 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.language-option:hover,
+.language-option.active {
+    background-color: #5cbfb9;
+    color: white;
+}
+
+/* Google Translate notification bar remover */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Mobile responsiveness for translation toggle */
+@media (max-width: 768px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .translation-toggle {
+        padding: 8px 12px;
+    }
+    
+    .translation-toggle .label {
+        font-size: 0.85rem;
+    }
+    
+    .language-option {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .translation-toggle,
+    .language-options {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+/* Fix for French translation text overflow in pricing cards */
+html.translated-ltr .card h3,
+html[lang="fr"] .card h3,
+.french-active .card h3 {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+.success-way-text::before {
+    content: "Success";
+    color: #5CB8B2;
+    font-weight: bold;
+}
+
+.success-way-text::after {
+    content: "Way";
+    font-weight: bold;
+    color: #1a1a1a;
+}
+.success-way-text.footer-version::before {
+    content: "Success";
+    color: white !; 
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.success-way-text.footer-version::after {
+    content: "Way";
+    font-weight: bold; /* Note: footer version has both parts bold */
+    color: #333333;
+    font-size: 24px;
+}
+/* Extremely specific selector for the footer logo "Success" */
+.footer .logo-text .success-way-text.footer-version::before,
+footer .logo-text .success-way-text.footer-version::before,
+.footer-brand .logo-text .success-way-text.footer-version::before {
+    content: "Success" !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Extremely specific selector for the footer logo "Way" */
+.footer .logo-text .success-way-text.footer-version::after,
+footer .logo-text .success-way-text.footer-version::after,
+.footer-brand .logo-text .success-way-text.footer-version::after {
+    content: "Way" !important;
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Regular span selectors for the traditional approach */
+.footer .logo-text span.success,
+footer .logo-text span.success,
+.footer-brand .logo-text span.success {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+.footer .logo-text span.way,
+footer .logo-text span.way,
+.footer-brand .logo-text span.way {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Additional more aggressive targeting for the footer logo */
+body .footer .logo-text span:first-of-type,
+body footer .logo-text span:first-of-type,
+body .footer-brand .logo-text span:first-of-type {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+body .footer .logo-text span:last-of-type,
+body footer .logo-text span:last-of-type,
+body .footer-brand .logo-text span:last-of-type {
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+/* Enhanced Navbar Responsiveness for Pricing Page */
+
+/* Base navbar improvements */
+.navbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0.3rem 2.5rem !important;
+  height: 60px !important;
+  z-index: 1000 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Logo positioning and sizing */
+.navbar .logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-right: auto !important;
+  transform-origin: left center !important;
+}
+
+/* Hamburger menu styling */
+.hamburger-menu {
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  width: 30px !important;
+  height: 21px !important;
+  cursor: pointer !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.hamburger-line {
+  display: block !important;
+  height: 3px !important;
+  width: 100% !important;
+  border-radius: 10px !important;
+  background-color: #333 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Nav links default styling */
+.nav-links {
+  display: flex !important;
+  gap: 2rem !important;
+  align-items: center !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Large screens (desktops) */
+@media screen and (min-width: 1200px) {
+  .navbar {
+    width: 90% !important;
+    max-width: 1400px !important;
+    border-radius: 50px !important;
+  }
+  
+  .nav-links {
+    gap: 2.5rem !important;
+  }
+}
+
+/* Medium screens (laptops and small desktops) */
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .navbar {
+    width: 92% !important;
+    max-width: 1200px !important;
+    padding: 0.3rem 2rem !important;
+    border-radius: 40px !important;
+  }
+  
+  .nav-links {
+    gap: 2rem !important;
+  }
+  
+  .nav-links a {
+    font-size: 1rem !important;
+  }
+}
+
+/* Tablets and small laptops */
+@media screen and (max-width: 991px) and (min-width: 769px) {
+  .navbar {
+    width: 95% !important;
+    padding: 0.3rem 1.5rem !important;
+    border-radius: 35px !important;
+  }
+  
+  .nav-links {
+    gap: 1.5rem !important;
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem !important;
+    padding: 0.4rem 0.6rem !important;
+  }
+  
+  .nav-links .faq-btn {
+    padding: 0.6rem 1.5rem !important;
+  }
+}
+
+/* Tablets and large mobile phones */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0.3rem 1.2rem !important;
+    height: 60px !important;
+    border-radius: 30px !important;
+    width: 95% !important;
+  }
+  
+  .logo {
+    transform: scale(0.9) !important;
+  }
+  
+  .hamburger-menu {
+    display: flex !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+  
+  .nav-links {
+    position: absolute !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 90% !important;
+    margin: 0 auto !important;
+    background-color: white !important;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    padding: 15px !important;
+    z-index: 1000 !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    transition: none !important; /* Prevent transition issues with display:none */
+  }
+  
+  .nav-links.active {
+    display: flex !important;
+  }
+  
+  .nav-links a {
+    padding: 10px 15px !important;
+    text-align: center !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+    transition: background-color 0.3s !important;
+    font-size: 0.95rem !important;
+    display: block !important;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(92, 184, 178, 0.1) !important;
+  }
+  
+  .nav-links .faq-btn {
+    margin-top: 10px !important;
+    width: 80% !important;
+    align-self: center !important;
+    padding: 0.6rem 1.5rem !important;
+  }
+}
+
+/* Small mobile phones */
+@media screen and (max-width: 576px) {
+  .navbar {
+    padding: 8px 12px !important;
+    height: 50px !important;
+    border-radius: 25px !important;
+    width: 92% !important;
+    top: 10px !important;
+  }
+  
+  .logo {
+    transform: scale(0.75) !important;
+  }
+  
+  .hamburger-menu {
+    right: 15px !important;
+    width: 25px !important;
+    height: 18px !important;
+  }
+  
+  .nav-links {
+    top: 60px !important;
+    padding: 12px !important;
+    gap: 8px !important;
+    width: 85% !important;
+  }
+  
+  .nav-links a {
+    padding: 8px 10px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .nav-links .faq-btn {
+    padding: 0.5rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Extra small mobile phones */
+@media screen and (max-width: 375px) {
+  .navbar {
+    padding: 6px 10px !important;
+    height: 45px !important;
+    border-radius: 20px !important;
+    width: 95% !important;
+    top: 5px !important;
+  }
+  
+  .logo {
+    transform: scale(0.7) !important;
+  }
+  
+  .nav-links {
+    top: 55px !important;
+    padding: 10px !important;
+    width: 90% !important;
+  }
+  
+  .nav-links a {
+    padding: 7px 10px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .nav-links .faq-btn {
+    width: 90% !important;
+    padding: 0.4rem 1rem !important;
+  }
+}
+
+/* Fix for Safari and iOS */
+@supports (-webkit-touch-callout: none) {
+  .nav-links {
+    backdrop-filter: blur(0) !important; /* Fix for Safari bug with positioned elements */
+  }
+  
+  .hamburger-menu {
+    transform: translateY(-50%) !important; /* Ensure vertical alignment in Safari */
+  }
+}
+@media (max-width: 1200px) {
+    .card {
+        width: calc(33.333% - 1.5rem) !important; /* 3 per row for large screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .card {
+        width: calc(50% - 1.5rem) !important; /* 2 per row for medium screens */
+    }
+    
+    .cards-container {
+        gap: 1.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100% !important; /* 1 per row for small screens */
+        max-width: 320px !important;
+    }
+    
+    .cards-container {
+        gap: 1rem !important;
+    }
+}
+
+/* Additional animation delay for 4th card */
+.card:nth-child(4) {
+    transition-delay: 0.4s !important;
+}
+
+/* Adjust transition delay for remaining cards */
+.card:nth-child(5) {
+    transition-delay: 0.5s !important;
+}
+
+.card:nth-child(6) {
+    transition-delay: 0.6s !important;
+}
+
+.card:nth-child(7) {
+    transition-delay: 0.7s !important;
+}
+
+.card:nth-child(8) {
+    transition-delay: 0.8s !important;
+}
+    </style>
+</head>
+<body>
+    <div class="sw-preloader" id="sw-preloader">
+        <div class="sw-plane-container">
+            <div class="sw-plane">✈️</div>
+            <div class="sw-plane-line"></div>
+        </div>
+        <div class="sw-loading-text">SuccessWay</div>
+    </div>
+    
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="successway_logo.png" alt="SuccessWay Logo">
+            <!-- Use special attribute to mark this as a brand name -->
+            <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                <!-- Use span with CSS content property instead of direct text -->
+                <span class="success-way-text"></span>
+            </div>
+        </div>
+        <div class="hamburger-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_p.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing_test.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="students_register.php" class="faq-btn">Sign Up Now</a>
+        </div>
+    </nav>
+    <br>
+
+    <header>
+        <div class="floating-shapes" id="floatingShapes">
+            <div class="floating-bubble" style="width: 80px; height: 80px; top: 15%; left: 10%; opacity: 0.3;"></div>
+            <div class="floating-bubble" style="width: 120px; height: 120px; top: 60%; left: 5%; opacity: 0.15;"></div>
+            <div class="floating-bubble" style="width: 40px; height: 40px; top: 25%; left: 30%; opacity: 0.25;"></div>
+            <div class="floating-bubble" style="width: 60px; height: 60px; top: 75%; left: 25%; opacity: 0.2;"></div>
+            <div class="floating-bubble" style="width: 100px; height: 100px; top: 10%; left: 60%; opacity: 0.1;"></div>
+            <div class="floating-bubble" style="width: 50px; height: 50px; top: 40%; left: 75%; opacity: 0.3;"></div>
+            <div class="floating-bubble" style="width: 70px; height: 70px; top: 65%; left: 85%; opacity: 0.2;"></div>
+            <div class="floating-bubble" style="width: 30px; height: 30px; top: 20%; left: 90%; opacity: 0.25;"></div>
+        </div>
+        <div class="container">
+            <div class="globe-container" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background-color: white; display: flex; justify-content: center; align-items: center; padding: 5px; box-sizing: border-box; box-shadow: 0 0 10px rgba(255,255,255,0.5);">
+                <div class="globe" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                    <!-- Using the provided image -->
+                    <img src="globe.png" alt="Globe" style="width: 150px; height: 50px !important; object-fit: contain; transform: scale(4.5);">
+                </div>
+                <div class="airplane" style="position: absolute; top: 40%; right: 25%; font-size: 20px; transform: rotate(45deg);">✈️</div>
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <!-- Creative positioning for the page title - at the bottom with gradient overlay -->
+        <div class="page-title-container">
+            <h1 class="page-title">Pricing</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="title-section fade-in">
+            <h2>Our Comprehensive Services</h2>
+            <p class="subtitle">Every destination package includes these essential services to ensure your international education journey is smooth and successful.</p>
+        </div>
+        
+        <div class="cards-container">
+            <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
+                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">📝</div>
+                <h3 style="font-size: 1.4rem;">Application Support</h3>
+                <div class="unique-feature">Complete assistance with university applications and documentation</div>
+            </div>
+            
+            <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
+                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">🛂</div>
+                <h3 style="font-size: 1.4rem;">Visa Guidance</h3>
+                <div class="unique-feature">Step-by-step visa application assistance and interview preparation</div>
+            </div>
+            
+            <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
+                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">🏠</div>
+                <h3 style="font-size: 1.4rem;">Housing Assistance</h3>
+                <div class="unique-feature">Help finding suitable and affordable accommodation options</div>
+            </div>
+            
+            <div class="card fade-in" style="width: 220px; padding: 1.5rem;">
+                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">🌍</div>
+                <h3 style="font-size: 1.4rem;">Pre-departure</h3>
+                <div class="unique-feature">Comprehensive cultural and academic preparation for your destination</div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="title-section fade-in">
+            <h2>Study Destinations</h2>
+            <p class="subtitle">Choose from our popular international education destinations. Each package includes all our core services, plus country-specific benefits to enhance your educational journey.</p>
+        </div>
+        
+        
+        <div class="cards-container">
+            <div class="card fade-in">
+                <div class="popular-badge">Popular</div>
+                <div class="card-flag">
+                    <img src="malaysia-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>Malaysia</h3>
+                <div class="price">600,000</div>
+                <div class="unique-feature">Quality education system blending Eastern and Western teaching approaches</div>
+
+            </div>
+
+            <div class="card fade-in">
+                <div class="popular-badge">Popular</div>
+                <div class="card-flag">
+                    <img src="china-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>China</h3>
+                <div class="price">1,000,000</div>
+                <div class="unique-feature">Ancient academic heritage with rapidly advancing educational standards</div>
+
+            </div>
+            <div class="card fade-in">
+                <div class="popular-badge">Popular</div>
+                <div class="card-flag">
+                    <img src="canada-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>Canada</h3>
+                <div class="price">850,000</div>
+                <div class="unique-feature">World-renowned universities with innovative research and diverse programs</div>
+
+            </div>
+            <div class="card fade-in">
+                
+                <div class="card-flag">
+                    <img src="usa.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>USA</h3>
+                <div class="price">850,000</div>
+                <div class="unique-feature">Land of opportunity with diverse cultures and limitless career potential</div>            </div>
+            
+
+        </div>
+            
+            <div class="card fade-in">
+                
+                <div class="card-flag">
+                    <img src="turkey-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>Turkey</h3>
+                <div class="price">600,000</div>
+                <div class="unique-feature">Historic excellence in education with modern campuses and global outlook</div>
+                
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-flag">
+                    <img src="india-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>India</h3>
+                <div class="price">600,000</div>
+                <div class="unique-feature">Leading institutions in technology, engineering and business education</div>
+
+            </div>
+            
+            
+            
+            <div class="card fade-in">
+                <div class="card-flag">
+                    <img src="tunisia-min.png" alt="Country Flag" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3>Tunisia</h3>
+                <div class="price">400,000</div>
+                <div class="unique-feature">Respected Mediterranean educational tradition with French influence</div>
+
+            </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- Logo and Copyright Section -->
+                <div class="footer-brand">
+                    <div class="logo" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <img src="successway_logo.png" alt="SuccessWay Logo" style="height: 40px; width: auto; margin-right: 10px; background-color: white; padding: 5px; border-radius: 50px;">
+                        <div class="logo-text" translate="no" data-original-text="SuccessWay">
+                            <!-- Use span with CSS content property instead of direct text -->
+                            <span class="success-way-text footer-version"></span>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2025 SuccessWay. All rights reserved</p>
+                    </div>
+
+                </div>
+
+                <!-- Company Links -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about_p.html">About us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Resources Links -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="students_register.php">Sign Up Now</a></li>
+                        <li><a href="pricing_test.html">Pricing</a></li>
+                        <!-- <li><a href="#careers">Careers</a></li> -->
+                    </ul>
+                </div>
+
+                <!-- Get in Touch Section -->
+                <div class="footer-cta">
+                    <h3 class="footer-heading">Get in Touch</h3>
+                    <a href="students_register.php" class="get-started-btn">Get Started</a>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://x.com/SuccesswayM" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.38 7.773 21.692 5.25 22 4.009z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/successway-mali-998703313/?originalSubdomain=ml" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://www.facebook.com/successway.mali/" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="https://www.instagram.com/succeswaymali/" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to top button -->
+        <div class="back-to-top" id="backToTopBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating shapes
+        function createFloatingShapes() {
+            const shapesContainer = document.getElementById('floatingShapes');
+            
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                
+                // Random size between 10px and 50px
+                const size = Math.random() * 40 + 10;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                shape.style.left = `${posX}%`;
+                shape.style.top = `${posY}%`;
+                
+                // Random float animation
+                const animDuration = Math.random() * 10 + 10;
+                shape.style.animation = `float ${animDuration}s infinite`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                shapesContainer.appendChild(shape);
+            }
+        }
+        
+        // Fade in elements on scroll
+        function handleScrollAnimation() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        // Hamburger menu functionality
+        function setupHamburgerMenu() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (navLinks.classList.contains('active') && !e.target.closest('.nav-links') && !e.target.closest('.hamburger-menu')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+                
+                // Close menu when clicking a link
+                const navItems = navLinks.querySelectorAll('a');
+                navItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        }
+        
+        // Back to top button functionality
+        function setupBackToTopButton() {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            
+            if (backToTopBtn) {
+                // Show button when scrolling down
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
+                });
+                
+                // Scroll to top when clicked
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingShapes();
+            setupHamburgerMenu();
+            setupBackToTopButton();
+            
+            // Handle initial animations
+            setTimeout(() => {
+                handleScrollAnimation();
+            }, 100);
+            
+            // Handle scroll animations
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add hover effects for cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const button = card.querySelector('.cta-button');
+                    if (button) {
+                        button.style.transform = 'translateY(-5px)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const button = card.querySelector('.cta-button');
+                    if (button) {
+                        button.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+        });
+        
+        // Preloader control function
+        function hideSwPreloader() {
+            document.getElementById('sw-preloader').classList.add('hidden');
+        }
+        
+        // Add to window load event
+        window.addEventListener('load', function() {
+            // Optional: delay hiding for visual effect
+            setTimeout(hideSwPreloader, 2000);
+        });
+        
+        // For development - in case window load doesn't fire
+        setTimeout(hideSwPreloader, 1000);
+    </script>
+    <!-- Translation Toggle Button -->
+    <div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Translate to French</div>
+    </div>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'pricing_test.html';
+        });
+    </script>
+<script>
+    // Enhanced hamburger menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger-menu');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (hamburger && navLinks) {
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (navLinks.classList.contains('active') && 
+          !e.target.closest('.nav-links') && 
+          !e.target.closest('.hamburger-menu')) {
+        navLinks.classList.remove('active');
+      }
+    });
+    
+    // Close menu when clicking a navigation link
+    const navItems = navLinks.querySelectorAll('a');
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+      });
+    });
+    
+    // Close menu when window is resized to desktop view
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

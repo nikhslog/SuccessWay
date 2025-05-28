@@ -151,7 +151,7 @@ body {
     align-items: center;
     margin-bottom: 20px;
 }
-
+        
 .logo a {
     text-decoration: none;
 }
@@ -284,19 +284,20 @@ form {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .social-icons a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
+    width: clamp(38px, 10vw, 45px);
+    height: clamp(38px, 10vw, 45px);
     border: 1px solid #eee;
     border-radius: 50%;
-    font-size: 22px;
+    font-size: clamp(18px, 5vw, 22px);
     color: #666;
-    margin: 0 8px;
+    margin: 0 8px 8px 0;
     transition: all 0.3s;
 }
 
@@ -339,6 +340,7 @@ form {
     z-index: 2;
     transition: .6s ease-in-out;
     padding: 0 clamp(20px, 5vw, 40px);
+    text-align: center;
 }
 
 .toggle-panel h1 {
@@ -369,12 +371,12 @@ form {
 
 .toggle-panel p { 
     margin-bottom: 20px;
-    text-align: center;
+    font-size: clamp(12px, 3vw, 14px);
 }
 
 .toggle-panel .btn {
-    width: clamp(140px, 30vw, 160px);
-    height: 46px;
+    width: clamp(120px, 30vw, 160px);
+    height: clamp(40px, 10vw, 46px);
     background: transparent;
     border: 2px solid #fff;
     box-shadow: none;
@@ -400,26 +402,26 @@ form {
 
 .back-btn {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 8px 15px;
+    top: 10px;
+    left: 10px;
+    padding: clamp(5px, 1.5vw, 8px) clamp(8px, 2vw, 15px);
     background: #5cbfb9;
     color: white;
     border: none;
     border-radius: 20px;
-    font-size: clamp(12px, 3vw, 14px);
+    font-size: clamp(11px, 2.5vw, 14px);
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
     z-index: 10;
     transition: background-color 0.3s, left 1.2s ease-in-out, right 1.2s ease-in-out, top 1.2s ease-in-out;
 }
 
 .container.active .back-btn {
     left: auto;
-    right: 20px;
-    top: 20px;
+    right: 10px;
+    top: 10px;
 }
 
 .back-btn:hover {
@@ -444,12 +446,14 @@ form {
     }
 
     .form-box {
-        padding: 30px 20px;
+        padding: 40px 20px 30px; /* Increased top padding to make room for the back button */
     }
 
     .toggle-panel {
         padding: 0 20px;
     }
+    
+    /* Back button styles moved to global styles */
 }
 
 @media screen and (max-width: 650px) {
@@ -463,7 +467,7 @@ form {
         bottom: 0;
         width: 100%;
         height: 70%;
-        padding: 20px 15px;
+        padding: 40px 15px 20px; /* Increased top padding for back button */
     }
 
     .container.active .form-box {
@@ -497,6 +501,7 @@ form {
 
     .toggle-panel.toggle-left { 
         top: 0; 
+        padding-top: 30px; /* Add padding to avoid overlap with back button */
     }
 
     .toggle-panel.toggle-right {
@@ -508,19 +513,6 @@ form {
         bottom: 0; 
     }
 
-    .back-btn {
-        top: 10px;
-        left: 10px;
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    .container.active .back-btn {
-        right: 10px;
-        left: auto;
-        top: 10px;
-    }
-
     .input-box {
         margin: 15px 0;
     }
@@ -528,24 +520,32 @@ form {
     .input-box input {
         padding: 10px 45px 10px 15px;
     }
+    
+    /* Set logo margin to create more space */
+    .logo {
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .container h1 {
-        font-size: 22px;
+        font-size: 20px;
+        margin-top: 5px; /* Adjust margin to prevent overlap */
     }
 
     .container p {
         font-size: 12px;
-        margin: 10px 0;
+        margin: 8px 0;
     }
 
     .form-box {
-        padding: 15px 10px;
+        padding: 35px 10px 15px; /* Increased top padding for back button */
     }
 
     .toggle-panel h1 {
-        font-size: 20px;
+        font-size: 18px;
+        margin-top: 30px; /* Create space for back button */
     }
 
     .toggle-panel p {
@@ -553,36 +553,47 @@ form {
     }
 
     .toggle-panel .btn {
-        width: 130px;
-        height: 40px;
-        font-size: 14px;
+        width: 120px;
+        height: 36px;
+        font-size: 13px;
     }
 
     .input-box {
-        margin: 12px 0;
+        margin: 10px 0;
     }
 
     .input-box input {
         padding: 8px 40px 8px 12px;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .input-box i {
-        font-size: 18px;
+        font-size: 16px;
         right: 15px;
     }
 
     .input-box i.show-password {
-        right: 40px;
+        right: 38px;
     }
 
     .btn {
-        height: 40px;
-        font-size: 14px;
+        height: 38px;
+        font-size: 13px;
+    }
+    
+    /* Adjust the logo for smaller screens */
+    .logo {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* Ensure there's enough space at the top */
+    .form-box.login, .form-box.register {
+        padding-top: 40px;
     }
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 600px) and (orientation: landscape) {
     .container {
         height: auto;
         min-height: 100vh;
@@ -591,6 +602,19 @@ form {
     .form-box {
         padding-top: 50px;
         padding-bottom: 50px;
+    }
+    
+    .toggle-panel {
+        padding: 10px;
+    }
+    
+    .toggle-panel h1 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .toggle-panel p {
+        margin-bottom: 10px;
     }
 }
 
@@ -616,7 +640,7 @@ form {
 
 .sw-plane-container {
     position: relative;
-    width: 200px;
+    width: clamp(160px, 40vw, 200px);
     height: 60px;
     margin-bottom: 20px;
 }
@@ -626,7 +650,7 @@ form {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     animation: sw-fly 2s infinite ease-in-out;
 }
 
@@ -642,7 +666,7 @@ form {
 }
 
 .sw-loading-text {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 600;
     color: #40b3a2;
     letter-spacing: 2px;
@@ -655,7 +679,7 @@ form {
         left: 0;
     }
     50% {
-        left: 180px;
+        left: 80%;
     }
     100% {
         left: 0;
@@ -689,11 +713,11 @@ form {
 /* Translation Toggle Button */
 .translation-toggle {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: clamp(20px, 5vw, 70px);
+    left: clamp(15px, 4vw, 30px);
     background-color: white;
     border-radius: 50px;
-    padding: 8px 12px;
+    padding: clamp(6px, 2vw, 10px) clamp(10px, 3vw, 15px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
@@ -716,16 +740,17 @@ form {
 .translation-toggle .label {
     font-weight: 500;
     color: #333;
-    font-size: 0.95rem;
+    font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+    white-space: nowrap;
 }
 
 .language-options {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: clamp(15px, 4vw, 30px);
+    left: clamp(15px, 4vw, 30px);
     background-color: white;
     border-radius: 50px;
-    padding: 6px;
+    padding: clamp(4px, 1.5vw, 8px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: none;
     z-index: 1000;
@@ -739,13 +764,14 @@ form {
 }
 
 .language-option {
-    padding: 6px 12px;
+    padding: clamp(4px, 1.5vw, 8px) clamp(8px, 2.5vw, 15px);
     border-radius: 50px;
-    margin: 4px;
+    margin: clamp(2px, 1vw, 4px);
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s;
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    white-space: nowrap;
 }
 
 .language-option:hover,
@@ -771,8 +797,8 @@ body {
 @media (max-width: 768px) {
     .translation-toggle,
     .language-options {
-        bottom: 15px;
-        left: 15px;
+        bottom: 20px;
+        left: 20px;
     }
     
     .translation-toggle {
@@ -780,20 +806,20 @@ body {
     }
     
     .translation-toggle .label {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
     
     .language-option {
         padding: 5px 10px;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
     .translation-toggle,
     .language-options {
-        bottom: 10px;
-        left: 10px;
+        bottom: 15px;
+        left: 15px;
     }
     
     .translation-toggle {
@@ -809,13 +835,64 @@ body {
         font-size: 0.75rem;
         margin: 2px;
     }
-    
-    .sw-plane-container {
-        width: 160px;
+}
+
+/* Fix for Safari browser */
+@supports (-webkit-touch-callout: none) {
+    .container {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Fix for landscape mode on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding-top: 10px;
     }
     
-    .sw-loading-text {
-        font-size: 1.2rem;
+    .container {
+        margin-top: 0;
+        margin-bottom: 0;
+        max-height: 95vh;
+    }
+    
+    .form-box {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-top: 40px; /* More space for back button */
+    }
+    
+    /* Adjust back button positioning for landscape */
+    .back-btn {
+        top: 5px;
+        left: 5px;
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+    
+    .container.active .back-btn {
+        right: 5px;
+        top: 5px;
+        left: auto;
+    }
+    
+    /* Make content more compact in landscape */
+    .input-box {
+        margin: 8px 0;
+    }
+    
+    .toggle-panel h1 {
+        margin-top: 25px; /* Ensure no overlap with back button */
+        font-size: 18px;
+    }
+    
+    .toggle-panel p {
+        margin-bottom: 10px;
+    }
+    
+    .toggle-panel .btn {
+        height: 34px;
     }
 }
     </style>
@@ -830,23 +907,24 @@ body {
 </div>
     <div class="container <?php echo $container_class; ?>">
         <a href="index.html" class="back-btn">
-            <i class='bx bx-arrow-back'></i> Retour au site Web
+            <i class='bx bx-arrow-back'></i> Back to Website
         </a>
         <div class="form-box login">
             <form action="student_login.php" method="post">
                 <div class="logo">
                     <a href="index.html">
+                        
                     </a>
                 </div>
-                <h1>Se connecter</h1>
-                <p>Bienvenue dans votre parcours éducatif</p>
+                <h1>Login</h1>
+                <p>Welcome back to your educational journey</p>
                 
                 <?php if ($login_error): ?>
                     <div class="error-message"><?php echo $login_error; ?></div>
                 <?php endif; ?>
                 
                 <?php if ($register_success): ?>
-                    <div class="success-message">Inscription réussie ! Vous pouvez maintenant vous connecter.</div>
+                    <div class="success-message">Registration successful! You can now login.</div>
                 <?php endif; ?>
                 
                 <div class="input-box">
@@ -858,10 +936,10 @@ body {
                     <i class='bx bx-show show-password' id="login-show-password"></i>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
-                <div class="forgot-link">
+                <!-- <div class="forgot-link">
                     <a href="#">Forgot Password?</a>
-                </div>
-                <button type="submit" name="login" class="btn">Se connecter</button>
+                </div> -->
+                <button type="submit" name="login" class="btn">Login</button>
                 <!-- <p>or login with</p>
                 <div class="social-icons">
                     <a href="#"><i class='bx bxl-google'></i></a>
@@ -875,18 +953,20 @@ body {
             <form action="students_register.php" method="post">
                 <div class="logo">
                     <a href="index.html">
-                        
+                        <div class="logo-text">
+                            <span>Success</span><span>Way</span>
+                        </div>
                     </a>
                 </div>
-                <h1>Inscrivez-vous</h1>
-                <p>Commencez votre parcours éducatif avec nous</p>
+                <h1>Register</h1>
+                <p>Start your educational journey with us</p>
                 
                 <?php if ($register_error): ?>
                     <div class="error-message"><?php echo $register_error; ?></div>
                 <?php endif; ?>
                 
                 <div class="input-box">
-                    <input type="text" name="fullname" placeholder="Nom et prénom" required>
+                    <input type="text" name="fullname" placeholder="Full Name" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
@@ -894,20 +974,20 @@ body {
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
                     <i class='bx bxs-phone'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" id="register-password" placeholder="Mot de passe" required>
+                    <input type="password" name="password" id="register-password" placeholder="Password" required>
                     <i class='bx bx-show show-password' id="register-show-password"></i>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirmez le mot de passe" required>
+                    <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirm Password" required>
                     <i class='bx bx-show show-password' id="confirm-show-password"></i>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
-                <button type="submit" name="register" class="btn">Inscrivez-vous</button>
+                <button type="submit" name="register" class="btn">Register</button>
                 <!-- <p>or register with</p>
                 <div class="social-icons">
                     <a href="#"><i class='bx bxl-google'></i></a>
@@ -925,9 +1005,9 @@ body {
             </div>
 
             <div class="toggle-panel toggle-right">
-                <h1>Content de te revoir!</h1>
-                <p>Vous avez déjà un compte ? Connectez-vous pour poursuivre votre parcours éducatif.</p>
-                <button class="btn login-btn">Se connecter</button>
+                <h1>Welcome Back!</h1>
+                <p>Already have an account? Login to continue your educational journey.</p>
+                <button class="btn login-btn">Login</button>
             </div>
         </div>
     </div>
@@ -991,14 +1071,13 @@ body {
                 <path d="M14 18h6"></path>
             </svg>
         </div>
-        <div class="label">Traduire en anglais</div>
+        <div class="label">Translate into French</div>
     </div>
     <script>
         document.getElementById('translationToggle').addEventListener('click', function() {
-            window.location.href = 'students_register_en.php';
+            window.location.href = 'student_login.php';
         });
     </script>
-
 <script>
     // Preloader control
     function hidePreloader() {
@@ -1023,8 +1102,6 @@ body {
         }
         document.getElementById('sw-preloader').classList.remove('hidden');
     }
-
-    // Translation functionality
 </script>
 </body>
 </html>

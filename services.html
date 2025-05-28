@@ -1682,6 +1682,24 @@ body .footer-brand .logo-text span:last-of-type {
     </style>
 </head>
 <body>
+    <div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Traduire en anglais</div>
+    </div>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'services_en.html';
+        });
+    </script>
     <div class="sw-preloader" id="sw-preloader">
         <div class="sw-plane-container">
             <div class="sw-plane">✈️</div>

@@ -597,7 +597,7 @@ body {
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-header">
-                <div class="logo-text">
+                <div class="logo-text" translate="no">
                     <span class="success" style="color: white;">Success</span>Way
                 </div>
                 <div class="user-info">

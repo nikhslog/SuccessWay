@@ -3890,1129 +3890,469 @@ html:not(.translated-ltr) .notranslate {
 html.translated-ltr .translate-only {
   display: none !important;
 }
-/* Base styles with extremely unique naming to avoid collisions */
-/* about us section */
-.successway_about_page_v3_wrapper {
-            --successway_v3_primary_color: #40b3a2; /* Teal green from index */
-            --successway_v3_secondary_color: #ff7f6a; /* Coral from index */
-            --successway_v3_accent_color: #edc855; /* Yellow/gold from index */
-            --successway_v3_bg_color: #e7fbf7; /* Light mint background from index */
-            --successway_v3_text_dark: #333333;
-            --successway_v3_text_light: #666666;
-            --successway_v3_white: #FFFFFF;
-            --successway_v3_shadow_light: 0 8px 15px rgba(64, 179, 162, 0.1);
-            --successway_v3_shadow_medium: 0 12px 30px rgba(64, 179, 162, 0.15);
-            --successway_v3_shadow_heavy: 0 20px 50px rgba(64, 179, 162, 0.2);
-            --successway_v3_coral_light: rgba(255, 127, 106, 0.1);
-            --successway_v3_teal_light: rgba(64, 179, 162, 0.1);
-            
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
-            color: var(--successway_v3_text_dark);
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .successway_about_page_v3_wrapper * {
-            box-sizing: border-box;
-        }
-
-        /* Container styles */
-        .successway_about_v3_container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section - Updated to match index style */
-        .successway_about_v3_hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .successway_about_v3_hero_content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .successway_about_v3_hero_text {
-            animation: successway_v3_slideInLeft 1s ease-out;
-        }
-
-        .successway_about_v3_hero_visual {
-            animation: successway_v3_slideInRight 1s ease-out;
-        }
-
-        @keyframes successway_v3_slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes successway_v3_slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .successway_about_v3_hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            color: var(--successway_v3_text_dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .successway_about_v3_hero .successway_v3_highlight {
-            color: var(--successway_v3_primary_color);
-            position: relative;
-        }
-
-        .successway_about_v3_hero p {
-            font-size: 1.3rem;
-            color: var(--successway_v3_text_light);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .successway_about_v3_hero_stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .successway_about_v3_stat_item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--successway_v3_white);
-            border-radius: 20px;
-            box-shadow: var(--successway_v3_shadow_light);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .successway_about_v3_stat_item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--successway_v3_shadow_medium);
-        }
-
-        .successway_about_v3_stat_item:nth-child(1):hover {
-            border-top: 3px solid var(--successway_v3_secondary_color);
-        }
-
-        .successway_about_v3_stat_item:nth-child(2):hover {
-            border-top: 3px solid var(--successway_v3_primary_color);
-        }
-
-        .successway_about_v3_stat_item:nth-child(3):hover {
-            border-top: 3px solid var(--successway_v3_accent_color);
-        }
-
-        .successway_about_v3_stat_number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .successway_about_v3_stat_item:nth-child(1) .successway_about_v3_stat_number {
-            color: var(--successway_v3_secondary_color);
-        }
-
-        .successway_about_v3_stat_item:nth-child(2) .successway_about_v3_stat_number {
-            color: var(--successway_v3_primary_color);
-        }
-
-        .successway_about_v3_stat_item:nth-child(3) .successway_about_v3_stat_number {
-            color: var(--successway_v3_accent_color);
-        }
-
-        .successway_about_v3_stat_label {
-            color: var(--successway_v3_text_light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        /* Hero Visual - Simplified and styled to match index */
-        .successway_about_v3_hero_visual_container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .successway_about_v3_hero_circle {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background-color: var(--successway_v3_primary_color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            animation: successway_v3_pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes successway_v3_pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .successway_about_v3_hero_icon {
-            font-size: 5rem;
-            color: var(--successway_v3_white);
-            animation: successway_v3_bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes successway_v3_bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Main Content Sections */
-        .successway_about_v3_main {
-            padding: 6rem 0;
-        }
-
-        .successway_about_v3_section {
-            margin-bottom: 8rem;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .successway_about_v3_section.successway_about_v3_visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .successway_about_v3_section_header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .successway_about_v3_section_title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            color: var(--successway_v3_text_dark);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .successway_about_v3_section_title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--successway_v3_primary_color);
-            border-radius: 2px;
-        }
-
-        .successway_about_v3_section_subtitle {
-            font-size: 1.2rem;
-            color: var(--successway_v3_text_light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Timeline - Styled to match index cards */
-        .successway_about_v3_timeline_container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .successway_about_v3_timeline_line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--successway_v3_primary_color);
-            transform: translateX(-50%);
-            border-radius: 2px;
-            opacity: 0.3;
-        }
-
-        .successway_about_v3_timeline_item {
-            position: relative;
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s ease;
-        }
-
-        .successway_about_v3_timeline_item.successway_about_v3_visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .successway_about_v3_timeline_item:nth-child(even) {
-            transform: translateX(100px);
-        }
-
-        .successway_about_v3_timeline_item:nth-child(even).successway_about_v3_visible {
-            transform: translateX(0);
-        }
-
-        .successway_about_v3_timeline_content {
-            position: relative;
-            width: 45%;
-            margin-bottom: 2rem;
-        }
-
-        .successway_about_v3_timeline_item:nth-child(odd) .successway_about_v3_timeline_content {
-            margin-left: 0;
-            margin-right: auto;
-        }
-
-        .successway_about_v3_timeline_item:nth-child(even) .successway_about_v3_timeline_content {
-            margin-left: auto;
-            margin-right: 0;
-        }
-
-        .successway_about_v3_timeline_dot {
-            position: absolute;
-            left: 50%;
-            top: 2rem;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
-            background: var(--successway_v3_white);
-            border: 4px solid var(--successway_v3_primary_color);
-            border-radius: 50%;
-            z-index: 10;
-            box-shadow: 0 0 0 8px rgba(64, 179, 162, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .successway_about_v3_timeline_item:hover .successway_about_v3_timeline_dot {
-            transform: translateX(-50%) scale(1.3);
-            box-shadow: 0 0 0 12px rgba(64, 179, 162, 0.3);
-        }
-
-        .successway_about_v3_timeline_year {
-            background: var(--successway_v3_primary_color);
-            color: var(--successway_v3_white);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-            box-shadow: var(--successway_v3_shadow_light);
-        }
-
-        .successway_about_v3_timeline_card {
-            background: var(--successway_v3_white);
-            padding: 2rem;
-            border-radius: 24px;
-            box-shadow: var(--successway_v3_shadow_light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .successway_about_v3_timeline_card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--successway_v3_shadow_medium);
-        }
-
-        .successway_about_v3_timeline_card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--successway_v3_text_dark);
-            margin-bottom: 1rem;
-        }
-
-        .successway_about_v3_timeline_card p {
-            color: var(--successway_v3_text_light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        /* New Timeline Image Styles */
-        .successway_about_v3_timeline_image {
-            width: 100%;
-            height: 270px;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            margin-top: 1rem;
-            background: var(--successway_v3_bg_color);
-        }
-
-        .successway_about_v3_timeline_image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .successway_about_v3_timeline_image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(64, 179, 162, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .successway_about_v3_timeline_card:hover .successway_about_v3_timeline_image img {
-            transform: scale(1.08);
-        }
-
-        .successway_about_v3_timeline_card:hover .successway_about_v3_timeline_image::after {
-            opacity: 1;
-        }
-
-        /* Image loading animation */
-        @keyframes successway_v3_imageLoad {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .successway_about_v3_timeline_image img {
-            animation: successway_v3_imageLoad 0.8s ease-out;
-        }
-
-        /* Mission & Vision - Matched to service cards in index */
-        .successway_about_v3_mission_vision {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        /* Improved Mission & Vision SVG Animation */
-        .successway_about_v3_animated_wave {
-            margin: 0 auto 3rem;
-            width: 100%;
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .successway_about_v3_wave_svg {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .successway_about_v3_graduation_cap {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: var(--successway_v3_primary_color);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            animation: successway_v3_float_cap 4s ease-in-out infinite;
-        }
-
-        @keyframes successway_v3_float_cap {
-            0%, 100% {
-                transform: translate(-50%, -50%);
-            }
-            50% {
-                transform: translate(-50%, -65%);
-            }
-        }
-
-        .successway_about_v3_cap_base {
-            position: absolute;
-            top: calc(50% + 30px);
-            left: 50%;
-            transform: translate(-50%, 0);
-            width: 10px;
-            height: 40px;
-            background-color: var(--successway_v3_primary_color);
-            animation: successway_v3_float_base 4s ease-in-out infinite;
-        }
-
-        @keyframes successway_v3_float_base {
-            0%, 100% {
-                height: 40px;
-                top: calc(50% + 30px);
-            }
-            50% {
-                height: 50px;
-                top: calc(50% + 35px);
-            }
-        }
-
-        .successway_about_v3_moving_dot {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            animation: successway_v3_move_dot 15s linear infinite;
-        }
-
-        .successway_about_v3_dot_1 {
-            background-color: var(--successway_v3_secondary_color);
-            top: 30%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .successway_about_v3_dot_2 {
-            background-color: var(--successway_v3_primary_color);
-            top: 70%;
-            left: 20%;
-            animation-delay: -3s;
-        }
-
-        .successway_about_v3_dot_3 {
-            background-color: var(--successway_v3_accent_color);
-            top: 50%;
-            left: 30%;
-            animation-delay: -6s;
-        }
-
-        @keyframes successway_v3_move_dot {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(100vw - 20px));
-            }
-        }
-
-        .successway_about_v3_wave_path {
-            fill: none;
-            stroke: var(--successway_v3_primary_color);
-            stroke-width: 2px;
-            opacity: 0.5;
-        }
-
-        .successway_about_v3_mission_card, .successway_about_v3_vision_card {
-            padding: 2.5rem;
-            border-radius: 24px;
-            background: var(--successway_v3_white);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: var(--successway_v3_shadow_light);
-        }
-
-        .successway_about_v3_mission_card {
-            border-left: 5px solid var(--successway_v3_primary_color);
-        }
-
-        .successway_about_v3_vision_card {
-            border-left: 5px solid var(--successway_v3_secondary_color);
-        }
-
-        .successway_about_v3_mission_card:hover, .successway_about_v3_vision_card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--successway_v3_shadow_medium);
-        }
-
-        .successway_about_v3_card_icon_wrapper {
-            width: 70px;
-            height: 70px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--successway_v3_white);
-            margin-bottom: 1.5rem;
-        }
-
-        .successway_about_v3_mission_card .successway_about_v3_card_icon_wrapper {
-            background: var(--successway_v3_primary_color);
-        }
-
-        .successway_about_v3_vision_card .successway_about_v3_card_icon_wrapper {
-            background: var(--successway_v3_secondary_color);
-        }
-
-        .successway_about_v3_card_title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--successway_v3_text_dark);
-            margin-bottom: 1rem;
-        }
-
-        .successway_about_v3_card_text {
-            color: var(--successway_v3_text_light);
-            line-height: 1.6;
-        }
-
-        /* Features Grid - Matched to image design in provided screenshot */
-        .successway_about_v3_features_grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .successway_about_v3_feature_card {
-            background: var(--successway_v3_white);
-            padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: var(--successway_v3_shadow_light);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .successway_about_v3_feature_card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--successway_v3_shadow_medium);
-        }
-
-        /* Updated to match screenshot with rounded icons */
-        .successway_about_v3_feature_icon_box {
-            width: 70px;
-            height: 70px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .successway_about_v3_feature_card:nth-child(1) .successway_about_v3_feature_icon_box {
-            background-color: var(--successway_v3_primary_color);
-        }
-
-        .successway_about_v3_feature_card:nth-child(2) .successway_about_v3_feature_icon_box {
-            background-color: var(--successway_v3_secondary_color);
-        }
-
-        .successway_about_v3_feature_card:nth-child(3) .successway_about_v3_feature_icon_box {
-            background-color: var(--successway_v3_accent_color);
-        }
-
-        .successway_about_v3_feature_icon {
-            color: var(--successway_v3_white);
-            font-size: 1.8rem;
-        }
-
-        .successway_about_v3_feature_title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--successway_v3_text_dark);
-            margin-bottom: 1rem;
-        }
-
-        .successway_about_v3_feature_description {
-            color: var(--successway_v3_text_light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .successway_about_v3_feature_image {
-            width: 100%;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease 0.3s;
-        }
-
-        .successway_about_v3_section.successway_about_v3_visible .successway_about_v3_feature_image {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .successway_about_v3_feature_img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        /* Card images matching their icon colors */
-        .successway_about_v3_card_image_box {
-            margin-top: 2rem;
-            text-align: center;
-            height: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .successway_about_v3_card_image {
-            max-width: 90%;
-            max-height: 100%;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .successway_about_v3_mission_card:hover .successway_about_v3_card_image,
-        .successway_about_v3_vision_card:hover .successway_about_v3_card_image {
-            transform: scale(1.05);
-        }
-
-        /* CTA Button */
-        .successway_about_v3_cta_button {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--successway_v3_primary_color);
-            color: var(--successway_v3_white);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 2rem;
-            box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
-        }
-
-        .successway_about_v3_cta_button:hover {
-            background-color: var(--successway_v3_secondary_color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(255, 127, 106, 0.3);
-        }
-
-        /* Text center helper */
-        .successway_about_v3_text_center {
-            text-align: center;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .successway_about_v3_hero_content, 
-            .successway_about_v3_container {
-                padding: 0 3rem;
-            }
-            
-            .successway_about_v3_mission_vision {
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .successway_about_v3_hero_content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .successway_about_v3_hero_stats {
-                justify-content: center;
-            }
-
-            .successway_about_v3_mission_vision {
-                grid-template-columns: 1fr;
-            }
-            
-            .successway_about_v3_hero_circle {
-                width: 250px;
-                height: 250px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .successway_about_v3_hero {
-                padding-top: 100px;
-                min-height: auto;
-            }
-            
-            .successway_about_v3_hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .successway_about_v3_hero_stats {
-                flex-direction: column;
-                align-items: center;
-                gap: 1.5rem;
-            }
-            
-            .successway_about_v3_stat_item {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .successway_about_v3_timeline_line {
-                left: 2rem;
-            }
-
-            .successway_about_v3_timeline_content {
-                width: auto;
-                margin-left: 4rem !important;
-                margin-right: 0 !important;
-            }
-
-            .successway_about_v3_timeline_dot {
-                left: 2rem;
-            }
-
-            .successway_about_v3_timeline_item {
-                transform: translateX(-50px) !important;
-            }
-
-            .successway_about_v3_timeline_item.successway_about_v3_visible {
-                transform: translateX(0) !important;
-            }
-
-            .successway_about_v3_timeline_image {
-                height: 180px;
-            }
-
-            .successway_about_v3_features_grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .successway_about_v3_hero_circle {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .successway_about_v3_hero_icon {
-                font-size: 4rem;
-            }
-            
-            .successway_about_v3_animated_wave {
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .successway_about_v3_hero_content, 
-            .successway_about_v3_container {
-                padding: 0 1.5rem;
-            }
-            
-            .successway_about_v3_hero {
-                padding: 80px 0 2rem;
-            }
-
-            .successway_about_v3_hero h1 {
-                font-size: 2rem;
-            }
-            
-            .successway_about_v3_hero p {
-                font-size: 1.1rem;
-            }
-
-            .successway_about_v3_section_title {
-                font-size: 2rem;
-            }
-            
-            .successway_about_v3_section_subtitle {
-                font-size: 1rem;
-            }
-
-            .successway_about_v3_timeline_content {
-                margin-left: 3rem !important;
-            }
-
-            .successway_about_v3_timeline_dot {
-                left: 1.5rem;
-            }
-
-            .successway_about_v3_timeline_line {
-                left: 1.5rem;
-            }
-
-            .successway_about_v3_timeline_image {
-                height: 160px;
-            }
-            
-            .successway_about_v3_mission_card, 
-            .successway_about_v3_vision_card {
-                padding: 1.8rem;
-            }
-            
-            .successway_about_v3_card_title {
-                font-size: 1.5rem;
-            }
-            
-            .successway_about_v3_feature_card {
-                padding: 1.8rem;
-            }
-            
-            .successway_about_v3_feature_title {
-                font-size: 1.3rem;
-            }
-            
-            .successway_about_v3_card_image_box {
-                height: 120px;
-            }
-            
-            .successway_about_v3_hero_circle {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .successway_about_v3_hero_icon {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .successway_about_v3_hero_content, 
-            .successway_about_v3_container {
-                padding: 0 1rem;
-            }
-            
-            .successway_about_v3_timeline_content {
-                margin-left: 2.5rem !important;
-            }
-            
-            .successway_about_v3_timeline_year {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            
-            .successway_about_v3_timeline_card {
-                padding: 1.5rem;
-            }
-            
-            .successway_about_v3_timeline_card h3 {
-               font-size: 1.3rem;
-           }
-
-           .successway_about_v3_timeline_image {
-               height: 140px;
-           }
-           
-           .successway_about_v3_animated_wave {
-               height: 120px;
-           }
-           
-           .successway_about_v3_card_image_box {
-               height: 100px;
-           }
-       }
-       /* Animated Background with Floating Shapes */
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.4;
-    pointer-events: none;
+.sw-about-main-content {
+    padding: 6rem 0;
 }
 
-.floating-shape {
+.sw-about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sw-about-section {
+    margin-bottom: 8rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.sw-about-section.sw-about-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sw-about-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sw-about-section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.sw-about-section-title::after {
+    content: '';
     position: absolute;
-    border-radius: 50%;
-    opacity: 0.5;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #40b3a2; /* Teal color from index */
+    border-radius: 2px;
 }
 
-.floating-shape:nth-child(1) {
-    width: 100px;
-    height: 100px;
-    top: 10%;
-    left: 10%;
-    background-color: #ff7f6a; /* Coral color */
-    animation: float 15s ease-in-out infinite;
+.sw-about-section-subtitle {
+    font-size: 1.2rem;
+    color: #666666;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.floating-shape:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    top: 20%;
-    right: 15%;
-    background-color: #40b3a2; /* Teal color */
+/* Timeline Styles */
+.sw-about-timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.sw-about-timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #40b3a2;
+    transform: translateX(-50%);
+    border-radius: 2px;
     opacity: 0.3;
-    animation: float 20s ease-in-out infinite;
-    animation-delay: -5s;
 }
 
-.floating-shape:nth-child(3) {
-    width: 60px;
-    height: 60px;
-    bottom: 20%;
-    left: 20%;
-    background-color: #edc855; /* Gold/yellow color */
-    animation: float 12s ease-in-out infinite;
-    animation-delay: -3s;
+.sw-about-timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease;
 }
 
-.floating-shape:nth-child(4) {
-    width: 150px;
-    height: 150px;
-    bottom: 30%;
-    right: 10%;
-    background-color: #ff7f6a; /* Coral color */
-    opacity: 0.2;
-    animation: float 18s ease-in-out infinite;
-    animation-delay: -7s;
+.sw-about-timeline-item.sw-about-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) translateX(0px);
+.sw-about-timeline-item:nth-child(even) {
+    transform: translateX(100px);
+}
+
+.sw-about-timeline-item:nth-child(even).sw-about-visible {
+    transform: translateX(0);
+}
+
+.sw-about-timeline-content {
+    position: relative;
+    width: 45%;
+    margin-bottom: 2rem;
+}
+
+.sw-about-timeline-item:nth-child(odd) .sw-about-timeline-content {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.sw-about-timeline-item:nth-child(even) .sw-about-timeline-content {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.sw-about-timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border: 4px solid #40b3a2;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 8px rgba(64, 179, 162, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sw-about-timeline-item:hover .sw-about-timeline-dot {
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 0 12px rgba(64, 179, 162, 0.3);
+}
+
+.sw-about-timeline-year {
+    background: #40b3a2;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.1);
+}
+
+.sw-about-timeline-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 15px rgba(64, 179, 162, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sw-about-timeline-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(64, 179, 162, 0.15);
+}
+
+.sw-about-timeline-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1rem;
+}
+
+.sw-about-timeline-text {
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Mission & Vision Styles */
+.sw-about-mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.sw-about-mission-card, .sw-about-vision-card {
+    padding: 2.5rem;
+    border-radius: 24px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 15px rgba(64, 179, 162, 0.1);
+}
+
+.sw-about-mission-card {
+    border-left: 5px solid #40b3a2;
+}
+
+.sw-about-vision-card {
+    border-left: 5px solid #ff7f6a;
+}
+
+.sw-about-mission-card:hover, .sw-about-vision-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 30px rgba(64, 179, 162, 0.15);
+}
+
+.sw-about-card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.sw-about-mission-card .sw-about-card-icon {
+    background: #40b3a2;
+}
+
+.sw-about-vision-card .sw-about-card-icon {
+    background: #ff7f6a;
+}
+
+.sw-about-card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1rem;
+}
+
+.sw-about-card-text {
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Features Grid Styles */
+.sw-about-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.sw-about-feature-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 15px rgba(64, 179, 162, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sw-about-feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 30px rgba(64, 179, 162, 0.15);
+}
+
+.sw-about-feature-icon {
+    width: 70px;
+    height: 70px;
+    background: #40b3a2;
+    color: #ffffff;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.sw-about-feature-card:nth-child(2) .sw-about-feature-icon {
+    background: #ff7f6a;
+}
+
+.sw-about-feature-card:nth-child(3) .sw-about-feature-icon {
+    background: #edc855;
+}
+
+.sw-about-feature-card:hover .sw-about-feature-icon {
+    transform: scale(1.1);
+}
+
+.sw-about-feature-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1rem;
+}
+
+.sw-about-feature-description {
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* CTA Styles */
+.sw-about-cta-wrapper {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.sw-about-cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #40b3a2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 179, 162, 0.25);
+}
+
+.sw-about-cta-button:hover {
+    background-color: #ff7f6a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(255, 127, 106, 0.3);
+}
+
+/* Language Toggle */
+.sw-about-language-toggle {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(64, 179, 162, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #40b3a2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(64, 179, 162, 0.1);
+}
+
+.sw-about-language-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(64, 179, 162, 0.15);
+    background: #40b3a2;
+    color: #ffffff;
+}
+
+/* Scroll to top button */
+.sw-about-scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    color: #40b3a2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    z-index: 1000;
+    box-shadow: 0 8px 15px rgba(64, 179, 162, 0.1);
+}
+
+.sw-about-scroll-top.sw-about-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sw-about-scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(64, 179, 162, 0.15);
+    background: #40b3a2;
+    color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .sw-about-mission-vision {
+        grid-template-columns: 1fr;
     }
-    50% {
-        transform: translateY(-30px) translateX(15px);
-    }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .floating-shape:nth-child(1) {
-        width: 80px;
-        height: 80px;
+    .sw-about-timeline-line {
+        left: 2rem;
     }
-    
-    .floating-shape:nth-child(2) {
-        width: 150px;
-        height: 150px;
+
+    .sw-about-timeline-content {
+        width: auto;
+        margin-left: 4rem !important;
+        margin-right: 0 !important;
     }
-    
-    .floating-shape:nth-child(4) {
-        width: 120px;
-        height: 120px;
+
+    .sw-about-timeline-dot {
+        left: 2rem;
+    }
+
+    .sw-about-timeline-item {
+        transform: translateX(-50px) !important;
+    }
+
+    .sw-about-timeline-item.sw-about-visible {
+        transform: translateX(0) !important;
+    }
+
+    .sw-about-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sw-about-language-toggle,
+    .sw-about-scroll-top {
+        bottom: 1rem;
+    }
+
+    .sw-about-language-toggle {
+        left: 1rem;
+    }
+
+    .sw-about-scroll-top {
+        right: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .floating-shape:nth-child(1) {
-        width: 60px;
-        height: 60px;
+    .sw-about-timeline-content {
+        margin-left: 3rem !important;
     }
-    
-    .floating-shape:nth-child(2) {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .floating-shape:nth-child(3) {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .floating-shape:nth-child(4) {
-        width: 80px;
-        height: 80px;
-    }
-}
-/* Complete mobile timeline redesign */
-@media (max-width: 768px) {
-    .successway_about_v3_timeline_image {
-        height: 240px !important;
-        background: linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%) !important;
-        border: none !important;
-        box-shadow: 0 8px 25px rgba(64, 179, 162, 0.15) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 20px !important;
-        position: relative !important;
-        overflow: hidden !important;
-    }
-    
-    .successway_about_v3_timeline_image::before {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        height: 4px !important;
-        background: linear-gradient(90deg, var(--successway_v3_primary_color), var(--successway_v3_secondary_color)) !important;
-    }
-    
-    .successway_about_v3_timeline_image img {
-        width: auto !important;
-        height: auto !important;
-        max-width: 100% !important;
-        max-height: 100% !important;
-        object-fit: contain !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    /* Remove hover effects on mobile */
-    .successway_about_v3_timeline_card:hover .successway_about_v3_timeline_image img {
-        transform: none !important;
-    }
-    
-    .successway_about_v3_timeline_card:hover .successway_about_v3_timeline_image::after {
-        opacity: 0 !important;
-    }
-}
 
-@media (max-width: 576px) {
-    .successway_about_v3_timeline_image {
-        height: 220px !important;
-        padding: 15px !important;
-        margin-top: 1.5rem !important;
+    .sw-about-timeline-dot {
+        left: 1.5rem;
     }
-}
 
-@media (max-width: 480px) {
-    .successway_about_v3_timeline_image {
-        height: 200px !important;
-        padding: 12px !important;
-        border-radius: 12px !important;
-    }
-}
-@media (max-width: 768px) {
-    .successway_about_v3_timeline_card {
-        background: var(--successway_v3_white) !important;
-        border-radius: 16px !important;
-        box-shadow: 0 6px 20px rgba(64, 179, 162, 0.1) !important;
-        overflow: hidden !important;
-    }
-    
-    .successway_about_v3_timeline_card h3 {
-        color: var(--successway_v3_primary_color) !important;
-        font-size: 1.4rem !important;
-        margin-bottom: 1rem !important;
+    .sw-about-timeline-line {
+        left: 1.5rem;
     }
 }
 </style>
 </head>
 <body>
-
+    <div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Translate to French</div>
+    </div>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
 
 </script>
 
@@ -5038,37 +4378,31 @@ html.translated-ltr .translate-only {
             <span class="hamburger-line"></span>
         </div>
         <div class="nav-links">
-            <a href="#home">Accueil</a>
-            <a href="about_p.html">À propos de nous</a>
-            <a href="services.html">Nos services</a>
-            <a href="pricing_test.html">Tarifs</a>
-            <a href="contact.html">Contactez-nous</a>
+            <a href="#home">Home</a>
+            <a href="about_p.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="pricing_test.html">Pricing</a>
+            <a href="contact.html">Contact</a>
             <div class="dropdown">
                 <a href="javascript:void(0)" class="faq-btn dropdown-toggle">
-                    <span class="notranslate">Inscrivez-vous</span>
-                    <span class="translate-only">Inscrivez-vous</span>
+                    <span class="notranslates">Register</span>
                 </a>
                 <div class="dropdown-content">
-                    <a href="students_register.php">Inscrivez-vous</a>
-                    <a href="student_login.php">connexion</a>
+                    <a href="students_register.php">Sign Up Now</a>
+                    <a href="student_login.php">Login</a>
                 </div>
             </div>
         </div>
     </nav>
-    <div class="bg-animation">
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
-    </div>
+
 <!-- Simplified Hero Section -->
-<main class="hero" id="home" style="display: flex; align-items: center; justify-content: space-between; padding: 2rem 5%; background-color: #e7fbf7; min-height: 80vh; overflow: hidden;">
+<main class="hero" id="home" style="display: flex; align-items: center; justify-content: space-between; padding: 2rem 5%; background-color: #e6f7f7; min-height: 80vh; overflow: hidden;">
     <div class="hero-content" style="max-width: 50%; padding-right: 20px;">
-        <h1 style="font-size: 3.5rem; font-weight: 700; color: #222; margin-bottom: 1rem; line-height: 1.1;">Découvrez nos services de placement universitaire à l'étranger</h1>
-        <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem; line-height: 1.5;">Découvrez Nos services complets aux étudiants</p>
+        <h1 style="font-size: 3.5rem; font-weight: 700; color: #222; margin-bottom: 1rem; line-height: 1.1;">Discover our university placement services abroad</h1>
+        <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem; line-height: 1.5;">Discover our comprehensive student services, international university placements</p>
         <div class="cta-buttons" style="display: flex; gap: 1.25rem;">
-            <a href="students_register.php" class="btn primary-btn" style="display: inline-block; padding: 0.8rem 2rem; background-color: #5cbfb9; color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease;">Inscrivez-vous</a>
-            <a href="#book-a-call" class="btn secondary-btn" style="display: inline-block; padding: 0.8rem 2rem; background-color: white; color: #333; text-decoration: none; border-radius: 50px; font-weight: 600; border: 1px solid #eee; transition: all 0.3s ease;">Réserver un appel</a>
+            <a href="students_register.php" class="btn primary-btn" style="display: inline-block; padding: 0.8rem 2rem; background-color: #5cbfb9; color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease;">Register</a>
+            <a href="#book-a-call" class="btn secondary-btn" style="display: inline-block; padding: 0.8rem 2rem; background-color: white; color: #333; text-decoration: none; border-radius: 50px; font-weight: 600; border: 1px solid #eee; transition: all 0.3s ease;">Book A Call</a>
         </div>
     </div>
 
@@ -5088,198 +4422,289 @@ html.translated-ltr .translate-only {
 <br>
 <br>
 <!-- About Us Section Container -->
-<div class="successway_about_page_v3_wrapper">
-    <!-- Hero Section -->
-    <section class="successway_about_v3_hero">
-        <div class="successway_about_v3_hero_content">
-            <div class="successway_about_v3_hero_text">
-                <h1>À propos de <span class="successway_v3_highlight">SuccessWay</span></h1>
-                <p>Construire des ponts vers des opportunités éducatives mondiales depuis 2018</p>
-                <div class="successway_about_v3_hero_stats">
-                    <div class="successway_about_v3_stat_item">
-                        <span class="successway_about_v3_stat_number successway_about_v3_counter" data-count="98">0</span>%
-                        <div class="successway_about_v3_stat_label">Taux de réussite des visas</div>
+<!-- Animated Background -->
+<div class="bg-animation">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>À propos de <span class="highlight">SuccessWay</span></h1>
+            <p>Construire des ponts vers des opportunités éducatives mondiales depuis 2018</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number counter" data-count="98">0</span>%
+                    <div class="stat-label">Taux de réussite des visas</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-count="15">0</span>+
+                    <div class="stat-label">Universités partenaires</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-count="400">0</span>+
+                    <div class="stat-label">Étudiants placés</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-visual-container">
+                <div class="hero-circle">
+                    <i class="fas fa-graduation-cap hero-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main class="sw-about-main-content">
+    <div class="sw-about-container">
+        <!-- Our Journey Section -->
+        <section class="sw-about-section" data-section="journey">
+            <div class="sw-about-section-header">
+                <h2 class="sw-about-section-title">Notre Histoire</h2>
+                <p class="sw-about-section-subtitle">SuccessWay Mali a été fondée en juillet 2018 avec pour mission de créer un pont entre les étudiants maliens et les opportunités éducatives internationales.</p>
+            </div>
+            <div class="sw-about-timeline-container">
+                <div class="sw-about-timeline-line"></div>
+                <div class="sw-about-timeline-item">
+                    <div class="sw-about-timeline-content">
+                        <div class="sw-about-timeline-year">2018</div>
+                        <div class="sw-about-timeline-card">
+                            <h3 class="sw-about-timeline-heading">Fondation à Bamako</h3>
+                            <p class="sw-about-timeline-text">Fondée à Bamako, au Mali, avec la vision d'aider les étudiants à accéder à une éducation de qualité à l'étranger.</p>
+                        </div>
                     </div>
-                    <div class="successway_about_v3_stat_item">
-                        <span class="successway_about_v3_stat_number successway_about_v3_counter" data-count="15">0</span>+
-                        <div class="successway_about_v3_stat_label">Universités partenaires</div>
+                    <div class="sw-about-timeline-dot"></div>
+                </div>
+                <div class="sw-about-timeline-item">
+                    <div class="sw-about-timeline-content">
+                        <div class="sw-about-timeline-year">2020</div>
+                        <div class="sw-about-timeline-card">
+                            <h3 class="sw-about-timeline-heading">Expansion régionale</h3>
+                            <p class="sw-about-timeline-text">Extension des opérations à Ouagadougou, Niamey, Conakry et Abidjan pour servir un plus grand nombre d'étudiants.</p>
+                        </div>
                     </div>
-                    <div class="successway_about_v3_stat_item">
-                        <span class="successway_about_v3_stat_number successway_about_v3_counter" data-count="400">0</span>+
-                        <div class="successway_about_v3_stat_label">Étudiants placés</div>
+                    <div class="sw-about-timeline-dot"></div>
+                </div>
+                <div class="sw-about-timeline-item">
+                    <div class="sw-about-timeline-content">
+                        <div class="sw-about-timeline-year">2022</div>
+                        <div class="sw-about-timeline-card">
+                            <h3 class="sw-about-timeline-heading">Partenariats stratégiques</h3>
+                            <p class="sw-about-timeline-text">Établissement de partenariats stratégiques avec des universités au Canada, en Turquie et au-delà.</p>
+                        </div>
+                    </div>
+                    <div class="sw-about-timeline-dot"></div>
+                </div>
+                <div class="sw-about-timeline-item">
+                    <div class="sw-about-timeline-content">
+                        <div class="sw-about-timeline-year">Aujourd'hui</div>
+                        <div class="sw-about-timeline-card">
+                            <h3 class="sw-about-timeline-heading">Poursuite de notre mission</h3>
+                            <p class="sw-about-timeline-text">Poursuivre notre mission avec une équipe grandissante et des centaines de placements étudiants réussis.</p>
+                        </div>
+                    </div>
+                    <div class="sw-about-timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="sw-about-section" data-section="mission">
+            <div class="sw-about-section-header">
+                <h2 class="sw-about-section-title">Mission et Vision</h2>
+                <p class="sw-about-section-subtitle">Notre engagement envers l'excellence éducative</p>
+            </div>
+            <div class="sw-about-mission-vision">
+                <div class="sw-about-mission-card">
+                    <div class="sw-about-card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="sw-about-card-title">Notre Mission</h3>
+                    <p class="sw-about-card-text">
+                        Donner aux étudiants les connaissances, les ressources et le soutien nécessaires pour poursuivre des études supérieures à l'étranger, en favorisant une nouvelle génération de professionnels ouverts sur le monde.
+                    </p>
+                </div>
+                <div class="sw-about-vision-card">
+                    <div class="sw-about-card-icon">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                    <h3 class="sw-about-card-title">Notre Vision</h3>
+                    <p class="sw-about-card-text">
+                        Un monde où chaque étudiant, quelle que soit son origine, a accès à une éducation internationale de qualité grâce à un accompagnement personnalisé et une transition en douceur vers les études à l'étranger.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="sw-about-section" data-section="features">
+            <div class="sw-about-section-header">
+                <h2 class="sw-about-section-title">Pourquoi nous choisir?</h2>
+                <p class="sw-about-section-subtitle">Chez SuccessWay, nous nous engageons à fournir le soutien le plus complet pour votre parcours éducatif international.</p>
+            </div>
+            <div class="sw-about-features-grid">
+                <div class="sw-about-feature-card">
+                    <div class="sw-about-feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="sw-about-feature-title">Orientation personnalisée</h3>
+                    <p class="sw-about-feature-description">
+                        Des conseils personnalisés en fonction de votre parcours académique, de vos objectifs de carrière et de vos préférences personnelles.
+                    </p>
+                </div>
+                <div class="sw-about-feature-card">
+                    <div class="sw-about-feature-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="sw-about-feature-title">Universités partenaires</h3>
+                    <p class="sw-about-feature-description">
+                        Accès à notre réseau d'universités partenaires à travers le Canada, la Turquie, la Tunisie et l'Inde.
+                    </p>
+                </div>
+                <div class="sw-about-feature-card">
+                    <div class="sw-about-feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="sw-about-feature-title">Assistance complète</h3>
+                    <p class="sw-about-feature-description">
+                        Assistance pour les demandes d'admission, le traitement des visas, l'hébergement et l'orientation avant le départ.
+                    </p>
+                </div>
+                <div class="sw-about-cta-wrapper">
+                    <a href="contact.html" class="sw-about-cta-button">Contactez-nous aujourd'hui</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h1 class="page-title">Our Services</h1>
+
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat">98%</div>
+                <div class="stat-title">Visa Victory Rate</div>
+                <div class="stat-description">We conquer visas with a 98% success rate. Your educational journey abroad is practically guaranteed!</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat">15+</div>
+                <div class="stat-title">Global University Network</div>
+                <div class="stat-description">Access to 15+ opportunities across 6 countries. Your perfect academic match awaits!</div>
+            </div>
+            
+            <!-- <div class="stat-card">
+                <div class="stat">2x</div>
+                <div class="stat-title">Scholarship Booster</div>
+                <div class="stat-description">Double your chances of securing financial aid with our proven application strategies.</div>
+            </div> -->
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-container">
+            <!-- Data Suite Card -->
+            <div class="service-card data-suite">
+                <h2 class="service-title">Global Navigator</h2>
+                <p class="service-description">Get access to verified university programs, admission details, and scholarship opportunities across 15+ partner institutions.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='20' y='20' width='60' height='60' rx='5' fill='%23ffede9'/%3E%3Crect x='30' y='32' width='40' height='6' rx='3' fill='%23f3856f'/%3E%3Crect x='30' y='47' width='30' height='6' rx='3' fill='%23f3856f'/%3E%3Crect x='30' y='62' width='20' height='6' rx='3' fill='%23f3856f'/%3E%3C/svg%3E" alt="Data Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Access real-time application status updates and deadlines.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Generate comprehensive university comparison reports.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Track visa application progress and requirements.</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="successway_about_v3_hero_visual">
-                <div class="successway_about_v3_hero_visual_container">
-                    <div class="successway_about_v3_hero_circle">
-                        <i class="fas fa-graduation-cap successway_about_v3_hero_icon"></i>
+
+            <!-- Personality Suite Card -->
+            <div class="service-card personality-suite">
+                <h2 class="service-title">Student Compass</h2>
+                <p class="service-description">Gain visibility into student life, housing options, and cultural integration strategies at your chosen destination.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='120' viewBox='0 0 180 120'%3E%3Ccircle cx='60' cy='60' r='25' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='120' cy='30' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='120' y='35' text-anchor='middle' font-size='14' font-weight='bold'%3EA%3C/text%3E%3Ccircle cx='95' cy='75' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='95' y='80' text-anchor='middle' font-size='14' font-weight='bold'%3EB%3C/text%3E%3Ccircle cx='135' cy='90' r='15' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Ctext x='135' y='95' text-anchor='middle' font-size='14' font-weight='bold'%3EC%3C/text%3E%3Ccircle cx='60' cy='60' r='20' fill='%2354b7a5'/%3E%3Cpath d='M60,43 C50,43 48,48 48,54 C48,60 54,66 60,66 C66,66 72,60 72,54 C72,48 70,43 60,43' fill='%23ffde59'/%3E%3Cpath d='M50,50 C50,50 54,52 60,52 C66,52 70,50 70,50' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M54,46 C54,46 55,45 56,46 C57,47 57,48 57,48' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M63,46 C63,46 64,45 65,46 C66,47 66,48 66,48' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M70,35 C85,25 120,30 120,30 L95,75 L135,90' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E" alt="Personality Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Access insider tips from current international students.
+                            </span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Generate cost-of-living reports and budget planners.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Track orientation events and pre-departure checklists.</span>
+                        </div>
                     </div>
                 </div>
+                
+
+            </div>
+
+            <!-- HR Suite Card -->
+            <div class="service-card hr-suite">
+                <h2 class="service-title">Future Architect</h2>
+                <p class="service-description">Identify your ideal academic path with personalized guidance aligned to your career goals and personal strengths.</p>
+                
+                <div class="service-content">
+                    <div class="service-icon">
+                        <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect x='30' y='20' width='40' height='60' rx='5' fill='%23fef9e6'/%3E%3Crect x='35' y='30' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='40' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='50' width='30' height='4' rx='2' fill='%23edc855'/%3E%3Crect x='35' y='60' width='20' height='4' rx='2' fill='%23edc855'/%3E%3C/svg%3E" alt="HR Suite Icon">
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Access alumni success stories and networking opportunities.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Generate personalized study-to-career roadmaps.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span style="display: inline-block; white-space: normal; word-wrap: break-word; max-width: calc(100% - 30px);">Track post-graduation work permit and career options.</span>
+                        </div>
+                    </div>
+                </div>
+                
+
             </div>
         </div>
     </section>
-
-    <!-- Main Content -->
-    <main class="successway_about_v3_main">
-        <div class="successway_about_v3_container">
-            <!-- Our Journey Section -->
-            <section class="successway_about_v3_section" data-section="journey">
-                <div class="successway_about_v3_section_header">
-                    <h2 class="successway_about_v3_section_title">Notre Histoire</h2>
-                    <p class="successway_about_v3_section_subtitle">SuccessWay Mali a été fondée en juillet 2018 avec pour mission de créer un pont entre les étudiants maliens et les opportunités éducatives internationales.</p>
-                </div>
-                <div class="successway_about_v3_timeline_container">
-                    <div class="successway_about_v3_timeline_line"></div>
-                    <div class="successway_about_v3_timeline_item">
-                        <div class="successway_about_v3_timeline_content">
-                            <div class="successway_about_v3_timeline_year">2018</div>
-                            <div class="successway_about_v3_timeline_card">
-                                <h3>Fondation à Bamako</h3>
-                                <div class="successway_about_v3_timeline_image">
-                                    <img src="our_team_m.jpeg" alt="Fondation 2018">
-                                </div>
-                                <p>Fondée à Bamako, au Mali, avec la vision d'aider les étudiants à accéder à une éducation de qualité à l'étranger.</p>
-                            </div>
-                        </div>
-                        <div class="successway_about_v3_timeline_dot"></div>
-                    </div>
-                    <div class="successway_about_v3_timeline_item">
-                        <div class="successway_about_v3_timeline_content">
-                            <div class="successway_about_v3_timeline_year">2020</div>
-                            <div class="successway_about_v3_timeline_card">
-                                <h3>Expansion régionale</h3>
-                                <div class="successway_about_v3_timeline_image">
-                                    <img src="our_appro-min.png" alt="Expansion 2020">
-                                </div>
-                                <p>Extension des opérations à Ouagadougou, Niamey, Conakry et Abidjan pour servir un plus grand nombre d'étudiants.</p>
-
-                            </div>
-                        </div>
-                        <div class="successway_about_v3_timeline_dot"></div>
-                    </div>
-                    <div class="successway_about_v3_timeline_item">
-                        <div class="successway_about_v3_timeline_content">
-                            <div class="successway_about_v3_timeline_year">2022</div>
-                            <div class="successway_about_v3_timeline_card">
-                                <h3>Partenariats stratégiques</h3>
-                                <div class="successway_about_v3_timeline_image">
-                                    <img src="about-story_m.jpeg" alt="Partenariats 2022">
-                                </div>
-                                <p>Établissement de partenariats stratégiques avec des universités au Canada, en Turquie et au-delà.</p>
-                            </div>
-                        </div>
-                        <div class="successway_about_v3_timeline_dot"></div>
-                    </div>
-                    <div class="successway_about_v3_timeline_item">
-                        <div class="successway_about_v3_timeline_content">
-                            <div class="successway_about_v3_timeline_year">Aujourd'hui</div>
-                            <div class="successway_about_v3_timeline_card">
-                                <h3>Poursuite de notre mission</h3>
-                                <div class="successway_about_v3_timeline_image">
-                                    <img src="about_whyus-min.png" alt="Mission aujourd'hui">
-                                </div>
-                                <p>Poursuivre notre mission avec une équipe grandissante et des centaines de placements étudiants réussis.</p>
-                            </div>
-                        </div>
-                        <div class="successway_about_v3_timeline_dot"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Mission & Vision Section -->
-            <section class="successway_about_v3_section" data-section="mission">
-                <div class="successway_about_v3_section_header">
-                    <h2 class="successway_about_v3_section_title">Mission et Vision</h2>
-                    <p class="successway_about_v3_section_subtitle">Notre engagement envers l'excellence éducative</p>
-                </div>
-                
-                
-                
-                <div class="successway_about_v3_mission_vision">
-                    <div class="successway_about_v3_mission_card">
-                        <div class="successway_about_v3_card_icon_wrapper">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 class="successway_about_v3_card_title">Notre Mission</h3>
-                        <p class="successway_about_v3_card_text">
-                            Donner aux étudiants les connaissances, les ressources et le soutien nécessaires pour poursuivre des études supérieures à l'étranger, en favorisant une nouvelle génération de professionnels ouverts sur le monde.
-                        </p>
-                        <div class="successway_about_v3_card_image_box">
-                            <img src="https://img.freepik.com/free-vector/target-achievement-concept-illustration_114360-5191.jpg?w=1380&t=st=1701882650~exp=1701883250~hmac=4b3e7cf4f5a8fb752a0d0a5adb3ca1e2b11d4de00beac7e89d402d7e878afd82" alt="Mission" class="successway_about_v3_card_image">
-                        </div>
-                    </div>
-                    <div class="successway_about_v3_vision_card">
-                        <div class="successway_about_v3_card_icon_wrapper">
-                            <i class="fas fa-binoculars"></i>
-                        </div>
-                        <h3 class="successway_about_v3_card_title">Notre Vision</h3>
-                        <p class="successway_about_v3_card_text">
-                            Un monde où chaque étudiant, quelle que soit son origine, a accès à une éducation internationale de qualité grâce à un accompagnement personnalisé et une transition en douceur vers les études à l'étranger.
-                        </p>
-                        <div class="successway_about_v3_card_image_box">
-                            <img src="https://img.freepik.com/free-vector/employees-looking-future-business-vision_74855-19728.jpg?w=1380&t=st=1701882680~exp=1701883280~hmac=2d9a66b79e8bba84f50b3ee32b15d4c3f7baa87eadde6c753ad65e3d9bf1dfa3" alt="Vision" class="successway_about_v3_card_image">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Why Choose Us Section with improved card styles matching image -->
-            <section class="successway_about_v3_section" data-section="features">
-                <div class="successway_about_v3_section_header">
-                    <h2 class="successway_about_v3_section_title">Pourquoi nous choisir?</h2>
-                    <p class="successway_about_v3_section_subtitle">Chez SuccessWay, nous nous engageons à fournir le soutien le plus complet pour votre parcours éducatif international.</p>
-                </div>
-                
-                <div class="successway_about_v3_features_grid">
-                    <div class="successway_about_v3_feature_card">
-                        <div class="successway_about_v3_feature_icon_box">
-                            <i class="fas fa-user-check successway_about_v3_feature_icon"></i>
-                        </div>
-                        <h3 class="successway_about_v3_feature_title">Orientation personnalisée</h3>
-                        <p class="successway_about_v3_feature_description">
-                            Des conseils personnalisés en fonction de votre parcours académique, de vos objectifs de carrière et de vos préférences personnelles.
-                        </p>
-                        <div class="successway_about_v3_feature_image">
-                            <img src="https://img.freepik.com/free-vector/interviewing-concept-illustration_114360-1678.jpg?w=1380&t=st=1701882747~exp=1701883347~hmac=d10bc2cbc52bca99e67fdf5ed3f78fdbe60cc4fa8af5b13f70269a3b0432dc1d" alt="Orientation" class="successway_about_v3_feature_img">
-                        </div>
-                    </div>
-                    <div class="successway_about_v3_feature_card">
-                        <div class="successway_about_v3_feature_icon_box">
-                            <i class="fas fa-university successway_about_v3_feature_icon"></i>
-                        </div>
-                        <h3 class="successway_about_v3_feature_title">Universités partenaires</h3>
-                        <p class="successway_about_v3_feature_description">
-                            Accès à notre réseau d'universités partenaires à travers le Canada, la Turquie, la Tunisie et l'Inde.
-                        </p>
-                        <div class="successway_about_v3_feature_image">
-                            <img src="https://img.freepik.com/free-vector/students-walking-university-college-building-young-people-carrying-books-backpacks-campus-flat-vector-illustration-education-knowledge-concept_74855-13064.jpg?w=1380&t=st=1701882779~exp=1701883379~hmac=8e9fb0e9f3ec65f90686e8d4c8a89c1276b2edc5c6ea9c57cd0fb8d8d78cd05b" alt="Universités" class="successway_about_v3_feature_img">
-                        </div>
-                    </div>
-                    <div class="successway_about_v3_feature_card">
-                        <div class="successway_about_v3_feature_icon_box">
-                            <i class="fas fa-hands-helping successway_about_v3_feature_icon"></i>
-                        </div>
-                        <h3 class="successway_about_v3_feature_title">Assistance complète</h3>
-                        <p class="successway_about_v3_feature_description">
-                            Assistance pour les demandes d'admission, le traitement des visas, l'hébergement et l'orientation avant le départ.
-                        </p>
-                        <div class="successway_about_v3_feature_image">
-                            <img src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=1380&t=st=1701882813~exp=1701883413~hmac=8b8f9b6a520bfde7a4d3e40bddb77c77cbc3b1abbd91e462e9c8e2a53b84f358" alt="Assistance" class="successway_about_v3_feature_img">
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-</div>
-
     <!-- Destinations Section (Add after the services section) -->
     <!-- Updated Destinations Section with clickable flags -->
 <section class="destinations-section">
-    <h2 class="page-title">Nos destinations mondiales</h2>
+    <h2 class="page-title">Our Global Destinations</h2>
     <p class="subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: #555;">
-        Cliquez sur le drapeau de n'importe quel pays pour en savoir plus sur les possibilités d'études, les coûts et les procédures d'admission
+        Click on any country flag to learn more about study opportunities, costs, and admission procedures
     </p>
     
     <div class="container brandsCarousel">
@@ -5301,7 +4726,6 @@ html.translated-ltr .translate-only {
                         </div>
                         <span class="countryName">Malaysia</span>
                     </a>
-                    <!-- USA -->
                     <a href="brochure.html#usa" class="brandLogo" title="Study in Malaysia">
                         <div style="filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.3));">
                             <img src="usa.png" alt="USA Flag" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; display: block; background: none; box-shadow: none; border: none;">
@@ -5340,7 +4764,6 @@ html.translated-ltr .translate-only {
                         </div>
                         <span class="countryName">Turkey</span>
                     </a>
-                    
                 </div>
                 
                 <!-- Duplicate set for seamless looping -->
@@ -5366,6 +4789,7 @@ html.translated-ltr .translate-only {
                         </div>
                         <span class="countryName">USA</span>
                     </a>
+                    
                     <!-- India -->
                     <a href="brochure.html#india" class="brandLogo" title="Study in India">
                         <div style="filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.3));">
@@ -5407,12 +4831,12 @@ html.translated-ltr .translate-only {
                 <!-- Left Side - Text Content -->
                 <div class="booking-text">
                     <h1 class="heading-primary">
-                        Vous avez d’autres doutes ou besoin d’aide ?
-                        <span class="heading-accent">Réserver un appel</span>
+                        Have more doubts or need assistance?
+                        <span class="heading-accent">Book A Call</span>
                     </h1>
                     
                     <p class="booking-description">
-                        Planifiez un appel personnalisé avec nos experts pour discuter de vos besoins et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
+                        Schedule a personalized call with our experts to discuss your needs and discover how we can help you achieve your goals.
                     </p>
                 </div>
                 
@@ -5438,7 +4862,7 @@ html.translated-ltr .translate-only {
                             </div>
 <br>
 <div style="text-align: center; margin-top: 15px; font-size: 14px; color: #666;">
-    Remarque : tous les horaires de rendez-vous sont indiqués en GMT (heure moyenne de Greenwich)
+    Note: All appointment times are shown in GMT (Greenwich Mean Time)
 </div>
 <br>
                             
@@ -5508,7 +4932,7 @@ html.translated-ltr .translate-only {
                                         <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
-                                <div class="summary-label">Temps:</div>
+                                <div class="summary-label">Time:</div>
                                 <div class="summary-value" id="summaryTime">10:00 AM</div>
                             </div>
                             <div class="summary-item">
@@ -5518,35 +4942,35 @@ html.translated-ltr .translate-only {
                                         <rect x="4" y="4" width="16" height="16" rx="8" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                 </div>
-                                <div class="summary-label">Durée:</div>
+                                <div class="summary-label">Duration:</div>
                                 <div class="summary-value">30 minutes</div>
                             </div>
                         </div>
                         
                         <div class="form-fields">
                             <div class="form-group">
-                                <label for="name">Nom et prénom</label>
-                                <input type="text" id="name" placeholder="Votre nom">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="Your name">
                             </div>
                             
                             <div class="form-group">
-                                <label for="email">Adresse email</label>
-                                <input type="email" id="email" placeholder="Votre email">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Your email">
                             </div>
                             
                             <div class="form-group">
-                                <label for="phone">Numéro de téléphone</label>
-                                <input type="tel" id="phone" placeholder="Votre numéro de téléphone">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="Your phone number">
                             </div>
                             
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" placeholder="De quoi aimeriez-vous discuter?"></textarea>
+                                <label for="message">Message (Optional)</label>
+                                <textarea id="message" placeholder="What would you like to discuss?"></textarea>
                             </div>
                         </div>
                         
                         <button type="button" class="submit-button" id="confirmButton">
-                            Confirmer la réservation
+                            Confirm Booking
                         </button>
                     </div>
                 </div>
@@ -5568,35 +4992,35 @@ html.translated-ltr .translate-only {
                     </div>
                 </div>
                 <div class="copyright">
-                    <p>© 2025 SuccessWay. Tous droits réservés.</p>
+                    <p>© 2025 SuccessWay. All rights reserved</p>
                 </div>
                 
             </div>
 
             <!-- Company Links -->
             <div class="footer-links-column">
-                <h3 class="footer-heading">Entreprise</h3>
+                <h3 class="footer-heading">Company</h3>
                 <ul class="footer-links">
-                    <li><a href="about_p.html">À propos de nous</a></li>
+                    <li><a href="about_p.html">About us</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contactez-nous</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
                 </ul>
             </div>
 
             <!-- Resources Links -->
             <div class="footer-links-column">
-                <h3 class="footer-heading">Ressources</h3>
+                <h3 class="footer-heading">Resources</h3>
                 <ul class="footer-links">
-                    <li><a href="students_register.php">Inscrivez-vous maintenant</a></li>
-                    <li><a href="pricing_test.html">Tarification</a></li>
+                    <li><a href="students_register.php">Sign Up Now</a></li>
+                    <li><a href="pricing_test.html">Pricing</a></li>
                     <!-- <li><a href="#careers">Careers</a></li> -->
                 </ul>
             </div>
 
             <!-- Get in Touch Section -->
             <div class="footer-cta">
-                <h3 class="footer-heading">Entrer en contact</h3>
-                <a href="students_register.php" class="get-started-btn">Commencer</a>
+                <h3 class="footer-heading">Get in Touch</h3>
+                <a href="students_register.php" class="get-started-btn">Get Started</a>
                 
                 <!-- Social Links -->
                 <div class="social-links">
@@ -5820,7 +5244,7 @@ confirmButton.addEventListener('click', () => {
         confirmButton.disabled = false;
         
         // Still show success message since emails are being received
-        alert('Réservation confirmée ! Nous vous contactons bientôt pour confirmer votre rendez-vous.');
+        alert('Booking confirmed! We will contact you soon to confirm your appointment.');
     });
 });
             
@@ -5831,7 +5255,7 @@ confirmButton.addEventListener('click', () => {
                 dateCells.forEach(cell => cell.remove());
                 
                 // Update month display
-                const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+                const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                 monthDisplay.textContent = `${months[month]} ${year}`;
                 
                 // Get first day of month and days in month
@@ -6308,29 +5732,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
         </script>
-        <!-- Translation Toggle Button -->
-        <div class="translation-toggle" id="translationToggle">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 8l6 6"></path>
-                    <path d="M4 14l6-6 2-3"></path>
-                    <path d="M2 5h12"></path>
-                    <path d="M7 2h1"></path>
-                    <path d="M22 22l-5-10-5 10"></path>
-                    <path d="M14 18h6"></path>
-                </svg>
-            </div>
-            <div class="label">Traduire en anglais</div>
-        </div>
-        <script>
-            document.getElementById('translationToggle').addEventListener('click', function() {
-                window.location.href = 'index_en.html';
-            });
-        </script>
-
-<!-- Google Translate Script -->
-
-<!-- Hidden element for Google Translate -->
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -6628,9 +6029,16 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 <script>
+    // Loading animation
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            document.getElementById('loading').classList.add('hidden');
+        }, 1200);
+    });
+
     // Counter Animation
-    function animateSuccesswayV3Counters() {
-        const counters = document.querySelectorAll('.successway_about_v3_counter');
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
         
         counters.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-count'));
@@ -6648,44 +6056,162 @@ document.addEventListener('keydown', function(e) {
     }
 
     // Intersection Observer for scroll animations
-    const successwayV3ObserverOptions = {
+    const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const successwayV3Observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('successway_about_v3_visible');
+                entry.target.classList.add('visible');
                 
                 // Animate timeline items with delay
-                if (entry.target.classList.contains('successway_about_v3_timeline_item')) {
-                    const items = document.querySelectorAll('.successway_about_v3_timeline_item');
+                if (entry.target.classList.contains('timeline-item')) {
+                    const items = document.querySelectorAll('.timeline-item');
                     items.forEach((item, index) => {
                         setTimeout(() => {
-                            item.classList.add('successway_about_v3_visible');
+                            item.classList.add('visible');
                         }, index * 200);
                     });
                 }
             }
         });
-    }, successwayV3ObserverOptions);
+    }, observerOptions);
 
-    // Initialize animations when document is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Start counter animation
-        setTimeout(animateSuccesswayV3Counters, 1000);
-        
-        // Observe sections for scroll animations
-        const sections = document.querySelectorAll('.successway_about_v3_section');
-        sections.forEach(section => {
-            successwayV3Observer.observe(section);
-        });
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', () => {
+        // Observe sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => observer.observe(section));
         
         // Observe timeline items
-        const timelineItems = document.querySelectorAll('.successway_about_v3_timeline_item');
-        timelineItems.forEach(item => {
-            successwayV3Observer.observe(item);
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => observer.observe(item));
+        
+        // Start counter animation for hero stats
+        setTimeout(animateCounters, 2000);
+    });
+
+    // Scroll to top functionality
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+<script>
+    // Unique About Page JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        // Counter Animation
+        function animateAboutCounters() {
+            const counters = document.querySelectorAll('.sw-about-counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 60;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 30);
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const aboutObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('sw-about-visible');
+                    
+                    // Animate timeline items with delay
+                    if (entry.target.classList.contains('sw-about-timeline-item')) {
+                        const items = document.querySelectorAll('.sw-about-timeline-item');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('sw-about-visible');
+                            }, index * 200);
+                        });
+                    }
+                }
+            });
+        }, aboutObserverOptions);
+
+        // Observe elements for animation
+        const aboutSections = document.querySelectorAll('.sw-about-section');
+        aboutSections.forEach(section => aboutObserver.observe(section));
+        
+        // Observe timeline items
+        const aboutTimelineItems = document.querySelectorAll('.sw-about-timeline-item');
+        aboutTimelineItems.forEach(item => aboutObserver.observe(item));
+        
+        // Start counter animation
+        setTimeout(animateAboutCounters, 1500);
+
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('swAboutScrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                scrollTopBtn.classList.add('sw-about-visible');
+            } else {
+                scrollTopBtn.classList.remove('sw-about-visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('.sw-about-section a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     });
 </script>

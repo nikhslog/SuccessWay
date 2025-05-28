@@ -725,25 +725,25 @@ body {
             </div>
             
             <div class="user-info">
-                Bienvenue, 
+                Welcome, 
                 <span><?php echo htmlspecialchars($student_name); ?></span>
             </div>
             
             <ul class="sidebar-menu">
-                <li><a href="student_dashboard.php">Tableau de bord</a></li>
-                <li><a href="student_new_application.php">Nouvelle candidature</a></li>
-                <li><a href="student_payments.php">Mes paiements</a></li>
-                <li><a href="student_profile.php" class="active">Mon profil</a></li>
+                <li><a href="student_dashboard_en.php">Dashboard</a></li>
+                <li><a href="student_new_application_en.php">New Application</a></li>
+                <li><a href="student_payments_en.php">My Payments</a></li>
+                <li><a href="student_profile_en.php" class="active">My Profile</a></li>
             </ul>
             
             <div class="sidebar-footer">
-                <a href="student_logout.php" class="logout-link">Déconnexion</a>
+                <a href="student_logout.php" class="logout-link">Logout</a>
             </div>
         </div>
         
         <!-- Main Content -->
         <div class="main-content">
-            <h1 class="page-title">Mon profil</h1>
+            <h1 class="page-title">My Profile</h1>
             
             <?php if ($success_message): ?>
                 <div class="alert alert-success">
@@ -760,76 +760,76 @@ body {
             <!-- Account Information -->
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">Informations du compte</h2>
+                    <h2 class="card-title">Account Information</h2>
                 </div>
                 
                 <div class="account-info">
-                    <div class="info-label">ID étudiant</div>
+                    <div class="info-label">Student ID</div>
                     <div class="info-value">#<?php echo $student_id; ?></div>
                     
-                    <div class="info-label">Date d'inscription</div>
+                    <div class="info-label">Registration Date</div>
                     <div class="info-value"><?php echo date('F d, Y', strtotime($student['registration_date'])); ?></div>
                 </div>
                 
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <div class="form-group">
-                        <label for="full_name">Nom complet</label>
+                        <label for="full_name">Full Name</label>
                         <input type="text" id="full_name" name="full_name" value="<?php echo htmlspecialchars($student['full_name']); ?>" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Adresse e-mail</label>
+                        <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($student['email']); ?>" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Numéro de téléphone</label>
+                        <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($student['phone']); ?>" required>
                     </div>
                     
-                    <button type="submit" name="update_profile" class="submit-btn">Mettre à jour le profil</button>
+                    <button type="submit" name="update_profile" class="submit-btn">Update Profile</button>
                 </form>
             </div>
             
             <!-- Change Password -->
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">Changer le mot de passe</h2>
+                    <h2 class="card-title">Change Password</h2>
                 </div>
                 
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <div class="form-group">
-                        <label for="current_password">Mot de passe actuel</label>
+                        <label for="current_password">Current Password</label>
                         <div class="password-container">
                             <input type="password" id="current_password" name="current_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('current_password')">
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('current_password')">
                                 <i class="fas fa-eye" id="current-password-icon"></i>
                             </button>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="new_password">Nouveau mot de passe</label>
+                        <label for="new_password">New Password</label>
                         <div class="password-container">
                             <input type="password" id="new_password" name="new_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('new_password')">
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('new_password')">
                                 <i class="fas fa-eye" id="new-password-icon"></i>
                             </button>
                         </div>
-                        <div class="password-requirements">Le mot de passe doit comporter au moins 6 caractères</div>
+                        <div class="password-requirements">Password must be at least 6 characters long</div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="confirm_password">Confirmer le nouveau mot de passe</label>
+                        <label for="confirm_password">Confirm New Password</label>
                         <div class="password-container">
                             <input type="password" id="confirm_password" name="confirm_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('confirm_password')">
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('confirm_password')">
                                 <i class="fas fa-eye" id="confirm-password-icon"></i>
                             </button>
                         </div>
                     </div>
                     
-                    <button type="submit" name="change_password" class="submit-btn">Changer le mot de passe</button>
+                    <button type="submit" name="change_password" class="submit-btn">Change Password</button>
                 </form>
             </div>
         </div>
@@ -887,11 +887,11 @@ body {
                 <path d="M14 18h6"></path>
             </svg>
         </div>
-        <div class="label">Traduire en anglais</div>
+        <div class="label">Translate into French</div>
     </div>
     <script>
         document.getElementById('translationToggle').addEventListener('click', function() {
-            window.location.href = 'student_profile_en.php';
+            window.location.href = 'student_profile.php';
         });
     </script>
 
@@ -921,6 +921,7 @@ body {
     }
 
     // Translation functionality
+    
 </script>
 </body>
 </html>

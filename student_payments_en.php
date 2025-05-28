@@ -1,5 +1,5 @@
 <?php
-// student_profile.php
+// student_payments.php
 require_once 'config.php';
 
 // Check if student is logged in
@@ -10,93 +10,72 @@ if (!isset($_SESSION['student_id']) || !$_SESSION['student_logged_in']) {
 
 $student_id = $_SESSION['student_id'];
 $student_name = $_SESSION['student_name'];
-$success_message = '';
-$error_message = '';
 
-// Get student details
-$stmt = $conn->prepare("SELECT * FROM students WHERE student_id = ?");
-$stmt->bind_param("i", $student_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$student = $result->fetch_assoc();
-$stmt->close();
+// Get default fee settings
+$default_query = "SELECT * FROM fee_settings";
+$default_result = $conn->query($default_query);
+$default_fee_settings = [];
 
-// Handle profile update
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_profile'])) {
-    $full_name = sanitize_input($_POST['full_name']);
-    $email = sanitize_input($_POST['email']);
-    $phone = sanitize_input($_POST['phone']);
-    
-    // Check if email is already used by another student
-    $check_stmt = $conn->prepare("SELECT student_id FROM students WHERE email = ? AND student_id != ?");
-    $check_stmt->bind_param("si", $email, $student_id);
-    $check_stmt->execute();
-    $check_result = $check_stmt->get_result();
-    
-    if ($check_result->num_rows > 0) {
-        $error_message = "Email address is already in use by another account";
-    } else {
-        // Update profile
-        $update_stmt = $conn->prepare("UPDATE students SET full_name = ?, email = ?, phone = ? WHERE student_id = ?");
-        $update_stmt->bind_param("sssi", $full_name, $email, $phone, $student_id);
-        
-        if ($update_stmt->execute()) {
-            $success_message = "Profile updated successfully!";
-            
-            // Update session name
-            $_SESSION['student_name'] = $full_name;
-            
-            // Refresh student data
-            $stmt = $conn->prepare("SELECT * FROM students WHERE student_id = ?");
-            $stmt->bind_param("i", $student_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $student = $result->fetch_assoc();
-            $stmt->close();
-            
-        } else {
-            $error_message = "Error updating profile: " . $conn->error;
-        }
-        $update_stmt->close();
-    }
-    $check_stmt->close();
-}
-
-// Handle password change
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
-    $current_password = $_POST['current_password'];
-    $new_password = $_POST['new_password'];
-    $confirm_password = $_POST['confirm_password'];
-    
-    // Verify current password
-    if (!password_verify($current_password, $student['password'])) {
-        $error_message = "Current password is incorrect";
-    } 
-    // Check new password length
-    else if (strlen($new_password) < 6) {
-        $error_message = "New password must be at least 6 characters long";
-    }
-    // Check if passwords match
-    else if ($new_password !== $confirm_password) {
-        $error_message = "New passwords do not match";
-    } 
-    else {
-        // Hash new password
-        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-        
-        // Update password
-        $update_stmt = $conn->prepare("UPDATE students SET password = ? WHERE student_id = ?");
-        $update_stmt->bind_param("si", $hashed_password, $student_id);
-        
-        if ($update_stmt->execute()) {
-            $success_message = "Password changed successfully!";
-        } else {
-            $error_message = "Error changing password: " . $conn->error;
-        }
-        $update_stmt->close();
+if ($default_result->num_rows > 0) {
+    while ($fee = $default_result->fetch_assoc()) {
+        $default_fee_settings[$fee['fee_type']] = $fee['amount'];
     }
 }
 
+// Get student's individual fee settings
+$fee_query = "SELECT fee_type, amount FROM student_fees WHERE student_id = ?";
+$fee_stmt = $conn->prepare($fee_query);
+$fee_stmt->bind_param("i", $student_id);
+$fee_stmt->execute();
+$fee_result = $fee_stmt->get_result();
+
+$student_fees = [];
+if ($fee_result->num_rows > 0) {
+    while ($fee = $fee_result->fetch_assoc()) {
+        $student_fees[$fee['fee_type']] = $fee['amount'];
+    }
+} else {
+    // If no individual fees set, use default fees
+    $student_fees = $default_fee_settings;
+}
+
+$fee_stmt->close();
+
+// Calculate total fee
+$total_fee = array_sum($student_fees);
+
+// Get student's payment details
+$payment_query = "SELECT 
+                    (SELECT SUM(amount) FROM payments WHERE student_id = ? AND status = 'Completed') as total_paid,
+                    (SELECT SUM(amount) FROM payments WHERE student_id = ? AND status = 'Completed' AND payment_type = 'Admission Fee') as admission_paid,
+                    (SELECT SUM(amount) FROM payments WHERE student_id = ? AND status = 'Completed' AND payment_type = 'Agency Fee') as agency_paid,
+                    (SELECT SUM(amount) FROM payments WHERE student_id = ? AND status = 'Completed' AND payment_type = 'Visa Processing Fee') as visa_paid";
+
+$pay_stmt = $conn->prepare($payment_query);
+$pay_stmt->bind_param("iiii", $student_id, $student_id, $student_id, $student_id);
+$pay_stmt->execute();
+$payment_result = $pay_stmt->get_result();
+$payment_data = $payment_result->fetch_assoc();
+
+$total_paid = $payment_data['total_paid'] ?: 0;
+$admission_paid = $payment_data['admission_paid'] ?: 0;
+$agency_paid = $payment_data['agency_paid'] ?: 0;
+$visa_paid = $payment_data['visa_paid'] ?: 0;
+$remaining = $total_fee - $total_paid;
+
+// Get payment history
+$history_query = "SELECT payment_id, amount, payment_date, payment_method, payment_type, notes, status 
+                 FROM payments 
+                 WHERE student_id = ? 
+                 ORDER BY payment_date DESC";
+
+$history_stmt = $conn->prepare($history_query);
+$history_stmt->bind_param("i", $student_id);
+$history_stmt->execute();
+$payment_history = $history_stmt->get_result();
+
+$pay_stmt->close();
+$history_stmt->close();
 $conn->close();
 ?>
 
@@ -105,7 +84,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - SuccessWay</title>
+    <title>My Payments - SuccessWay</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
@@ -266,125 +245,181 @@ $conn->close();
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 30px;
         }
         
-        .card-header {
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
             margin-bottom: 20px;
+            color: #333;
         }
         
-        .card-title {
-            margin: 0;
-            font-size: 20px;
+        .payment-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .summary-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .summary-value {
+            font-size: 24px;
+            font-weight: 600;
             color: #333;
-            padding-bottom: 15px;
+        }
+        
+        .summary-value.paid {
+            color: #38a169;
+        }
+        
+        .summary-value.pending {
+            color: #dd6b20;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+        
+        .status-complete {
+            background-color: #c6f6d5;
+            color: #38a169;
+        }
+        
+        .status-pending {
+            background-color: #ffeaa7;
+            color: #d69e2e;
+        }
+        
+        .status-partial {
+            background-color: #fed7b2;
+            color: #dd6b20;
+        }
+        
+        .breakdown-container {
+            margin-bottom: 30px;
+        }
+        
+        .breakdown-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
             border-bottom: 1px solid #eee;
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        .breakdown-item:last-child {
+            border-bottom: none;
         }
         
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-        }
-        
-        input:focus {
-            border-color: #40b3a2;
-            outline: none;
-        }
-        
-        .submit-btn {
-            background-color: #40b3a2;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #368f82;
-        }
-        
-        .alert {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .alert-error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        .account-info {
-            margin-bottom: 15px;
-        }
-        
-        .info-label {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 5px;
-        }
-        
-        .info-value {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .password-container {
-            position: relative;
-        }
-        
-        .toggle-password {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            color: #777;
+        .breakdown-label {
             display: flex;
             align-items: center;
-            justify-content: center;
+            font-weight: 500;
         }
         
-        .toggle-password:hover {
-            color: #40b3a2;
+        .breakdown-amount {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .password-requirements {
-            font-size: 12px;
-            color: #777;
-            margin-top: 5px;
+        .breakdown-paid {
+            font-weight: 600;
+        }
+        
+        .history-container {
+            margin-top: 30px;
+        }
+        
+        .history-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .history-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .history-date {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .history-details {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .history-amount {
+            font-weight: 600;
+            color: #38a169;
+        }
+        
+        .payment-progress {
+            margin: 30px 0;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 20px;
+            background-color: #edf2f7;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: #40b3a2;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
         }
         
         .overlay {
@@ -470,6 +505,29 @@ $conn->close();
             .card {
                 padding: 20px;
             }
+            
+            .payment-summary {
+                flex-direction: column;
+            }
+            
+            .summary-item {
+                min-width: 100%;
+            }
+            
+            .breakdown-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .history-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .history-amount {
+                align-self: flex-end;
+            }
         }
         
         @media (max-width: 576px) {
@@ -480,6 +538,13 @@ $conn->close();
             .page-title {
                 font-size: 24px;
                 margin-top: 70px;
+            }
+            
+            .progress-labels {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 5px;
             }
         }
         .sw-preloader {
@@ -712,7 +777,8 @@ body {
     
     <div class="dashboard-container">
         <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo-container">
                     <div class="logo-img">
@@ -725,133 +791,168 @@ body {
             </div>
             
             <div class="user-info">
-                Bienvenue, 
+                Welcome, 
                 <span><?php echo htmlspecialchars($student_name); ?></span>
             </div>
             
             <ul class="sidebar-menu">
-                <li><a href="student_dashboard.php">Tableau de bord</a></li>
-                <li><a href="student_new_application.php">Nouvelle candidature</a></li>
-                <li><a href="student_payments.php">Mes paiements</a></li>
-                <li><a href="student_profile.php" class="active">Mon profil</a></li>
+                <li><a href="student_dashboard_en.php">Dashboard</a></li>
+                <li><a href="student_new_application_en.php">New Application</a></li>
+                <li><a href="student_payments_en.php" class="active">My Payments</a></li>
+                <li><a href="student_profile_en.php">My Profile</a></li>
             </ul>
             
             <div class="sidebar-footer">
-                <a href="student_logout.php" class="logout-link">Déconnexion</a>
+                <a href="student_logout.php" class="logout-link">Logout</a>
             </div>
         </div>
         
         <!-- Main Content -->
         <div class="main-content">
-            <h1 class="page-title">Mon profil</h1>
+            <h1 class="page-title">My Payments</h1>
             
-            <?php if ($success_message): ?>
-                <div class="alert alert-success">
-                    <?php echo $success_message; ?>
-                </div>
-            <?php endif; ?>
-            
-            <?php if ($error_message): ?>
-                <div class="alert alert-error">
-                    <?php echo $error_message; ?>
-                </div>
-            <?php endif; ?>
-            
-            <!-- Account Information -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Informations du compte</h2>
+            <div class="payment-summary">
+                <div class="summary-item">
+                    <div class="summary-label"><i class="fas fa-money-bill-wave"></i> Total Fee</div>
+                    <div class="summary-value">$<?php echo number_format($total_fee, 2); ?></div>
                 </div>
                 
-                <div class="account-info">
-                    <div class="info-label">ID étudiant</div>
-                    <div class="info-value">#<?php echo $student_id; ?></div>
-                    
-                    <div class="info-label">Date d'inscription</div>
-                    <div class="info-value"><?php echo date('F d, Y', strtotime($student['registration_date'])); ?></div>
+                <div class="summary-item">
+                    <div class="summary-label"><i class="fas fa-check-circle"></i> Amount Paid</div>
+                    <div class="summary-value paid">$<?php echo number_format($total_paid, 2); ?></div>
                 </div>
                 
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <div class="form-group">
-                        <label for="full_name">Nom complet</label>
-                        <input type="text" id="full_name" name="full_name" value="<?php echo htmlspecialchars($student['full_name']); ?>" required>
+                <div class="summary-item">
+                    <div class="summary-label"><i class="fas fa-hourglass-half"></i> Remaining</div>
+                    <div class="summary-value pending">$<?php echo number_format($remaining, 2); ?></div>
+                </div>
+                
+                <div class="summary-item">
+                    <div class="summary-label"><i class="fas fa-info-circle"></i> Payment Status</div>
+                    <div class="summary-value">
+                        <?php if ($remaining <= 0): ?>
+                            <span>Complete</span>
+                            <span class="status-badge status-complete">Paid</span>
+                        <?php elseif ($total_paid > 0): ?>
+                            <span>Partial</span>
+                            <span class="status-badge status-partial">Partial</span>
+                        <?php else: ?>
+                            <span>Pending</span>
+                            <span class="status-badge status-pending">Pending</span>
+                        <?php endif; ?>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail</label>
-                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($student['email']); ?>" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Numéro de téléphone</label>
-                        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($student['phone']); ?>" required>
-                    </div>
-                    
-                    <button type="submit" name="update_profile" class="submit-btn">Mettre à jour le profil</button>
-                </form>
+                </div>
             </div>
             
-            <!-- Change Password -->
             <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Changer le mot de passe</h2>
+                <h3 class="card-title"><i class="fas fa-chart-line"></i> Payment Progress</h3>
+                
+                <div class="payment-progress">
+                    <?php 
+                    $progress_percentage = ($total_fee > 0) ? min(100, ($total_paid / $total_fee) * 100) : 0;
+                    ?>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: <?php echo $progress_percentage; ?>%"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>$0</span>
+                        <span><?php echo number_format($progress_percentage, 0); ?>% Complete</span>
+                        <span>$<?php echo number_format($total_fee, 2); ?></span>
+                    </div>
                 </div>
                 
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <div class="form-group">
-                        <label for="current_password">Mot de passe actuel</label>
-                        <div class="password-container">
-                            <input type="password" id="current_password" name="current_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('current_password')">
-                                <i class="fas fa-eye" id="current-password-icon"></i>
-                            </button>
+                <div class="breakdown-container">
+                    <h4 class="breakdown-title"><i class="fas fa-list-ul"></i> Fee Breakdown</h4>
+                    
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">
+                            <i class="fas fa-graduation-cap"></i>&nbsp;Admission Fee
+                        </div>
+                        <div class="breakdown-amount">
+                            <div class="breakdown-paid">
+                                $<?php echo number_format($admission_paid, 2); ?> / $<?php echo number_format(isset($student_fees['Admission Fee']) ? $student_fees['Admission Fee'] : 0, 2); ?>
+                            </div>
+                            <?php if ($admission_paid >= $student_fees['Admission Fee']): ?>
+                                <span class="status-badge status-complete">Paid</span>
+                            <?php elseif ($admission_paid > 0): ?>
+                                <span class="status-badge status-partial">Partial</span>
+                            <?php else: ?>
+                                <span class="status-badge status-pending">Pending</span>
+                            <?php endif; ?>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="new_password">Nouveau mot de passe</label>
-                        <div class="password-container">
-                            <input type="password" id="new_password" name="new_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('new_password')">
-                                <i class="fas fa-eye" id="new-password-icon"></i>
-                            </button>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">
+                            <i class="fas fa-building"></i>&nbsp;&nbsp;Agency Fee
                         </div>
-                        <div class="password-requirements">Le mot de passe doit comporter au moins 6 caractères</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="confirm_password">Confirmer le nouveau mot de passe</label>
-                        <div class="password-container">
-                            <input type="password" id="confirm_password" name="confirm_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('confirm_password')">
-                                <i class="fas fa-eye" id="confirm-password-icon"></i>
-                            </button>
+                        <div class="breakdown-amount">
+                            <div class="breakdown-paid">
+                                $<?php echo number_format($agency_paid, 2); ?> / $<?php echo number_format(isset($student_fees['Agency Fee']) ? $student_fees['Agency Fee'] : 0, 2); ?>
+                            </div>
+                            <?php if ($agency_paid >= $student_fees['Agency Fee']): ?>
+                                <span class="status-badge status-complete">Paid</span>
+                            <?php elseif ($agency_paid > 0): ?>
+                                <span class="status-badge status-partial">Partial</span>
+                            <?php else: ?>
+                                <span class="status-badge status-pending">Pending</span>
+                            <?php endif; ?>
                         </div>
                     </div>
                     
-                    <button type="submit" name="change_password" class="submit-btn">Changer le mot de passe</button>
-                </form>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">
+                            <i class="fas fa-passport"></i>&nbsp;&nbsp;Visa Processing Fee
+                        </div>
+                        <div class="breakdown-amount">
+                            <div class="breakdown-paid">
+                                $<?php echo number_format($visa_paid, 2); ?> / $<?php echo number_format(isset($student_fees['Visa Processing Fee']) ? $student_fees['Visa Processing Fee'] : 0, 2); ?>
+                            </div>   
+                            <?php if ($visa_paid >= $student_fees['Visa Processing Fee']): ?>
+                                <span class="status-badge status-complete">Paid</span>
+                            <?php elseif ($visa_paid > 0): ?>
+                                <span class="status-badge status-partial">Partial</span>
+                            <?php else: ?>
+                                <span class="status-badge status-pending">Pending</span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-history"></i> Payment History</h3>
+                
+                <div class="history-container">
+                    <?php if ($payment_history->num_rows > 0): ?>
+                        <?php while ($payment = $payment_history->fetch_assoc()): ?>
+                            <div class="history-item">
+                                <div class="history-info">
+                                    <div class="history-date">
+                                        <i class="far fa-calendar-alt"></i> <?php echo date('F j, Y', strtotime($payment['payment_date'])); ?>
+                                    </div>
+                                    <div class="history-details">
+                                        <?php echo htmlspecialchars($payment['payment_type'] ?: 'General Payment'); ?> - 
+                                        <?php echo htmlspecialchars($payment['payment_method']); ?>
+                                        <?php if ($payment['notes']): ?>
+                                            <br><small><?php echo htmlspecialchars($payment['notes']); ?></small>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="history-amount">
+                                    $<?php echo number_format($payment['amount'], 2); ?>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <p>No payment records found.</p>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
     
     <script>
-        // Password visibility toggle function
-        function togglePasswordVisibility(fieldId) {
-            const passwordField = document.getElementById(fieldId);
-            const icon = document.getElementById(fieldId + '-icon');
-            
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordField.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-        
         // JavaScript for responsive sidebar toggle
         const hamburgerMenu = document.getElementById('hamburgerMenu');
         const sidebar = document.getElementById('sidebar');
@@ -887,11 +988,11 @@ body {
                 <path d="M14 18h6"></path>
             </svg>
         </div>
-        <div class="label">Traduire en anglais</div>
+        <div class="label">Translate into French</div>
     </div>
     <script>
         document.getElementById('translationToggle').addEventListener('click', function() {
-            window.location.href = 'student_profile_en.php';
+            window.location.href = 'student_payments.php';
         });
     </script>
 
@@ -921,6 +1022,7 @@ body {
     }
 
     // Translation functionality
+    
 </script>
 </body>
 </html>

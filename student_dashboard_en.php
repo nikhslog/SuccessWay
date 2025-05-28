@@ -1,5 +1,4 @@
 <?php
-// student_profile.php
 require_once 'config.php';
 
 // Check if student is logged in
@@ -10,93 +9,38 @@ if (!isset($_SESSION['student_id']) || !$_SESSION['student_logged_in']) {
 
 $student_id = $_SESSION['student_id'];
 $student_name = $_SESSION['student_name'];
-$success_message = '';
-$error_message = '';
 
-// Get student details
-$stmt = $conn->prepare("SELECT * FROM students WHERE student_id = ?");
+// Get student applications
+$stmt = $conn->prepare("SELECT * FROM applications WHERE student_id = ? ORDER BY submission_date DESC");
 $stmt->bind_param("i", $student_id);
 $stmt->execute();
-$result = $stmt->get_result();
-$student = $result->fetch_assoc();
+$applications = $stmt->get_result();
+
+$has_applications = $applications->num_rows > 0;
+
+// Count applications by status
+$status_counts = [
+    'Pending' => 0,
+    'Under Review' => 0,
+    'Sent to University' => 0,
+    'Accepted' => 0,
+    'Rejected' => 0
+];
+
+if ($has_applications) {
+    $count_stmt = $conn->prepare("SELECT status, COUNT(*) as count FROM applications WHERE student_id = ? GROUP BY status");
+    $count_stmt->bind_param("i", $student_id);
+    $count_stmt->execute();
+    $counts_result = $count_stmt->get_result();
+    
+    while ($count = $counts_result->fetch_assoc()) {
+        $status_counts[$count['status']] = $count['count'];
+    }
+    
+    $count_stmt->close();
+}
+
 $stmt->close();
-
-// Handle profile update
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_profile'])) {
-    $full_name = sanitize_input($_POST['full_name']);
-    $email = sanitize_input($_POST['email']);
-    $phone = sanitize_input($_POST['phone']);
-    
-    // Check if email is already used by another student
-    $check_stmt = $conn->prepare("SELECT student_id FROM students WHERE email = ? AND student_id != ?");
-    $check_stmt->bind_param("si", $email, $student_id);
-    $check_stmt->execute();
-    $check_result = $check_stmt->get_result();
-    
-    if ($check_result->num_rows > 0) {
-        $error_message = "Email address is already in use by another account";
-    } else {
-        // Update profile
-        $update_stmt = $conn->prepare("UPDATE students SET full_name = ?, email = ?, phone = ? WHERE student_id = ?");
-        $update_stmt->bind_param("sssi", $full_name, $email, $phone, $student_id);
-        
-        if ($update_stmt->execute()) {
-            $success_message = "Profile updated successfully!";
-            
-            // Update session name
-            $_SESSION['student_name'] = $full_name;
-            
-            // Refresh student data
-            $stmt = $conn->prepare("SELECT * FROM students WHERE student_id = ?");
-            $stmt->bind_param("i", $student_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $student = $result->fetch_assoc();
-            $stmt->close();
-            
-        } else {
-            $error_message = "Error updating profile: " . $conn->error;
-        }
-        $update_stmt->close();
-    }
-    $check_stmt->close();
-}
-
-// Handle password change
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
-    $current_password = $_POST['current_password'];
-    $new_password = $_POST['new_password'];
-    $confirm_password = $_POST['confirm_password'];
-    
-    // Verify current password
-    if (!password_verify($current_password, $student['password'])) {
-        $error_message = "Current password is incorrect";
-    } 
-    // Check new password length
-    else if (strlen($new_password) < 6) {
-        $error_message = "New password must be at least 6 characters long";
-    }
-    // Check if passwords match
-    else if ($new_password !== $confirm_password) {
-        $error_message = "New passwords do not match";
-    } 
-    else {
-        // Hash new password
-        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-        
-        // Update password
-        $update_stmt = $conn->prepare("UPDATE students SET password = ? WHERE student_id = ?");
-        $update_stmt->bind_param("si", $hashed_password, $student_id);
-        
-        if ($update_stmt->execute()) {
-            $success_message = "Password changed successfully!";
-        } else {
-            $error_message = "Error changing password: " . $conn->error;
-        }
-        $update_stmt->close();
-    }
-}
-
 $conn->close();
 ?>
 
@@ -105,7 +49,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - SuccessWay</title>
+    <title>Student Dashboard - SuccessWay</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
@@ -153,6 +97,7 @@ $conn->close();
             margin-right: 8px;
             background-color: white;
             border-radius: 50%;
+            object-fit: cover;
         }
         
         .logo-text {
@@ -172,7 +117,7 @@ $conn->close();
             margin-top: 18px;
             font-size: 14px;
             margin-left: 20px;
-            margin-bottom: 10px;
+            margin-bottom:10px
         }
         
         .user-info span {
@@ -209,7 +154,7 @@ $conn->close();
             position: absolute;
             bottom: 20px;
             width: calc(100% - 40px);
-            margin-bottom: 30px;
+            margin-bottom: 30px
         }
         
         .logout-link {
@@ -221,6 +166,7 @@ $conn->close();
             text-align: center;
             border-radius: 5px;
             transition: background-color 0.3s;
+            
         }
         
         .logout-link:hover {
@@ -250,7 +196,7 @@ $conn->close();
             display: none;
             position: fixed;
             top: 7px;
-            right: 20px;
+            right: 20px;  /* Changed from left to right */
             z-index: 1001;
             background-color: #40b3a2;
             border: none;
@@ -262,6 +208,32 @@ $conn->close();
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
+        .status-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .status-card h3 {
+            margin-top: 0;
+            font-size: 32px;
+            color: #40b3a2;
+        }
+        
+        .status-card p {
+            margin-bottom: 0;
+            color: #777;
+        }
+        
         .card {
             background-color: white;
             border-radius: 10px;
@@ -271,6 +243,9 @@ $conn->close();
         }
         
         .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
         
@@ -278,113 +253,101 @@ $conn->close();
             margin: 0;
             font-size: 20px;
             color: #333;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
         }
         
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-        }
-        
-        input:focus {
-            border-color: #40b3a2;
-            outline: none;
-        }
-        
-        .submit-btn {
+        .new-application-btn {
             background-color: #40b3a2;
             color: white;
             border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 16px;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .submit-btn:hover {
+        .new-application-btn:hover {
             background-color: #368f82;
         }
         
-        .alert {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
         
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
         }
         
-        .alert-error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        .account-info {
-            margin-bottom: 15px;
-        }
-        
-        .info-label {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 5px;
-        }
-        
-        .info-value {
-            font-size: 16px;
+        table th {
+            font-weight: 600;
             color: #333;
-            margin-bottom: 15px;
+            background-color: #f9f9f9;
         }
         
-        .password-container {
-            position: relative;
-        }
-        
-        .toggle-password {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            color: #777;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .toggle-password:hover {
-            color: #40b3a2;
-        }
-        
-        .password-requirements {
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
             font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-pending {
+            background-color: #ffeaa7;
+            color: #d69e2e;
+        }
+        
+        .status-review {
+            background-color: #bee3f8;
+            color: #3182ce;
+        }
+        
+        .status-sent {
+            background-color: #c6f6d5;
+            color: #38a169;
+        }
+        
+        .status-accepted {
+            background-color: #c6f6d5;
+            color: #38a169;
+        }
+        
+        .status-rejected {
+            background-color: #fed7d7;
+            color: #e53e3e;
+        }
+        
+        .view-btn {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        
+        .view-btn:hover {
+            background-color: #40b3a2;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .empty-state p {
             color: #777;
-            margin-top: 5px;
+            margin-bottom: 20px;
         }
         
         .overlay {
@@ -436,6 +399,7 @@ $conn->close();
                 margin-right: 8px;
                 background-color: #ffffff;
                 border-radius: 50%;
+                object-fit: cover;
             }
             
             .mobile-logo-text {
@@ -467,8 +431,27 @@ $conn->close();
         }
         
         @media (max-width: 768px) {
+            .status-cards {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+            }
+            
             .card {
                 padding: 20px;
+            }
+            
+            .table-responsive {
+                overflow-x: auto;
+            }
+            
+            table {
+                min-width: 700px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
         }
         
@@ -480,6 +463,10 @@ $conn->close();
             .page-title {
                 font-size: 24px;
                 margin-top: 70px;
+            }
+            
+            .status-cards {
+                grid-template-columns: 1fr 1fr;
             }
         }
         .sw-preloader {
@@ -516,7 +503,7 @@ $conn->close();
     font-size: 2rem;
     animation: sw-fly 2s infinite ease-in-out;
 }
-
+  
 .sw-plane-line {
     position: absolute;
     top: 50%;
@@ -683,6 +670,7 @@ body {
 }
     </style>
 </head>
+
 <body>
 <div class="sw-preloader" id="sw-preloader">
     <div class="sw-plane-container">
@@ -695,7 +683,12 @@ body {
     <div class="mobile-header">
         <div class="mobile-logo-container">
             <div class="mobile-logo-img">
-            <img src="successway_logo.png" alt="SuccessWay Logo" class="mobile-logo-img">
+            <div class="mobile-logo-container">
+    <img src="successway_logo.png" alt="SuccessWay Logo" class="mobile-logo-img">
+    <div class="mobile-logo-text">
+        <span class="success">Success</span><span class="way">Way</span>
+    </div>
+</div>
             </div>
             <div class="mobile-logo-text">
                 <span class="success">Success</span><span class="way">Way</span>
@@ -703,7 +696,7 @@ body {
         </div>
     </div>
     
-    <!-- Hamburger menu button -->
+    <!-- Hamburger menu button (now on the right) -->
     <button class="hamburger-menu" id="hamburgerMenu">
         <i class="fas fa-bars"></i>
     </button>
@@ -716,7 +709,10 @@ body {
             <div class="sidebar-header">
                 <div class="logo-container">
                     <div class="logo-img">
-                    <img src="successway_logo.png" alt="SuccessWay Logo" class="logo-img">
+                    <div class="logo-container">
+    <img src="successway_logo.png" alt="SuccessWay Logo" class="logo-img">
+    
+</div>
                     </div>
                     <div class="logo-text">
                         <span class="success">Success</span><span class="way">Way</span>
@@ -725,133 +721,121 @@ body {
             </div>
             
             <div class="user-info">
-                Bienvenue, 
+                Welcome, 
                 <span><?php echo htmlspecialchars($student_name); ?></span>
             </div>
             
             <ul class="sidebar-menu">
-                <li><a href="student_dashboard.php">Tableau de bord</a></li>
-                <li><a href="student_new_application.php">Nouvelle candidature</a></li>
-                <li><a href="student_payments.php">Mes paiements</a></li>
-                <li><a href="student_profile.php" class="active">Mon profil</a></li>
+                <li><a href="student_dashboard_en.php" class="active">Dashboard</a></li>
+                <li><a href="student_new_application_en.php">New Application</a></li>
+                <li><a href="student_payments_en.php">My Payments</a></li>
+                <li><a href="student_profile_en.php">My Profile</a></li>
             </ul>
             
             <div class="sidebar-footer">
-                <a href="student_logout.php" class="logout-link">Déconnexion</a>
+                <a href="student_logout.php" class="logout-link">Logout</a>
             </div>
         </div>
         
         <!-- Main Content -->
         <div class="main-content">
-            <h1 class="page-title">Mon profil</h1>
+            <h1 class="page-title">Student Dashboard</h1>
             
-            <?php if ($success_message): ?>
-                <div class="alert alert-success">
-                    <?php echo $success_message; ?>
+            <!-- Status Cards -->
+            <div class="status-cards">
+                <div class="status-card">
+                    <h3><?php echo $applications->num_rows; ?></h3>
+                    <p>Total Applications</p>
                 </div>
-            <?php endif; ?>
-            
-            <?php if ($error_message): ?>
-                <div class="alert alert-error">
-                    <?php echo $error_message; ?>
+                <div class="status-card">
+                    <h3><?php echo $status_counts['Pending'] + $status_counts['Under Review'] + $status_counts['Sent to University']; ?></h3>
+                    <p>In Progress</p>
                 </div>
-            <?php endif; ?>
-            
-            <!-- Account Information -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Informations du compte</h2>
+                <div class="status-card">
+                    <h3><?php echo $status_counts['Accepted']; ?></h3>
+                    <p>Accepted</p>
                 </div>
-                
-                <div class="account-info">
-                    <div class="info-label">ID étudiant</div>
-                    <div class="info-value">#<?php echo $student_id; ?></div>
-                    
-                    <div class="info-label">Date d'inscription</div>
-                    <div class="info-value"><?php echo date('F d, Y', strtotime($student['registration_date'])); ?></div>
+                <div class="status-card">
+                    <h3><?php echo $status_counts['Rejected']; ?></h3>
+                    <p>Rejected</p>
                 </div>
-                
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <div class="form-group">
-                        <label for="full_name">Nom complet</label>
-                        <input type="text" id="full_name" name="full_name" value="<?php echo htmlspecialchars($student['full_name']); ?>" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail</label>
-                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($student['email']); ?>" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Numéro de téléphone</label>
-                        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($student['phone']); ?>" required>
-                    </div>
-                    
-                    <button type="submit" name="update_profile" class="submit-btn">Mettre à jour le profil</button>
-                </form>
             </div>
             
-            <!-- Change Password -->
+            <!-- Applications List -->
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">Changer le mot de passe</h2>
+                    <h2 class="card-title">My Applications</h2>
+                    <a href="student_new_application.php" class="new-application-btn">New Application</a>
                 </div>
                 
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <div class="form-group">
-                        <label for="current_password">Mot de passe actuel</label>
-                        <div class="password-container">
-                            <input type="password" id="current_password" name="current_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('current_password')">
-                                <i class="fas fa-eye" id="current-password-icon"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="new_password">Nouveau mot de passe</label>
-                        <div class="password-container">
-                            <input type="password" id="new_password" name="new_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('new_password')">
-                                <i class="fas fa-eye" id="new-password-icon"></i>
-                            </button>
-                        </div>
-                        <div class="password-requirements">Le mot de passe doit comporter au moins 6 caractères</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="confirm_password">Confirmer le nouveau mot de passe</label>
-                        <div class="password-container">
-                            <input type="password" id="confirm_password" name="confirm_password" required>
-                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe" onclick="togglePasswordVisibility('confirm_password')">
-                                <i class="fas fa-eye" id="confirm-password-icon"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" name="change_password" class="submit-btn">Changer le mot de passe</button>
-                </form>
+                <?php if ($has_applications): ?>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Application ID</th>
+                                <th>University</th>
+                                <th>Program</th>
+                                <th>Country</th>
+                                <th>Status</th>
+                                <th>Submission Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($application = $applications->fetch_assoc()): ?>
+                            <tr>
+                                <td>#<?php echo $application['application_id']; ?></td>
+                                <td><?php echo htmlspecialchars($application['university_name']); ?></td>
+                                <td><?php echo htmlspecialchars($application['program']); ?></td>
+                                <td><?php echo htmlspecialchars($application['destination_country']); ?></td>
+                                <td>
+                                    <?php 
+                                    $status_class = '';
+                                    switch($application['status']) {
+                                        case 'Pending':
+                                            $status_class = 'status-pending';
+                                            break;
+                                        case 'Under Review':
+                                            $status_class = 'status-review';
+                                            break;
+                                        case 'Sent to University':
+                                            $status_class = 'status-sent';
+                                            break;
+                                        case 'Accepted':
+                                            $status_class = 'status-accepted';
+                                            break;
+                                        case 'Rejected':
+                                            $status_class = 'status-rejected';
+                                            break;
+                                    }
+                                    ?>
+                                    <span class="status-badge <?php echo $status_class; ?>">
+                                        <?php echo $application['status']; ?>
+                                    </span>
+                                </td>
+                                <td><?php echo date('M d, Y', strtotime($application['submission_date'])); ?></td>
+                                <td>
+                                    <a href="student_view_application.php?id=<?php echo $application['application_id']; ?>" class="view-btn">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php else: ?>
+                <div class="empty-state">
+                    <p>You don't have any applications yet.</p>
+                    <a href="student_new_application.php" class="new-application-btn">Start Your First Application</a>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
     
     <script>
-        // Password visibility toggle function
-        function togglePasswordVisibility(fieldId) {
-            const passwordField = document.getElementById(fieldId);
-            const icon = document.getElementById(fieldId + '-icon');
-            
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordField.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-        
         // JavaScript for responsive sidebar toggle
         const hamburgerMenu = document.getElementById('hamburgerMenu');
         const sidebar = document.getElementById('sidebar');
@@ -887,11 +871,11 @@ body {
                 <path d="M14 18h6"></path>
             </svg>
         </div>
-        <div class="label">Traduire en anglais</div>
+        <div class="label">Translate into French</div>
     </div>
     <script>
         document.getElementById('translationToggle').addEventListener('click', function() {
-            window.location.href = 'student_profile_en.php';
+            window.location.href = 'student_dashboard.php';
         });
     </script>
 
@@ -920,7 +904,7 @@ body {
         document.getElementById('sw-preloader').classList.remove('hidden');
     }
 
-    // Translation functionality
+
 </script>
 </body>
 </html>

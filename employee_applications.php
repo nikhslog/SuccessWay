@@ -729,9 +729,9 @@ body {
             <div class="mobile-logo-img">
             <img src="successway_logo.png" alt="SuccessWay Logo" class="mobile-logo-img">
             </div>
-            <div class="mobile-logo-text">
-                <span class="success">Success</span><span class="way">Way</span>
-            </div>
+            <div class="mobile-logo-text" translate="no">
+    <span class="success">Success</span><span class="way">Way</span>
+</div>
         </div>
     </div>
     
@@ -750,9 +750,9 @@ body {
                     <div class="logo-img">
                     <img src="successway_logo.png" alt="SuccessWay Logo" class="logo-img">
                     </div>
-                    <div class="logo-text">
-                        <span class="success">Success</span><span class="way">Way</span>
-                    </div>
+                    <div class="logo-text" translate="no">
+    <span class="success">Success</span><span class="way">Way</span>
+</div>
                 </div>
             </div>
             

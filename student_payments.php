@@ -791,15 +791,15 @@ body {
             </div>
             
             <div class="user-info">
-                Welcome, 
+                Bienvenue, 
                 <span><?php echo htmlspecialchars($student_name); ?></span>
             </div>
             
             <ul class="sidebar-menu">
-                <li><a href="student_dashboard.php">Dashboard</a></li>
-                <li><a href="student_new_application.php">New Application</a></li>
-                <li><a href="student_payments.php" class="active">My Payments</a></li>
-                <li><a href="student_profile.php">My Profile</a></li>
+                <li><a href="student_dashboard.php" >Tableau de bord</a></li>
+                <li><a href="student_new_application.php">Nouvelle candidature</a></li>
+                <li><a href="student_payments.php" class="active">Mes paiements</a></li>
+                <li><a href="student_profile.php">Mon profil</a></li>
             </ul>
             
             <div class="sidebar-footer">
@@ -808,44 +808,44 @@ body {
         </div>
         
         <!-- Main Content -->
-        <div class="main-content">
-            <h1 class="page-title">My Payments</h1>
+<div class="main-content">
+            <h1 class="page-title">Mes paiements</h1>
             
             <div class="payment-summary">
                 <div class="summary-item">
-                    <div class="summary-label"><i class="fas fa-money-bill-wave"></i> Total Fee</div>
+                    <div class="summary-label"><i class="fas fa-money-bill-wave"></i> Frais totaux</div>
                     <div class="summary-value">$<?php echo number_format($total_fee, 2); ?></div>
                 </div>
                 
                 <div class="summary-item">
-                    <div class="summary-label"><i class="fas fa-check-circle"></i> Amount Paid</div>
+                    <div class="summary-label"><i class="fas fa-check-circle"></i> Montant payé</div>
                     <div class="summary-value paid">$<?php echo number_format($total_paid, 2); ?></div>
                 </div>
                 
                 <div class="summary-item">
-                    <div class="summary-label"><i class="fas fa-hourglass-half"></i> Remaining</div>
+                    <div class="summary-label"><i class="fas fa-hourglass-half"></i> Restant</div>
                     <div class="summary-value pending">$<?php echo number_format($remaining, 2); ?></div>
                 </div>
                 
                 <div class="summary-item">
-                    <div class="summary-label"><i class="fas fa-info-circle"></i> Payment Status</div>
+                    <div class="summary-label"><i class="fas fa-info-circle"></i> Statut du paiement</div>
                     <div class="summary-value">
                         <?php if ($remaining <= 0): ?>
-                            <span>Complete</span>
-                            <span class="status-badge status-complete">Paid</span>
+                            <span>Complet</span>
+                            <span class="status-badge status-complete">Payé</span>
                         <?php elseif ($total_paid > 0): ?>
-                            <span>Partial</span>
-                            <span class="status-badge status-partial">Partial</span>
+                            <span>Partiel</span>
+                            <span class="status-badge status-partial">Partiel</span>
                         <?php else: ?>
-                            <span>Pending</span>
-                            <span class="status-badge status-pending">Pending</span>
+                            <span>En attente</span>
+                            <span class="status-badge status-pending">En attente</span>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
             
             <div class="card">
-                <h3 class="card-title"><i class="fas fa-chart-line"></i> Payment Progress</h3>
+                <h3 class="card-title"><i class="fas fa-chart-line"></i> Progression du paiement</h3>
                 
                 <div class="payment-progress">
                     <?php 
@@ -856,64 +856,64 @@ body {
                     </div>
                     <div class="progress-labels">
                         <span>$0</span>
-                        <span><?php echo number_format($progress_percentage, 0); ?>% Complete</span>
+                        <span><?php echo number_format($progress_percentage, 0); ?>% Complété</span>
                         <span>$<?php echo number_format($total_fee, 2); ?></span>
                     </div>
                 </div>
                 
                 <div class="breakdown-container">
-                    <h4 class="breakdown-title"><i class="fas fa-list-ul"></i> Fee Breakdown</h4>
+                    <h4 class="breakdown-title"><i class="fas fa-list-ul"></i> Détail des frais</h4>
                     
                     <div class="breakdown-item">
                         <div class="breakdown-label">
-                            <i class="fas fa-graduation-cap"></i>&nbsp;Admission Fee
+                            <i class="fas fa-graduation-cap"></i>&nbsp;Frais d'admission
                         </div>
                         <div class="breakdown-amount">
                             <div class="breakdown-paid">
                                 $<?php echo number_format($admission_paid, 2); ?> / $<?php echo number_format(isset($student_fees['Admission Fee']) ? $student_fees['Admission Fee'] : 0, 2); ?>
                             </div>
                             <?php if ($admission_paid >= $student_fees['Admission Fee']): ?>
-                                <span class="status-badge status-complete">Paid</span>
+                                <span class="status-badge status-complete">Payé</span>
                             <?php elseif ($admission_paid > 0): ?>
-                                <span class="status-badge status-partial">Partial</span>
+                                <span class="status-badge status-partial">Partiel</span>
                             <?php else: ?>
-                                <span class="status-badge status-pending">Pending</span>
+                                <span class="status-badge status-pending">En attente</span>
                             <?php endif; ?>
                         </div>
                     </div>
                     
                     <div class="breakdown-item">
                         <div class="breakdown-label">
-                            <i class="fas fa-building"></i>&nbsp;&nbsp;Agency Fee
+                            <i class="fas fa-building"></i>&nbsp;&nbsp;Frais d'agence
                         </div>
                         <div class="breakdown-amount">
                             <div class="breakdown-paid">
                                 $<?php echo number_format($agency_paid, 2); ?> / $<?php echo number_format(isset($student_fees['Agency Fee']) ? $student_fees['Agency Fee'] : 0, 2); ?>
                             </div>
                             <?php if ($agency_paid >= $student_fees['Agency Fee']): ?>
-                                <span class="status-badge status-complete">Paid</span>
+                                <span class="status-badge status-complete">Payé</span>
                             <?php elseif ($agency_paid > 0): ?>
-                                <span class="status-badge status-partial">Partial</span>
+                                <span class="status-badge status-partial">Partiel</span>
                             <?php else: ?>
-                                <span class="status-badge status-pending">Pending</span>
+                                <span class="status-badge status-pending">En attente</span>
                             <?php endif; ?>
                         </div>
                     </div>
                     
                     <div class="breakdown-item">
                         <div class="breakdown-label">
-                            <i class="fas fa-passport"></i>&nbsp;&nbsp;Visa Processing Fee
+                            <i class="fas fa-passport"></i>&nbsp;&nbsp;Frais de traitement de visa
                         </div>
                         <div class="breakdown-amount">
                             <div class="breakdown-paid">
                                 $<?php echo number_format($visa_paid, 2); ?> / $<?php echo number_format(isset($student_fees['Visa Processing Fee']) ? $student_fees['Visa Processing Fee'] : 0, 2); ?>
                             </div>   
                             <?php if ($visa_paid >= $student_fees['Visa Processing Fee']): ?>
-                                <span class="status-badge status-complete">Paid</span>
+                                <span class="status-badge status-complete">Payé</span>
                             <?php elseif ($visa_paid > 0): ?>
-                                <span class="status-badge status-partial">Partial</span>
+                                <span class="status-badge status-partial">Partiel</span>
                             <?php else: ?>
-                                <span class="status-badge status-pending">Pending</span>
+                                <span class="status-badge status-pending">En attente</span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -921,7 +921,7 @@ body {
             </div>
             
             <div class="card">
-                <h3 class="card-title"><i class="fas fa-history"></i> Payment History</h3>
+                <h3 class="card-title"><i class="fas fa-history"></i> Historique des paiements</h3>
                 
                 <div class="history-container">
                     <?php if ($payment_history->num_rows > 0): ?>
@@ -932,7 +932,7 @@ body {
                                         <i class="far fa-calendar-alt"></i> <?php echo date('F j, Y', strtotime($payment['payment_date'])); ?>
                                     </div>
                                     <div class="history-details">
-                                        <?php echo htmlspecialchars($payment['payment_type'] ?: 'General Payment'); ?> - 
+                                        <?php echo htmlspecialchars($payment['payment_type'] ?: 'Paiement général'); ?> - 
                                         <?php echo htmlspecialchars($payment['payment_method']); ?>
                                         <?php if ($payment['notes']): ?>
                                             <br><small><?php echo htmlspecialchars($payment['notes']); ?></small>
@@ -945,7 +945,7 @@ body {
                             </div>
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <p>No payment records found.</p>
+                        <p>Aucun historique de paiement trouvé.</p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -977,40 +977,24 @@ body {
         });
     </script>
     <!-- Translation Toggle Button -->
-<div class="translation-toggle" id="translationToggle">
-    <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 8l6 6"></path>
-            <path d="M4 14l6-6 2-3"></path>
-            <path d="M2 5h12"></path>
-            <path d="M7 2h1"></path>
-            <path d="M22 22l-5-10-5 10"></path>
-            <path d="M14 18h6"></path>
-        </svg>
+    <div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Traduire en anglais</div>
     </div>
-    <div class="label">Translate</div>
-</div>
-
-<!-- Language Options -->
-<div class="language-options" id="languageOptions">
-    <div class="language-option" data-lang="en">English</div>
-    <div class="language-option" data-lang="fr">Français</div>
-</div>
-
-<!-- Hidden element for Google Translate -->
-<div id="google_translate_element" style="display: none;"></div>
-<!-- Google Translate Script -->
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,fr',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'student_payments_en.php';
+        });
+    </script>
 
 <script>
     // Preloader control
@@ -1038,351 +1022,7 @@ body {
     }
 
     // Translation functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const translationToggle = document.getElementById('translationToggle');
-        const languageOptions = document.getElementById('languageOptions');
-        const languageOptionBtns = document.querySelectorAll('.language-option');
-        const preloader = document.getElementById('sw-preloader');
-        let isTranslating = false;
-        
-        // ----- COMPREHENSIVE COOKIE CLEARING -----
-        function nukeGoogleTranslateCookies() {
-            // Get all possible domain variations
-            const hostname = window.location.hostname;
-            const domains = [
-                hostname,
-                '.' + hostname,
-                hostname.split('.').slice(1).join('.'),
-                '.' + hostname.split('.').slice(1).join('.')
-            ];
-            
-            // Get all possible paths
-            const paths = ['/', '/en/', '/fr/', window.location.pathname];
-            
-            // Clear all variations of googtrans cookies
-            domains.forEach(domain => {
-                paths.forEach(path => {
-                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}; domain=${domain};`;
-                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
-                });
-            });
-            
-            // Also clear without specifying domain
-            paths.forEach(path => {
-                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
-            });
-            
-            // And root cookie without path/domain
-            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
-        }
-        
-        // ----- CLEAR ALL STORAGE TYPES -----
-        function clearAllStorage() {
-            // Clear all storage types
-            localStorage.removeItem('successway_language');
-            sessionStorage.removeItem('successway_language');
-            localStorage.removeItem('googtrans');
-            sessionStorage.removeItem('googtrans');
-            
-            // Also try to clear any other Google Translate related items
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                if (key && (key.includes('goog') || key.includes('trans'))) {
-                    localStorage.removeItem(key);
-                }
-            }
-            
-            for (let i = 0; i < sessionStorage.length; i++) {
-                const key = sessionStorage.key(i);
-                if (key && (key.includes('goog') || key.includes('trans'))) {
-                    sessionStorage.removeItem(key);
-                }
-            }
-        }
-        
-        // ----- REMOVE ALL GOOGLE TRANSLATE ELEMENTS -----
-        function removeGoogleTranslateElements() {
-            // Remove all translate elements
-            document.querySelectorAll('#google_translate_element, .skiptranslate, .goog-te-gadget, .goog-te-banner-frame, iframe[src*="translate.google"]')
-                .forEach(el => {
-                    if (el) el.remove();
-                });
-            
-            // Reset body positioning
-            document.body.style.removeProperty('top');
-            document.body.style.position = '';
-            document.documentElement.style.removeProperty('overflow');
-            
-            // Remove any translate-specific classes
-            document.body.classList.remove('translated-ltr');
-            document.body.classList.remove('translated-rtl');
-        }
-        
-        // ----- REMOVE ALL GOOGLE TRANSLATE SCRIPTS -----
-        function removeGoogleTranslateScripts() {
-            document.querySelectorAll('script[src*="translate.google"], script[src*="element.js"]')
-                .forEach(script => {
-                    if (script) script.remove();
-                });
-            
-            // Also remove dynamically added scripts
-            document.querySelectorAll('script').forEach(script => {
-                if (script && script.textContent && script.textContent.includes('googleTranslateElementInit')) {
-                    script.remove();
-                }
-            });
-            
-            // Clean up global objects
-            delete window.googleTranslateElementInit;
-            if (window.google && window.google.translate) {
-                delete window.google.translate;
-            }
-        }
-        
-        // ----- COMPREHENSIVE GOOGLE TRANSLATE RESET -----
-        function resetTranslation() {
-            nukeGoogleTranslateCookies();
-            clearAllStorage();
-            removeGoogleTranslateElements();
-            removeGoogleTranslateScripts();
-            
-            // Also remove any meta tags Google might use
-            document.querySelectorAll('meta[name*="translate"], meta[http-equiv="Content-Language"]')
-                .forEach(meta => {
-                    if (meta) meta.remove();
-                });
-        }
-        
-        // Toggle language options display
-        translationToggle.addEventListener('click', function() {
-            languageOptions.classList.toggle('active');
-            translationToggle.style.display = languageOptions.classList.contains('active') ? 'none' : 'flex';
-        });
-        
-        // Handle language selection
-        languageOptionBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Prevent multiple clicks
-                if (isTranslating) return;
-                isTranslating = true;
-                
-                const lang = this.getAttribute('data-lang');
-                
-                // Remove active class from all buttons
-                languageOptionBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Hide language options and show toggle
-                languageOptions.classList.remove('active');
-                translationToggle.style.display = 'flex';
-                
-                if (lang === 'en') {
-                    // Show preloader for English (reset to original)
-                    showPreloader('Resetting to English...');
-                    
-                    // Reset translation then force reload with special parameters
-                    resetTranslation();
-                    
-                    // Create a special reload URL that ensures cache busting
-                    const newUrl = new URL(window.location.href);
-                    
-                    // Clear any existing language params
-                    newUrl.searchParams.delete('lang');
-                    newUrl.searchParams.delete('googtrans');
-                    
-                    // Add special params to prevent translation and force reload
-                    newUrl.searchParams.set('notranslate', 'true');
-                    newUrl.searchParams.set('clearcache', Date.now());
-                    
-                    // Small delay to ensure preloader is visible
-                    setTimeout(() => {
-                        // Use location.replace to avoid history entries
-                        window.location.replace(newUrl.toString());
-                    }, 300);
-                    return;
-                }
-                
-                // Show preloader for other languages
-                showPreloader('Translating to ' + (lang === 'fr' ? 'French' : lang.toUpperCase()) + '...');
-                
-                // For other languages
-                setLanguage(lang);
-            });
-        });
-        
-        // Click outside to close language options
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.language-options') && 
-                !event.target.closest('.translation-toggle') && 
-                languageOptions.classList.contains('active')) {
-                
-                languageOptions.classList.remove('active');
-                translationToggle.style.display = 'flex';
-            }
-        });
-        
-        // Set up translation for a specific language
-        function setLanguage(lang) {
-            // First reset everything
-            resetTranslation();
-            
-            // Create new translate element
-            const translateElement = document.createElement('div');
-            translateElement.id = 'google_translate_element';
-            translateElement.style.display = 'none';
-            document.body.appendChild(translateElement);
-            
-            // Pre-define the cookie approach as a backup
-            const setDirectCookieApproach = () => {
-                const langPair = "/en/" + lang;
-                document.cookie = `googtrans=${langPair};path=/;`;
-                
-                // Multiple domains for broader compatibility
-                if (window.location.hostname !== 'localhost') {
-                    document.cookie = `googtrans=${langPair};path=/;domain=${window.location.hostname};`;
-                    document.cookie = `googtrans=${langPair};path=/;domain=.${window.location.hostname};`;
-                }
-                
-                // Use a custom event to force Google Translate to recognize the cookie
-                const event = new Event('gtrans');
-                window.dispatchEvent(event);
-                
-                // Save to localStorage as well for persistence
-                localStorage.setItem('successway_language', lang);
-                
-                // Reload after setting cookie
-                window.location.reload();
-            };
-            
-            // Define the initialization function
-            window.googleTranslateElementInit = function() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'en,fr',
-                    autoDisplay: false,
-                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-                }, 'google_translate_element');
-            };
-            
-            // Load script
-            const script = document.createElement('script');
-            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            script.async = true;
-            script.onerror = () => {
-                console.error("Error loading Google Translate script");
-                setDirectCookieApproach();
-            };
-            document.body.appendChild(script);
-            
-            // Set timeout to wait for script to load
-            let attempts = 0;
-            const maxAttempts = 30;
-            const checkInterval = 300; // Check every 300ms
-            
-            const waitForTranslateCombo = setInterval(() => {
-                attempts++;
-                const select = document.querySelector('.goog-te-combo');
-                
-                if (select) {
-                    clearInterval(waitForTranslateCombo);
-                    
-                    // Add a small delay to ensure the widget is fully loaded
-                    setTimeout(() => {
-                        // Set the language
-                        select.value = lang;
-                        select.dispatchEvent(new Event('change'));
-                        
-                        // Hide the Google elements
-                        hideGoogleElements();
-                        
-                        // Save to localStorage for persistence
-                        localStorage.setItem('successway_language', lang);
-                        
-                        // Hide preloader after a bit
-                        setTimeout(() => {
-                            hidePreloader();
-                            isTranslating = false;
-                        }, 1000);
-                    }, 500);
-                } 
-                else if (attempts >= maxAttempts) {
-                    clearInterval(waitForTranslateCombo);
-                    console.log("Failed to find Google Translate combo, trying direct cookie approach");
-                    setDirectCookieApproach();
-                }
-            }, checkInterval);
-        }
-        
-        // Function to hide Google elements
-        function hideGoogleElements() {
-            document.querySelectorAll('.goog-te-banner-frame, .skiptranslate')
-                .forEach(el => {
-                    if (el) el.style.display = 'none';
-                });
-            
-            document.body.style.top = '0';
-        }
-        
-        // Set up observer to keep hiding Google elements
-        const observer = new MutationObserver(hideGoogleElements);
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-        
-        // Check URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        
-        // If notranslate is set, clear everything to ensure no translation
-        if (urlParams.has('notranslate')) {
-            resetTranslation();
-            
-            // Clean URL without reload
-            const cleanUrl = new URL(window.location.href);
-            cleanUrl.searchParams.delete('notranslate');
-            cleanUrl.searchParams.delete('clearcache');
-            window.history.replaceState({}, document.title, cleanUrl.toString());
-        } 
-        // Otherwise check for active language
-        else {
-            // Try to find translation language from URL or cookie or localStorage
-            let currentLang = null;
-            
-            // Check localStorage first (most reliable)
-            currentLang = localStorage.getItem('successway_language');
-            
-            // If not in localStorage, check URL
-            if (!currentLang && urlParams.has('lang')) {
-                currentLang = urlParams.get('lang');
-            }
-            
-            // If not in URL, check cookies
-            if (!currentLang) {
-                const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
-                if (match && match[1]) {
-                    currentLang = match[1];
-                }
-            }
-            
-            // Apply translation if needed
-            if (currentLang && currentLang !== 'en') {
-                // Mark the correct button
-                languageOptionBtns.forEach(btn => {
-                    if (btn.getAttribute('data-lang') === currentLang) {
-                        btn.classList.add('active');
-                    }
-                });
-                
-                // Show preloader
-                showPreloader('Translating to ' + (currentLang === 'fr' ? 'French' : currentLang.toUpperCase()) + '...');
-                
-                // Start translation
-                setLanguage(currentLang);
-            }
-        }
-    });
+    
 </script>
 </body>
 </html>

@@ -367,6 +367,7 @@ body {
     </style>
 </head>
 <body>
+    
 <div class="sw-preloader" id="sw-preloader">
     <div class="sw-plane-container">
         <div class="sw-plane">✈️</div>
@@ -376,7 +377,7 @@ body {
 </div>
     <div class="container">
         <div class="logo">
-            <div class="logo-text">
+            <div class="logo-text" translate="no">
                 <span class="success">Success</span>Way
             </div>
         </div>

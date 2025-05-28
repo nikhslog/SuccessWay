@@ -1130,7 +1130,24 @@ body {
     </style>
 </head>
 <body>
-
+<div class="translation-toggle" id="translationToggle">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8l6 6"></path>
+                <path d="M4 14l6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="M22 22l-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+            </svg>
+        </div>
+        <div class="label">Traduire en anglais</div>
+    </div>
+    <script>
+        document.getElementById('translationToggle').addEventListener('click', function() {
+            window.location.href = 'brochure_en.html';
+        });
+    </script>
 
 <!-- Hidden iframe for reset (optional, use if needed) -->
 <iframe name="reset_frame" style="display:none;"></iframe>
@@ -1155,7 +1172,7 @@ body {
     <div class="hamburger-menu">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>s
+        <span class="hamburger-line"></span>
     </div>
     <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -1195,6 +1212,10 @@ body {
             <a href="#tunisia" class="country-nav-item">
                 <img src="https://cdn.countryflags.com/thumbs/tunisia/flag-round-250.png" alt="Tunisia Flag">
                 <span>Tunisia</span>
+            </a>
+            <a href="#usa" class="country-nav-item">
+                <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-round-250.png" alt="USA Flag">
+                <span>USA</span>
             </a>
         </div>
         
@@ -2079,8 +2100,178 @@ body {
                 </div>
             </div>
         </section>
+
+        <!-- USA Section -->
+        <section id="usa" class="country-section">
+            <div class="country-header" id="usa-header" style="background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2VhdHRsZSUyMHNreWxpbmV8ZW58MHx8MHx8fDA%3D&w=1200&q=80'); background-size: cover; background-position: center;">
+                <div class="country-header-content">
+                    <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-round-250.png" alt="Drapeau des USA" class="country-flag">
+                    <div class="country-title">
+                        <h1>Étudier aux États-Unis d'Amérique</h1>
+                        <p>Parcours 2+2 avec options de transfert vers de grandes universités</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-info-container">
+                <div class="info-card">
+                    <h2>Coûts de Formation</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Dépense</th>
+                                <th>Coût (USD)</th>
+                                <th>Coût (FCFA)</th>
+                            </tr>
+                            <tr>
+                                <td>Anglais intensif (6-8 mois)</td>
+                                <td>$10,000</td>
+                                <td>~6,000,000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais scolaires collège</td>
+                                <td>$14,000 / an</td>
+                                <td>~7,000,000 FCFA / an</td>
+                            </tr>
+                            <tr>
+                                <td>Logement et Nourriture</td>
+                                <td>$1,500 / mois</td>
+                                <td>~800,000 FCFA / mois</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget annuel total</strong></td>
+                                <td><strong>$27,000 - $30,000</strong></td>
+                                <td><strong>~16,000,000 FCFA</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Coûts des Procédures</h2>
+                    <div class="info-content">
+                        <table class="costs-table">
+                            <tr>
+                                <th>Type de frais</th>
+                                <th>Montant</th>
+                            </tr>
+                            <tr>
+                                <td>Frais d'agence</td>
+                                <td>850,000 FCFA (payable en 2 tranches)</td>
+                            </tr>
+                            <tr>
+                                <td>Première tranche</td>
+                                <td>500,000 FCFA</td>
+                            </tr>
+                            <tr>
+                                <td>Frais d'admission et SEVIS I-901</td>
+                                <td>$350 (~220,000 FCFA)</td>
+                            </tr>
+                            <tr>
+                                <td>Frais de visa</td>
+                                <td>$160 (~95,000 FCFA)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Informations Importantes</h2>
+                    <div class="info-content">
+                        <ul>
+                            <li>Admission sans TOEFL/IELTS (test d'anglais et de maths sur place)</li>
+                            <li>Parcours 2+2 : 2 ans au collège + 2 ans à l'université pour un bachelor</li>
+                            <li>Possibilité de transfert dans de grandes universités américaines</li>
+                            <li>SuccessWay peut faciliter le processus d'admission uniquement au sein de notre établissement partenaire situé dans l'état de Washington, Seattle Colleges</li>
+                            <li>Les programmes du College sont conçus pour les étudiants qui sortent du lycée (le Niveau Master n'en fait pas partie)</li>
+                            <li>Être âgé de 16 ans minimum à la rentrée</li>
+                            <li>Avoir le diplôme du baccalauréat</li>
+                            <li>Présenter un Relevé bancaire (d'un parent proche) prouvant une capacité financière avec au moins 20 millions FCFA sur le compte</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Programmes Disponibles</h2>
+                    <div class="info-content">
+                        <h3 style="margin: 10px 0; color: var(--primary-color);">Programmes de transfert universitaire (2+2)</h3>
+                        <p>Ces programmes permettent de commencer les études à Seattle Colleges et de transférer ensuite dans une université américaine pour obtenir un Bachelor (licence).</p>
+                        <div class="programs-list">
+                            <ul>
+                                <li>Commerce / Gestion / Marketing / Comptabilité</li>
+                                <li>Informatique</li>
+                                <li>Ingénierie (génie civil, mécanique, électrique, etc.)</li>
+                                <li>Biologie</li>
+                                <li>Chimie</li>
+                                <li>Physique</li>
+                                <li>Mathématiques</li>
+                                <li>Économie</li>
+                                <li>Psychologie</li>
+                                <li>Sociologie</li>
+                                <li>Sciences politiques</li>
+                                <li>Communication</li>
+                                <li>Sciences de l'éducation</li>
+                                <li>Arts plastiques</li>
+                                <li>Théâtre</li>
+                                <li>Musique</li>
+                                <li>Philosophie</li>
+                                <li>Sciences de l'environnement</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 style="margin: 20px 0 10px; color: var(--primary-color);">Programmes professionnels et techniques</h3>
+                        <p>Ces programmes préparent directement à une insertion sur le marché du travail ou à un bachelor professionnel.</p>
+                        <div class="programs-list">
+                            <ul>
+                                <li>Comptabilité</li>
+                                <li>Gestion des technologies d'entreprise</li>
+                                <li>Éducation de la petite enfance</li>
+                                <li>Technologies de l'information</li>
+                                <li>Administration des réseaux</li>
+                                <li>Programmation</li>
+                                <li>Développement web</li>
+                                <li>Assistance médicale</li>
+                                <li>Technicien en pharmacie</li>
+                                <li>Immobilier</li>
+                                <li>Électronique</li>
+                                <li>Technologies énergétiques (conventionnelles et renouvelables)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Processus de Candidature</h2>
+                <div class="info-content">
+                    <ol class="procedure-steps">
+                        <li><strong>Signature de la fiche d'engagement</strong></li>
+                        <li><strong>Paiement de la première tranche des frais d'agence + Frais d'admission et SEVIS</strong></li>
+                        <li><strong>Traduction des documents & procédures d'admission</strong></li>
+                        <li><strong>Réception de la lettre d'admission et I-20</strong></li>
+                        <li><strong>Préparation du dossier & entretien ambassade</strong></li>
+                        <li><strong>Paiement de la 2e tranche des frais d'agence après obtention du visa</strong></li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Durée des procédures :</strong> 2-3 mois</p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h2>Documents Requis</h2>
+                <div class="info-content">
+                    <ul>
+                        <li>Attestation + relevé de notes du bac</li>
+                        <li>Bulletins de notes du lycée</li>
+                        <li>Relevé bancaire (6 mois)</li>
+                        <li>Passeport valide</li>
+                        <li>Photo d'identité</li>
+                        <li>Extrait d'acte de naissance</li>
+                        <li>Pièce d'identité du sponsor (parent/tuteur)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         
-        <!-- Footer -->
         
     </div>
     
@@ -2234,283 +2425,5 @@ showPreloader('Resetting to English...');
 // After translation is complete:
 setTimeout(hidePreloader, 1000);
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const translationToggle = document.getElementById('translationToggle');
-            const languageOptions = document.getElementById('languageOptions');
-            const languageOptionBtns = document.querySelectorAll('.language-option');
-            
-            // ----- COMPREHENSIVE COOKIE CLEARING -----
-            function nukeGoogleTranslateCookies() {
-                // Get all possible domain variations
-                const hostname = window.location.hostname;
-                const domains = [
-                    hostname,
-                    '.' + hostname,
-                    hostname.split('.').slice(1).join('.'),
-                    '.' + hostname.split('.').slice(1).join('.')
-                ];
-                
-                // Get all possible paths
-                const paths = ['/', '/en/', '/fr/', window.location.pathname];
-                
-                // Clear all variations of googtrans cookies
-                domains.forEach(domain => {
-                    paths.forEach(path => {
-                        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}; domain=${domain};`;
-                        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
-                    });
-                });
-                
-                // Also clear without specifying domain
-                paths.forEach(path => {
-                    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path};`;
-                });
-                
-                // And root cookie without path/domain
-                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
-            }
-            
-            // ----- CLEAR ALL STORAGE TYPES -----
-            function clearAllStorage() {
-                // Clear all storage types
-                localStorage.removeItem('successway_language');
-                sessionStorage.removeItem('successway_language');
-                localStorage.removeItem('googtrans');
-                sessionStorage.removeItem('googtrans');
-                
-                // Also try to clear any other Google Translate related items
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (key.includes('goog') || key.includes('trans')) {
-                        localStorage.removeItem(key);
-                    }
-                }
-                
-                for (let i = 0; i < sessionStorage.length; i++) {
-                    const key = sessionStorage.key(i);
-                    if (key.includes('goog') || key.includes('trans')) {
-                        sessionStorage.removeItem(key);
-                    }
-                }
-            }
-            
-            // ----- REMOVE ALL GOOGLE TRANSLATE ELEMENTS -----
-            function removeGoogleTranslateElements() {
-                // Remove all translate elements
-                document.querySelectorAll('#google_translate_element, .skiptranslate, .goog-te-gadget, .goog-te-banner-frame, iframe[src*="translate.google"]')
-                    .forEach(el => el.remove());
-                
-                // Reset body positioning
-                document.body.style.removeProperty('top');
-                document.body.style.position = '';
-                document.documentElement.style.removeProperty('overflow');
-                
-                // Remove any translate-specific classes
-                document.body.classList.remove('translated-ltr');
-                document.body.classList.remove('translated-rtl');
-            }
-            
-            // ----- REMOVE ALL GOOGLE TRANSLATE SCRIPTS -----
-            function removeGoogleTranslateScripts() {
-                document.querySelectorAll('script[src*="translate.google"], script[src*="element.js"]')
-                    .forEach(script => script.remove());
-                
-                // Also remove dynamically added scripts
-                document.querySelectorAll('script').forEach(script => {
-                    if (script.textContent.includes('googleTranslateElementInit')) {
-                        script.remove();
-                    }
-                });
-                
-                // Clean up global objects
-                delete window.googleTranslateElementInit;
-                delete window.google?.translate;
-            }
-            
-            // ----- COMPREHENSIVE GOOGLE TRANSLATE RESET -----
-            function resetTranslation() {
-                nukeGoogleTranslateCookies();
-                clearAllStorage();
-                removeGoogleTranslateElements();
-                removeGoogleTranslateScripts();
-                
-                // Also remove any meta tags Google might use
-                document.querySelectorAll('meta[name*="translate"], meta[http-equiv="Content-Language"]')
-                    .forEach(meta => meta.remove());
-            }
-            
-            // Toggle language options display
-            translationToggle.addEventListener('click', function() {
-                languageOptions.classList.toggle('active');
-                translationToggle.style.display = languageOptions.classList.contains('active') ? 'none' : 'flex';
-            });
-            
-            // Handle language selection
-            languageOptionBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    
-                    // Remove active class from all buttons
-                    languageOptionBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    if (lang === 'en') {
-                        // Reset translation then force reload with special parameters
-                        resetTranslation();
-                        
-                        // Create a special reload URL that ensures cache busting
-                        const newUrl = new URL(window.location.href);
-                        
-                        // Clear any existing language params
-                        newUrl.searchParams.delete('lang');
-                        newUrl.searchParams.delete('googtrans');
-                        
-                        // Add special params to prevent translation and force reload
-                        newUrl.searchParams.set('notranslate', 'true');
-                        newUrl.searchParams.set('clearcache', Date.now());
-                        
-                        // Use location.replace to avoid history entries
-                        window.location.replace(newUrl.toString());
-                        return;
-                    }
-                    
-                    // For other languages
-                    setLanguage(lang);
-                    
-                    // Hide language options and show toggle
-                    languageOptions.classList.remove('active');
-                    translationToggle.style.display = 'flex';
-                });
-            });
-            
-            // Click outside to close language options
-            document.addEventListener('click', function(event) {
-                if (!event.target.closest('.language-options') && 
-                    !event.target.closest('.translation-toggle') && 
-                    languageOptions.classList.contains('active')) {
-                    
-                    languageOptions.classList.remove('active');
-                    translationToggle.style.display = 'flex';
-                }
-            });
-            
-            // Set up translation for a specific language
-            function setLanguage(lang) {
-                // First reset everything
-                resetTranslation();
-                
-                // Create new translate element
-                const translateElement = document.createElement('div');
-                translateElement.id = 'google_translate_element';
-                translateElement.style.display = 'none';
-                document.body.appendChild(translateElement);
-                
-                // Define the initialization function
-                window.googleTranslateElementInit = function() {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'en',
-                        includedLanguages: 'en,fr',
-                        autoDisplay: false,
-                        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-                    }, 'google_translate_element');
-                };
-                
-                // Load the script
-                const script = document.createElement('script');
-                script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-                script.async = true;
-                document.body.appendChild(script);
-                
-                // Set timeout to wait for script to load
-                let attempts = 0;
-                const selectInterval = setInterval(function() {
-                    attempts++;
-                    
-                    const select = document.querySelector('.goog-te-combo');
-                    if (select) {
-                        clearInterval(selectInterval);
-                        select.value = lang;
-                        select.dispatchEvent(new Event('change'));
-                        
-                        // Hide the Google elements
-                        hideGoogleElements();
-                    } 
-                    
-                    // Timeout after 10 seconds
-                    if (attempts > 20) {
-                        clearInterval(selectInterval);
-                        
-                        // Try direct cookie approach as fallback
-                        const langPair = "/en/" + lang;
-                        document.cookie = `googtrans=${langPair};path=/;`;
-                        location.reload();
-                    }
-                }, 500);
-            }
-            
-            // Function to hide Google elements
-            function hideGoogleElements() {
-                document.querySelectorAll('.goog-te-banner-frame, .skiptranslate')
-                    .forEach(el => {
-                        el.style.display = 'none';
-                    });
-                
-                document.body.style.top = '0';
-            }
-            
-            // Set up observer to keep hiding Google elements
-            const observer = new MutationObserver(hideGoogleElements);
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-            
-            // Check URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            // If notranslate is set, clear everything to ensure no translation
-            if (urlParams.has('notranslate')) {
-                resetTranslation();
-                
-                // Clean URL without reload
-                const cleanUrl = new URL(window.location.href);
-                cleanUrl.searchParams.delete('notranslate');
-                cleanUrl.searchParams.delete('clearcache');
-                window.history.replaceState({}, document.title, cleanUrl.toString());
-            } 
-            // Otherwise check for active language
-            else {
-                // Try to find translation language from URL or cookie
-                let currentLang = null;
-                
-                if (urlParams.has('lang')) {
-                    currentLang = urlParams.get('lang');
-                } else {
-                    // Check cookies
-                    const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
-                    if (match && match[1]) {
-                        currentLang = match[1];
-                    }
-                }
-                
-                // Apply translation if needed
-                if (currentLang && currentLang !== 'en') {
-                    // Mark the correct button
-                    languageOptionBtns.forEach(btn => {
-                        if (btn.getAttribute('data-lang') === currentLang) {
-                            btn.classList.add('active');
-                        }
-                    });
-                    
-                    // Start translation
-                    setLanguage(currentLang);
-                }
-            }
-        });
-    </script>
-
 </body>
 </html>
